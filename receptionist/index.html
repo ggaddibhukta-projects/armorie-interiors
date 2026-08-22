@@ -3649,6 +3649,654 @@
             .crm-sidebar { display: none; }
             .calls-layout { grid-template-columns: 1fr; }
         }
+    
+        /* ── PROJECT LIFECYCLE & AI VOICE TRACKER STYLING ── */
+        .tracker-hero-card {
+            background: linear-gradient(135deg, var(--navy) 0%, #101B30 100%);
+            border-radius: var(--radius-lg);
+            padding: 22px 26px;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            box-shadow: 0 12px 32px rgba(16, 27, 48, 0.18);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .tracker-hero-info h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 27px;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .tracker-hero-info p {
+            font-size: 13px;
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+
+        .tracker-client-bar {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 4px 2px 14px 2px;
+            margin-bottom: 20px;
+            scrollbar-width: thin;
+        }
+
+        .tracker-client-pill {
+            background: #FFFFFF;
+            border: 1.5px solid var(--border-light);
+            border-radius: 12px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            min-width: 230px;
+            user-select: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .tracker-client-pill:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(27, 42, 74, 0.08);
+        }
+
+        .tracker-client-pill.active {
+            background: #FAF8F3;
+            border-color: var(--gold);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
+        }
+
+        .tracker-pill-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy) 0%, #243B66 100%);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+            font-family: 'Cormorant Garamond', serif;
+            border: 1.5px solid var(--gold);
+            flex-shrink: 0;
+        }
+
+        .tracker-pill-meta .client-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .tracker-pill-meta .project-tag {
+            font-size: 10.5px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ── 7-STAGE HORIZONTAL VISUAL STEPPER ── */
+        .stepper-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 22px 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .stepper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .stepper-title-wrap h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .stepper-title-wrap span {
+            font-size: 11.5px;
+            color: var(--text-secondary);
+        }
+
+        .stepper-progress-badge {
+            background: #FAF5EA;
+            border: 1px solid var(--gold);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stepper-track-wrap {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            padding: 10px 0 6px;
+        }
+
+        .step-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .step-node:hover .step-circle {
+            transform: scale(1.1);
+        }
+
+        .step-circle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #ECE7DE;
+            color: #7A8699;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 2.5px solid #FFFFFF;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .step-node.completed .step-circle {
+            background: #2E7D32;
+            color: #FFFFFF;
+            box-shadow: 0 0 0 2px #2E7D32;
+        }
+
+        .step-node.active .step-circle {
+            background: var(--gold);
+            color: var(--navy-dark);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.4);
+            animation: pulse-step 2s infinite;
+        }
+
+        @keyframes pulse-step {
+            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.6); }
+            70% { box-shadow: 0 0 0 8px rgba(197, 160, 89, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+        }
+
+        .step-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            line-height: 1.25;
+            max-width: 105px;
+        }
+
+        .step-node.active .step-label {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .step-node.completed .step-label {
+            color: #2E7D32;
+        }
+
+        .step-time-tag {
+            font-size: 9.5px;
+            color: var(--text-tertiary);
+            margin-top: 3px;
+        }
+
+        /* ── DUAL COLUMN WORKSPACE ── */
+        .tracker-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 1100px) {
+            .tracker-grid-2col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── AI VOICE DICTATION STUDIO ── */
+        .voice-studio-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .voice-studio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .voice-studio-header h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .voice-rec-panel {
+            background: linear-gradient(135deg, #1B2A4A 0%, #121D33 100%);
+            border-radius: 12px;
+            padding: 16px;
+            color: #FFFFFF;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .voice-rec-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .rec-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .rec-wave-live {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            height: 24px;
+            margin-bottom: 12px;
+        }
+
+        .rec-wave-live .w-bar {
+            flex: 1;
+            background: var(--gold);
+            border-radius: 2px;
+            height: 6px;
+            transition: height 0.15s ease;
+        }
+
+        .voice-rec-panel.recording .rec-wave-live .w-bar {
+            animation: wave-anim 0.8s ease-in-out infinite alternate;
+        }
+
+        .voice-rec-panel.recording .rec-wave-live .w-bar:nth-child(2n) { animation-delay: 0.2s; }
+        .voice-rec-panel.recording .rec-wave-live .w-bar:nth-child(3n) { animation-delay: 0.4s; }
+        .voice-rec-panel.recording .rec-wave-live .w-bar:nth-child(4n) { animation-delay: 0.1s; }
+
+        @keyframes wave-anim {
+            0% { height: 4px; }
+            100% { height: 22px; }
+        }
+
+        .voice-dictation-text {
+            width: 100%;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 12.5px;
+            color: #FAF8F3;
+            line-height: 1.45;
+            min-height: 85px;
+            max-height: 140px;
+            overflow-y: auto;
+            margin-bottom: 12px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .voice-action-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-voice-rec {
+            flex: 1;
+            background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%);
+            border: none;
+            color: var(--navy-dark);
+            font-weight: 700;
+            font-size: 12px;
+            padding: 9px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-voice-rec:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.35);
+        }
+
+        .btn-voice-rec.recording {
+            background: #FF3B30;
+            color: #FFFFFF;
+            animation: pulse-rec 1.5s infinite;
+        }
+
+        @keyframes pulse-rec {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .btn-voice-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #FFFFFF;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-voice-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .quick-dictate-chips {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .dictate-chip-btn {
+            background: #FAF8F3;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            color: var(--navy);
+            font-size: 10.5px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dictate-chip-btn:hover {
+            background: var(--navy);
+            color: #FFFFFF;
+            border-color: var(--navy);
+        }
+
+        /* ── CLIENT WHATSAPP DISPATCH CARD ── */
+        .whatsapp-dispatch-card {
+            background: #F0FDF4;
+            border: 1.5px solid #86EFAC;
+            border-radius: 12px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .whatsapp-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .whatsapp-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #15803D;
+        }
+
+        .whatsapp-preview-box {
+            background: #FFFFFF;
+            border: 1px solid #DCFCE7;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 11.5px;
+            color: #1F2937;
+            line-height: 1.45;
+            font-family: inherit;
+        }
+
+        .btn-dispatch-wa {
+            background: #16A34A;
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 18px;
+            font-size: 11.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-dispatch-wa:hover {
+            background: #15803D;
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+        }
+
+        /* ── CHRONOLOGICAL VOICE LOGS & TASK BOARD ── */
+        .voice-logs-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .task-board-box {
+            background: #FAF8F2;
+            border: 1.5px solid #EBE4D5;
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+
+        .task-board-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .task-board-head h5 {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .task-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .task-item.completed {
+            background: #F9FAFB;
+            text-decoration: line-through;
+            color: var(--text-tertiary);
+            border-color: #E5E7EB;
+        }
+
+        .task-checkbox {
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: var(--gold);
+        }
+
+        .task-meta-tag {
+            font-size: 10px;
+            background: #FAF5EA;
+            color: var(--gold);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+
+        .voice-log-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .voice-log-item {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-left: 3.5px solid var(--gold);
+            border-radius: 10px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .voice-log-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .voice-log-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .voice-author-avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .voice-author-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .voice-stage-tag {
+            font-size: 9.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #FAF5EA;
+            color: var(--gold);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+        }
+
+        .voice-log-summary {
+            font-size: 12px;
+            color: #374151;
+            line-height: 1.45;
+        }
+
+        .voice-log-milestones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .milestone-pill {
+            font-size: 10px;
+            font-weight: 600;
+            background: #F0FDF4;
+            color: #16A34A;
+            border: 1px solid #BBF7D0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
     </style>
 </head>
 <body>
@@ -4231,6 +4879,15 @@
                             <span class="sidebar-badge">142</span>
                         </li>
 
+                                                <!-- Module 7: Project Lifecycle & AI Voice Tracker (NEW) -->
+                        <li class="sidebar-nav-item" id="snav-tracker" onclick="switchCrmNav('tracker')" title="Client Project Lifecycle & AI Voice Tracker">
+                            <div class="snav-svg-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                            </div>
+                            <span class="snav-label">Lifecycle & Voice Tracker</span>
+                            <span class="sidebar-badge gold-badge" style="background: var(--gold); color: #101B30; font-weight: 800;">AI Live</span>
+                        </li>
+
                         <!-- Module 2: Clients & Accounts (NEW) -->
                         <li class="sidebar-nav-item" id="snav-clients" onclick="switchCrmNav('clients')" title="Client Directory & AI Notes">
                             <div class="snav-svg-icon">
@@ -4404,6 +5061,160 @@
                     </div>
 
                     <!-- MODULE 2: CLIENTS DIRECTORY & AI NOTES -->
+                    
+                    <!-- MODULE 7: END-TO-END CLIENT PROJECT LIFECYCLE & AI VOICE TRACKER -->
+                    <div id="cmod-tracker" class="crm-module-pane">
+                        
+                        <!-- Top KPI Hero Banner -->
+                        <div class="tracker-hero-card">
+                            <div class="tracker-hero-info">
+                                <h2>End-to-End Client Project Lifecycle & AI Voice Tracker</h2>
+                                <p>Voice-dictate stage milestones, auto-extract pending action items, and dispatch client WhatsApp updates in real-time.</p>
+                            </div>
+                            <div style="display: flex; gap: 10px; align-items: center;">
+                                <div style="text-align: right; border-right: 1px solid rgba(255,255,255,0.2); padding-right: 14px;">
+                                    <div style="font-size: 10px; color: var(--gold-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.8px;">Active Managed Scope</div>
+                                    <div style="font-size: 20px; font-weight: 800; color: #FFFFFF;" id="tracker-active-val">$184,200</div>
+                                </div>
+                                <button class="btn-voice-rec" onclick="startVoiceDictationStudio()" style="padding: 10px 18px;">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                                    <span>+ Dictate Progress Update</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Client Project Picker Pills -->
+                        <div class="tracker-client-bar" id="tracker-client-selector-bar">
+                            <!-- Rendered dynamically -->
+                        </div>
+
+                        <!-- 7-Stage Visual Lifecycle Stepper -->
+                        <div class="stepper-card">
+                            <div class="stepper-header">
+                                <div class="stepper-title-wrap">
+                                    <h3 id="cur-project-title">The Camille 96" Custom Living Room Suite</h3>
+                                    <span id="cur-project-client">Client: Sarah Jenkins · Contract #ORD-8821 · Lead Artisan: Marcus Thorne</span>
+                                </div>
+                                <div class="stepper-progress-badge">
+                                    <span id="cur-stage-pill">Stage 4: Workshop Bench Assembly</span>
+                                    <span style="color: var(--gold); font-weight: 800;" id="cur-progress-pct">68%</span>
+                                </div>
+                            </div>
+
+                            <div class="stepper-track-wrap" id="stepper-nodes-container">
+                                <!-- Stepper nodes rendered dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Dual Column Interactive Workspace -->
+                        <div class="tracker-grid-2col">
+                            
+                            <!-- LEFT COLUMN: AI VOICE STUDIO & WHATSAPP DISPATCH -->
+                            <div class="voice-studio-card">
+                                <div class="voice-studio-header">
+                                    <h4>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                                        <span>AI Voice Progress Dictation Studio</span>
+                                    </h4>
+                                    <span class="preview-sync-badge">Neural Speech & Parser</span>
+                                </div>
+
+                                <!-- Voice Recording Panel -->
+                                <div class="voice-rec-panel" id="tracker-rec-panel">
+                                    <div class="voice-rec-top">
+                                        <div class="rec-indicator">
+                                            <span class="pulse-live-dot" id="rec-dot-tracker" style="display: none;"></span>
+                                            <span id="rec-status-tracker">Microphone Ready</span>
+                                        </div>
+                                        <span id="rec-timer-tracker" style="font-size: 11.5px; font-weight: 700; color: var(--gold-light);">00:00</span>
+                                    </div>
+
+                                    <div class="rec-wave-live" id="rec-wave-tracker">
+                                        <div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
+                                        <div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
+                                        <div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
+                                    </div>
+
+                                    <textarea id="voice-transcript-input" class="voice-dictation-text" placeholder="Speak into microphone or select a quick voice update simulation below..."></textarea>
+
+                                    <div class="voice-action-row">
+                                        <button class="btn-voice-rec" id="btn-toggle-tracker-voice" onclick="toggleTrackerMicrophone()">
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                                            <span id="tracker-mic-label">Record Voice Note</span>
+                                        </button>
+                                        <button class="btn-voice-secondary" onclick="processAIExtractionFromVoice()">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                                            <span>⚡ AI Auto-Extract & Update</span>
+                                        </button>
+                                        <button class="btn-voice-secondary" onclick="clearVoiceInput()" title="Clear text">Clear</button>
+                                    </div>
+                                </div>
+
+                                <!-- Quick Voice Simulation Chips -->
+                                <div>
+                                    <div style="font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-secondary); margin-bottom: 6px;">
+                                        Quick Voice Update Simulations:
+                                    </div>
+                                    <div class="quick-dictate-chips">
+                                        <button class="dictate-chip-btn" onclick="injectVoiceSimulation(1)">🎙️ Frame & Spring Update</button>
+                                        <button class="dictate-chip-btn" onclick="injectVoiceSimulation(2)">🎙️ Fabric Mill Inbound</button>
+                                        <button class="dictate-chip-btn" onclick="injectVoiceSimulation(3)">🎙️ QA & White-Glove Staged</button>
+                                    </div>
+                                </div>
+
+                                <!-- Client WhatsApp Progress Dispatcher -->
+                                <div class="whatsapp-dispatch-card">
+                                    <div class="whatsapp-card-head">
+                                        <div class="whatsapp-badge">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                                            <span>Client WhatsApp Progress Dispatcher</span>
+                                        </div>
+                                        <span style="font-size: 10px; color: #15803D; font-weight: 600;" id="wa-recipient">To: Sarah Jenkins</span>
+                                    </div>
+                                    <div class="whatsapp-preview-box" id="wa-preview-text">
+                                        "Hi Sarah! 🛋️ Quick workshop update from Armorie Interiors: Your Camille 96" Curved Sofa has successfully completed frame assembly and 8-way hand-tied springs (68% complete). Next: down cushioning & Belgian Linen tailoring!"
+                                    </div>
+                                    <button class="btn-dispatch-wa" onclick="dispatchWhatsAppToClient()">
+                                        <span>📲 Dispatch Update to Client WhatsApp</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- RIGHT COLUMN: EXTRACTED PENDING TASKS & CHRONOLOGICAL VOICE LOGS -->
+                            <div class="voice-logs-card">
+                                
+                                <!-- Pending Action Items Board -->
+                                <div class="task-board-box">
+                                    <div class="task-board-head">
+                                        <h5>Pending Action Items & Artisan Tasks</h5>
+                                        <span class="preview-sync-badge" id="pending-task-count">3 Pending</span>
+                                    </div>
+                                    <div class="task-checklist" id="tracker-tasks-list">
+                                        <!-- Rendered dynamically -->
+                                    </div>
+                                </div>
+
+                                <!-- Chronological Project Voice Logs -->
+                                <div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                        <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--navy);">
+                                            Chronological Voice Logs & Milestones
+                                        </h4>
+                                        <span style="font-size: 11px; color: var(--text-secondary);" id="voice-log-count">4 Voice Memos</span>
+                                    </div>
+
+                                    <div class="voice-log-timeline" id="tracker-voice-logs-timeline">
+                                        <!-- Logs rendered dynamically -->
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
                     <div id="cmod-clients" class="crm-module-pane">
                         <!-- Module 2 Dedicated KPIs: Client Portfolio Health -->
                         <div class="crm-stats-grid">
@@ -6099,6 +6910,486 @@
         }
     }
 
+    
+    /* ── END-TO-END CLIENT PROJECT LIFECYCLE & AI VOICE TRACKER ENGINE ── */
+    const PROJECT_STAGES = [
+        { name: "Discovery & In-Home Laser Measure", code: "measure", pct: 15 },
+        { name: "Design Concept & 3D Curation", code: "concept", pct: 30 },
+        { name: "Client Sign-Off & Mill Procurement", code: "procure", pct: 45 },
+        { name: "Workshop Hardwood Frame Assembly", code: "frame", pct: 68 },
+        { name: "Bench Tailoring & Down Wrap", code: "tailor", pct: 85 },
+        { name: "Workshop QA & White-Glove Installation", code: "delivery", pct: 95 },
+        { name: "Project Sign-off & Lifetime Warranty", code: "handover", pct: 100 }
+    ];
+
+    const trackerProjects = [
+        {
+            id: "proj-jenkins",
+            client: "Sarah Jenkins",
+            phone: "(432) 555-0192",
+            contractId: "ORD-8821",
+            title: "The Camille 96" Custom Living Room Suite",
+            scope: "Living Room 8-way hand-tied sofa in Oatmeal Belgian Linen, paired with motorized drapery.",
+            budget: "$22,500",
+            leadArtisan: "Marcus Thorne",
+            currentStageIdx: 3,
+            progressPct: 68,
+            tasks: [
+                { id: "t1", text: "Confirm final brass caster wheel measurements for front turned legs", stage: "Workshop Frame", done: false, owner: "Marcus T.", due: "Thursday" },
+                { id: "t2", text: "Receive 24 yards Oatmeal Belgian Linen from Ghent mill", stage: "Mill Procurement", done: true, owner: "Sarah C.", due: "Completed" },
+                { id: "t3", text: "Laser measurement for south-facing window drapery elevation", stage: "Laser Measure", done: true, owner: "Elena R.", due: "Completed" },
+                { id: "t4", text: "Dispatch hypoallergenic down-blend cushion core to upholstery bench", stage: "Bench Tailoring", done: false, owner: "David M.", due: "Friday" }
+            ],
+            logs: [
+                {
+                    author: "Sarah Collins",
+                    role: "Lead Designer",
+                    stage: "Workshop Frame Assembly",
+                    date: "Today · 2:15 PM",
+                    summary: "Inspected kiln-dried maple frame joinery. Corner blocks reinforced and 8-way hand-tied steel coil springs tensioned perfectly.",
+                    milestones: ["Frame Stress Test Passed", "8-Way Springs Completed"],
+                    pending: "Brass caster wheel clearance verify"
+                },
+                {
+                    author: "Elena Rostova",
+                    role: "Textile Specialist",
+                    stage: "Mill Procurement",
+                    date: "Aug 18, 2026",
+                    summary: "Belgium mill verified dye lot #BL-8802. Fabric bolt cleared customs in Houston, arrival at Midland studio confirmed.",
+                    milestones: ["Belgian Linen Dye Lot Approved", "Customs Clearance"],
+                    pending: "Inspection upon studio arrival"
+                },
+                {
+                    author: "Marcus Thorne",
+                    role: "Master Artisan",
+                    stage: "Design Concept & Specs",
+                    date: "Aug 12, 2026",
+                    summary: "Sarah Jenkins approved the 96-inch curved depth alteration (41" deep profile with down-wrapped core).",
+                    milestones: ["CAD Profile Signed", "50% Deposit Received"],
+                    pending: "Hardwood stock allocation"
+                }
+            ]
+        },
+        {
+            id: "proj-vance",
+            client: "Marcus & Elena Vance",
+            phone: "(432) 555-0144",
+            contractId: "ORD-8822",
+            title: "Pecos Penthouse Velvet Armchairs & Motorized Drapery",
+            scope: "2 French Bergere armchairs in Cognac performance velvet + ceiling-height ripple-fold drapery.",
+            budget: "$14,800",
+            leadArtisan: "Elena Rostova",
+            currentStageIdx: 1,
+            progressPct: 30,
+            tasks: [
+                { id: "vt1", text: "Present 3 velvet memo swatches (Cognac, Amber, Espresso)", stage: "Concept", done: true, owner: "Elena R.", due: "Completed" },
+                { id: "vt2", text: "Laser measurement of 14-foot penthouse glass wall", stage: "Laser Measure", done: true, owner: "Marcus T.", due: "Completed" },
+                { id: "vt3", text: "Somfy motorized track wiring specification signoff", stage: "Procurement", done: false, owner: "Arthur P.", due: "Next Monday" }
+            ],
+            logs: [
+                {
+                    author: "Elena Rostova",
+                    role: "Textile Specialist",
+                    stage: "Design Concept & 3D Curation",
+                    date: "Aug 19, 2026",
+                    summary: "Vance family visited textile lab and locked Cognac performance velvet for the chairs. Somfy motor spec prepared.",
+                    milestones: ["Velvet Memo Selected", "Window Elevation Mapped"],
+                    pending: "Motorized track signoff"
+                }
+            ]
+        },
+        {
+            id: "proj-harrison",
+            client: "Harrison Family Estate",
+            phone: "(432) 555-0188",
+            contractId: "ORD-8819",
+            title: "Greentree Estate Full Custom Furniture Build",
+            scope: "The Laurent 120" Sectional + 4 dining armchairs + custom headboard.",
+            budget: "$48,000",
+            leadArtisan: "Marcus Thorne",
+            currentStageIdx: 4,
+            progressPct: 85,
+            tasks: [
+                { id: "ht1", text: "Final French seam upholstery tailoring inspection", stage: "Bench Tailoring", done: false, owner: "Marcus T.", due: "Tomorrow" },
+                { id: "ht2", text: "Schedule 2-man white glove delivery truck for next Thursday", stage: "Delivery", done: false, owner: "Sarah C.", due: "Next Tuesday" },
+                { id: "ht3", text: "Assemble custom solid walnut dining bases", stage: "Frame Assembly", done: true, owner: "David M.", due: "Completed" }
+            ],
+            logs: [
+                {
+                    author: "Marcus Thorne",
+                    role: "Master Artisan",
+                    stage: "Bench Tailoring & Down Wrap",
+                    date: "Aug 20, 2026",
+                    summary: "Laurent 120-inch sectional cushions stuffed with 90/10 Hungarian white goose down blend. Tailoring French seams in progress.",
+                    milestones: ["Down Cushioning Completed", "Frame Joinery Certified"],
+                    pending: "White-glove delivery booking"
+                }
+            ]
+        },
+        {
+            id: "proj-preston",
+            client: "Preston Ridge Custom Homes",
+            phone: "(432) 555-0177",
+            contractId: "ORD-8824",
+            title: "Preston Ridge Luxury Model Home Package",
+            scope: "Complete luxury staging package: 2 custom sofas, 4 armchairs, dining table & draperies.",
+            budget: "$62,000",
+            leadArtisan: "David Miller",
+            currentStageIdx: 2,
+            progressPct: 45,
+            tasks: [
+                { id: "pt1", text: "Lock trade pricing 20% discount structure", stage: "Procurement", done: true, owner: "Sarah C.", due: "Completed" },
+                { id: "pt2", text: "Dispatched European boucle textile order to Texas mill", stage: "Procurement", done: true, owner: "Elena R.", due: "Completed" },
+                { id: "pt3", text: "Prepare 6 hardwood frame cut sheets for workshop", stage: "Workshop Frame", done: false, owner: "Marcus T.", due: "Wednesday" }
+            ],
+            logs: [
+                {
+                    author: "Sarah Collins",
+                    role: "Lead Designer",
+                    stage: "Client Sign-Off & Mill Procurement",
+                    date: "Aug 21, 2026",
+                    summary: "Preston Ridge builder approved model home turnkey layout. Mill order dispatched for 6 custom furniture frames.",
+                    milestones: ["Trade Contract Executed", "Hardwood Batch Reserved"],
+                    pending: "Lumber cutting queue"
+                }
+            ]
+        },
+        {
+            id: "proj-thornton",
+            client: "Claire Thornton",
+            phone: "(432) 555-0163",
+            contractId: "ORD-8825",
+            title: "Saddle Club Estates Motorized Roman Shades",
+            scope: "Custom Belgian linen motorized Roman shades with Somfy wirefree rechargeable battery motors.",
+            budget: "$11,200",
+            leadArtisan: "Arthur Pendelton",
+            currentStageIdx: 0,
+            progressPct: 15,
+            tasks: [
+                { id: "ct1", text: "Perform in-home laser elevation scan of 8 primary windows", stage: "Laser Measure", done: true, owner: "Marcus T.", due: "Completed" },
+                { id: "ct2", text: "Prepare shade fabric opacity recommendations for client", stage: "Concept", done: false, owner: "Elena R.", due: "Tomorrow" }
+            ],
+            logs: [
+                {
+                    author: "Marcus Thorne",
+                    role: "Master Artisan",
+                    stage: "Discovery & In-Home Laser Measure",
+                    date: "Aug 22, 2026",
+                    summary: "Completed laser elevation measurements at Saddle Club residence. Window depths are 3.5 inches, ideal for inside-mount motorized shades.",
+                    milestones: ["Laser Elevation Complete", "Power Specs Mapped"],
+                    pending: "Fabric opacity selection"
+                }
+            ]
+        }
+    ];
+
+    let activeTrackerProj = trackerProjects[0];
+    let trackerRecInterval = null;
+    let trackerRecSecs = 0;
+    let isTrackerRecording = false;
+
+    function initTrackerModule() {
+        renderTrackerClientPills();
+        renderTrackerStepper();
+        renderTrackerTasks();
+        renderTrackerVoiceLogs();
+        updateTrackerWhatsAppPreview();
+    }
+
+    function renderTrackerClientPills() {
+        const container = document.getElementById("tracker-client-selector-bar");
+        if (!container) return;
+
+        let html = "";
+        trackerProjects.forEach(p => {
+            const isActive = p.id === activeTrackerProj.id ? "active" : "";
+            const initials = p.client.split(' ').map(n => n[0]).join('').substring(0, 2);
+            html += `
+                <div class="tracker-client-pill ${isActive}" onclick="selectTrackerProject('${p.id}')">
+                    <div class="tracker-pill-avatar">${initials}</div>
+                    <div class="tracker-pill-meta">
+                        <div class="client-name">${p.client}</div>
+                        <div class="project-tag">
+                            <span>${p.contractId}</span> · <strong style="color: var(--gold);">${p.progressPct}%</strong>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    }
+
+    function selectTrackerProject(projId) {
+        const found = trackerProjects.find(p => p.id === projId);
+        if (found) {
+            activeTrackerProj = found;
+            renderTrackerClientPills();
+            renderTrackerStepper();
+            renderTrackerTasks();
+            renderTrackerVoiceLogs();
+            updateTrackerWhatsAppPreview();
+
+            document.getElementById("cur-project-title").textContent = activeTrackerProj.title;
+            document.getElementById("cur-project-client").textContent = `Client: ${activeTrackerProj.client} · Contract #${activeTrackerProj.contractId} · Lead: ${activeTrackerProj.leadArtisan}`;
+            document.getElementById("cur-stage-pill").textContent = `Stage ${activeTrackerProj.currentStageIdx + 1}: ${PROJECT_STAGES[activeTrackerProj.currentStageIdx].name}`;
+            document.getElementById("cur-progress-pct").textContent = `${activeTrackerProj.progressPct}%`;
+            document.getElementById("wa-recipient").textContent = `To: ${activeTrackerProj.client} (${activeTrackerProj.phone})`;
+        }
+    }
+
+    function renderTrackerStepper() {
+        const container = document.getElementById("stepper-nodes-container");
+        if (!container) return;
+
+        let html = "";
+        PROJECT_STAGES.forEach((stage, idx) => {
+            let statusClass = "";
+            let numContent = idx + 1;
+            if (idx < activeTrackerProj.currentStageIdx) {
+                statusClass = "completed";
+                numContent = "✓";
+            } else if (idx === activeTrackerProj.currentStageIdx) {
+                statusClass = "active";
+            }
+
+            html += `
+                <div class="step-node ${statusClass}" onclick="setProjectStage(${idx})" title="Click to update project to ${stage.name}">
+                    <div class="step-circle">${numContent}</div>
+                    <div class="step-label">${stage.name}</div>
+                    <div class="step-time-tag">${stage.pct}% Target</div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    }
+
+    function setProjectStage(stageIdx) {
+        activeTrackerProj.currentStageIdx = stageIdx;
+        activeTrackerProj.progressPct = PROJECT_STAGES[stageIdx].pct;
+        renderTrackerStepper();
+        document.getElementById("cur-stage-pill").textContent = `Stage ${stageIdx + 1}: ${PROJECT_STAGES[stageIdx].name}`;
+        document.getElementById("cur-progress-pct").textContent = `${activeTrackerProj.progressPct}%`;
+        renderTrackerClientPills();
+        updateTrackerWhatsAppPreview();
+    }
+
+    function renderTrackerTasks() {
+        const container = document.getElementById("tracker-tasks-list");
+        if (!container) return;
+
+        let html = "";
+        let pendingCount = 0;
+        activeTrackerProj.tasks.forEach(t => {
+            if (!t.done) pendingCount++;
+            const compClass = t.done ? "completed" : "";
+            const checked = t.done ? "checked" : "";
+            html += `
+                <div class="task-item ${compClass}">
+                    <input type="checkbox" class="task-checkbox" ${checked} onchange="toggleTrackerTask('${t.id}')">
+                    <div style="flex: 1;">
+                        <span>${t.text}</span>
+                        <div style="font-size: 10px; color: var(--text-tertiary); margin-top: 2px;">Assigned: <strong>${t.owner}</strong> · Target: ${t.due}</div>
+                    </div>
+                    <span class="task-meta-tag">${t.stage}</span>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+        document.getElementById("pending-task-count").textContent = `${pendingCount} Pending`;
+    }
+
+    function toggleTrackerTask(taskId) {
+        const task = activeTrackerProj.tasks.find(t => t.id === taskId);
+        if (task) {
+            task.done = !task.done;
+            renderTrackerTasks();
+        }
+    }
+
+    function renderTrackerVoiceLogs() {
+        const container = document.getElementById("tracker-voice-logs-timeline");
+        if (!container) return;
+
+        let html = "";
+        activeTrackerProj.logs.forEach(log => {
+            let milesHtml = "";
+            if (log.milestones && log.milestones.length > 0) {
+                log.milestones.forEach(m => {
+                    milesHtml += `<span class="milestone-pill">✓ ${m}</span>`;
+                });
+            }
+
+            html += `
+                <div class="voice-log-item">
+                    <div class="voice-log-head">
+                        <div class="voice-log-author">
+                            <div class="voice-author-avatar">${log.author[0]}</div>
+                            <div>
+                                <div class="voice-author-name">${log.author} <span style="font-weight: 400; color: var(--text-secondary); font-size: 11px;">(${log.role})</span></div>
+                                <div style="font-size: 10px; color: var(--text-tertiary);">${log.date}</div>
+                            </div>
+                        </div>
+                        <span class="voice-stage-tag">${log.stage}</span>
+                    </div>
+                    <div class="voice-log-summary">"${log.summary}"</div>
+                    ${milesHtml ? `<div class="voice-log-milestones">${milesHtml}</div>` : ''}
+                    ${log.pending ? `<div style="font-size: 11px; color: #B45309; font-weight: 600;">⚠️ Pending: ${log.pending}</div>` : ''}
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+        document.getElementById("voice-log-count").textContent = `${activeTrackerProj.logs.length} Voice Memos`;
+    }
+
+    function updateTrackerWhatsAppPreview() {
+        const box = document.getElementById("wa-preview-text");
+        if (!box) return;
+        const curStage = PROJECT_STAGES[activeTrackerProj.currentStageIdx].name;
+        box.textContent = `"Hi ${activeTrackerProj.client}! 🛋️ Workshop update from Armorie Interiors: Your project '${activeTrackerProj.title}' has progressed to ${curStage} (${activeTrackerProj.progressPct}% complete). Everything is on schedule with our lead artisan ${activeTrackerProj.leadArtisan}!"`;
+    }
+
+    function toggleTrackerMicrophone() {
+        const panel = document.getElementById("tracker-rec-panel");
+        const statusEl = document.getElementById("rec-status-tracker");
+        const timerEl = document.getElementById("rec-timer-tracker");
+        const dotEl = document.getElementById("rec-dot-tracker");
+        const micLabel = document.getElementById("tracker-mic-label");
+        const btn = document.getElementById("btn-toggle-tracker-voice");
+
+        isTrackerRecording = !isTrackerRecording;
+
+        if (isTrackerRecording) {
+            panel.classList.add("recording");
+            btn.classList.add("recording");
+            dotEl.style.display = "inline-block";
+            statusEl.textContent = "Listening · Speak Now";
+            micLabel.textContent = "Stop & Transcribe";
+
+            trackerRecSecs = 0;
+            if (trackerRecInterval) clearInterval(trackerRecInterval);
+            trackerRecInterval = setInterval(() => {
+                trackerRecSecs++;
+                const m = String(Math.floor(trackerRecSecs / 60)).padStart(2, '0');
+                const s = String(trackerRecSecs % 60).padStart(2, '0');
+                timerEl.textContent = `${m}:${s}`;
+            }, 1000);
+
+            // Web Speech API integration if available
+            try {
+                if (window.webkitSpeechRecognition || window.SpeechRecognition) {
+                    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+                    const recognizer = new SpeechRec();
+                    recognizer.continuous = true;
+                    recognizer.interimResults = true;
+                    recognizer.onresult = (e) => {
+                        let text = "";
+                        for (let i = 0; i < e.results.length; i++) {
+                            text += e.results[i][0].transcript;
+                        }
+                        document.getElementById("voice-transcript-input").value = text;
+                    };
+                    recognizer.start();
+                }
+            } catch(e) {}
+
+        } else {
+            panel.classList.remove("recording");
+            btn.classList.remove("recording");
+            dotEl.style.display = "none";
+            statusEl.textContent = "Recording Complete · Ready to Parse";
+            micLabel.textContent = "Record Voice Note";
+            if (trackerRecInterval) clearInterval(trackerRecInterval);
+        }
+    }
+
+    function injectVoiceSimulation(simType) {
+        const input = document.getElementById("voice-transcript-input");
+        if (simType === 1) {
+            input.value = "Workshop update for Sarah Jenkins: Kiln-dried hardwood maple frame is 100% assembled and 8-way hand-tied springs are tensioned. Moving into down-wrapped cushioning next. Still pending: need final brass caster wheel measurements by Thursday before finishing legs.";
+        } else if (simType === 2) {
+            input.value = "Textile update for Marcus Vance: The Cognac performance velvet fabric bolt has arrived at our Midland studio and passed defect inspection. Pattern cutting is scheduled for Monday morning. Pending: confirm Somfy motorized drapery motor wiring.";
+        } else if (simType === 3) {
+            input.value = "White-glove delivery update: Harrison Family Estate Laurent Sectional has passed 100% QA inspection. Brass hardware polished, white glove delivery scheduled for next Thursday at 2:00 PM.";
+        }
+    }
+
+    function processAIExtractionFromVoice() {
+        const input = document.getElementById("voice-transcript-input");
+        const text = input.value.trim();
+        if (!text) {
+            alert("Please dictate or type a voice update first!");
+            return;
+        }
+
+        // Auto-extract stage advance
+        if (text.toLowerCase().includes("spring") || text.toLowerCase().includes("cushion") || text.toLowerCase().includes("frame")) {
+            activeTrackerProj.currentStageIdx = Math.max(activeTrackerProj.currentStageIdx, 3);
+            activeTrackerProj.progressPct = 68;
+        }
+        if (text.toLowerCase().includes("tailoring") || text.toLowerCase().includes("stitching")) {
+            activeTrackerProj.currentStageIdx = Math.max(activeTrackerProj.currentStageIdx, 4);
+            activeTrackerProj.progressPct = 85;
+        }
+        if (text.toLowerCase().includes("qa") || text.toLowerCase().includes("delivery") || text.toLowerCase().includes("white glove")) {
+            activeTrackerProj.currentStageIdx = Math.max(activeTrackerProj.currentStageIdx, 5);
+            activeTrackerProj.progressPct = 95;
+        }
+
+        // Add new log
+        activeTrackerProj.logs.unshift({
+            author: "Sarah Collins",
+            role: "Lead Designer",
+            stage: PROJECT_STAGES[activeTrackerProj.currentStageIdx].name,
+            date: "Just Now",
+            summary: text,
+            milestones: ["Voice Dictated Progress Parsed", "Stage Milestone Verified"],
+            pending: text.toLowerCase().includes("pending") ? text.split(/pending:?/i)[1]?.trim() : ""
+        });
+
+        // If pending task in text, add to task list
+        if (text.toLowerCase().includes("pending")) {
+            const pendingText = text.split(/pending:?/i)[1]?.trim();
+            if (pendingText) {
+                activeTrackerProj.tasks.unshift({
+                    id: "task-" + Date.now(),
+                    text: pendingText,
+                    stage: PROJECT_STAGES[activeTrackerProj.currentStageIdx].name,
+                    done: false,
+                    owner: "Lead Artisan",
+                    due: "This Week"
+                });
+            }
+        }
+
+        renderTrackerStepper();
+        renderTrackerTasks();
+        renderTrackerVoiceLogs();
+        updateTrackerWhatsAppPreview();
+
+        alert("✓ AI Successfully Parsed Voice Memo: Project Lifecycle & Tasks Updated!");
+        input.value = "";
+    }
+
+    function clearVoiceInput() {
+        document.getElementById("voice-transcript-input").value = "";
+    }
+
+    function dispatchWhatsAppToClient() {
+        const text = document.getElementById("wa-preview-text").textContent;
+        alert(`✓ WhatsApp Progress Dispatch Sent to ${activeTrackerProj.client} (${activeTrackerProj.phone})!
+
+Message:
+${text}`);
+    }
+
+    function startVoiceDictationStudio() {
+        switchCrmNav('tracker');
+        setTimeout(() => {
+            toggleTrackerMicrophone();
+        }, 200);
+    }
+
+
     function switchCrmNav(moduleName) {
         document.querySelectorAll('.sidebar-nav-item').forEach(i => i.classList.remove('active'));
         const snav = document.getElementById(`snav-${moduleName}`);
@@ -6108,7 +7399,9 @@
         const mod = document.getElementById(`cmod-${moduleName}`);
         if (mod) mod.classList.add('active');
 
-        if (moduleName === 'clients') {
+        if (moduleName === 'tracker') {
+            initTrackerModule();
+        } else if (moduleName === 'clients') {
             renderClientsTable(allClients);
             if (allClients.length > 0) {
                 selectClient(selectedClient ? selectedClient.id : allClients[0].id);
@@ -6233,7 +7526,655 @@
         printWindow.document.write('.memo-sec-content { font-size: 11.5px; line-height: 1.5; color: #374151; }');
         printWindow.document.write('.memo-action-plan-list { list-style: none; padding: 0; margin: 0; }');
         printWindow.document.write('.memo-action-item { margin-bottom: 6px; font-size: 11.5px; color: #1E293B; }');
-        printWindow.document.write('</style></head><body>');
+        printWindow.document.write('
+        /* ── PROJECT LIFECYCLE & AI VOICE TRACKER STYLING ── */
+        .tracker-hero-card {
+            background: linear-gradient(135deg, var(--navy) 0%, #101B30 100%);
+            border-radius: var(--radius-lg);
+            padding: 22px 26px;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            box-shadow: 0 12px 32px rgba(16, 27, 48, 0.18);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .tracker-hero-info h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 27px;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .tracker-hero-info p {
+            font-size: 13px;
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+
+        .tracker-client-bar {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 4px 2px 14px 2px;
+            margin-bottom: 20px;
+            scrollbar-width: thin;
+        }
+
+        .tracker-client-pill {
+            background: #FFFFFF;
+            border: 1.5px solid var(--border-light);
+            border-radius: 12px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            min-width: 230px;
+            user-select: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .tracker-client-pill:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(27, 42, 74, 0.08);
+        }
+
+        .tracker-client-pill.active {
+            background: #FAF8F3;
+            border-color: var(--gold);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
+        }
+
+        .tracker-pill-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy) 0%, #243B66 100%);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+            font-family: 'Cormorant Garamond', serif;
+            border: 1.5px solid var(--gold);
+            flex-shrink: 0;
+        }
+
+        .tracker-pill-meta .client-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .tracker-pill-meta .project-tag {
+            font-size: 10.5px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ── 7-STAGE HORIZONTAL VISUAL STEPPER ── */
+        .stepper-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 22px 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .stepper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .stepper-title-wrap h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .stepper-title-wrap span {
+            font-size: 11.5px;
+            color: var(--text-secondary);
+        }
+
+        .stepper-progress-badge {
+            background: #FAF5EA;
+            border: 1px solid var(--gold);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stepper-track-wrap {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            padding: 10px 0 6px;
+        }
+
+        .step-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .step-node:hover .step-circle {
+            transform: scale(1.1);
+        }
+
+        .step-circle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #ECE7DE;
+            color: #7A8699;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 2.5px solid #FFFFFF;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .step-node.completed .step-circle {
+            background: #2E7D32;
+            color: #FFFFFF;
+            box-shadow: 0 0 0 2px #2E7D32;
+        }
+
+        .step-node.active .step-circle {
+            background: var(--gold);
+            color: var(--navy-dark);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.4);
+            animation: pulse-step 2s infinite;
+        }
+
+        @keyframes pulse-step {
+            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.6); }
+            70% { box-shadow: 0 0 0 8px rgba(197, 160, 89, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+        }
+
+        .step-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            line-height: 1.25;
+            max-width: 105px;
+        }
+
+        .step-node.active .step-label {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .step-node.completed .step-label {
+            color: #2E7D32;
+        }
+
+        .step-time-tag {
+            font-size: 9.5px;
+            color: var(--text-tertiary);
+            margin-top: 3px;
+        }
+
+        /* ── DUAL COLUMN WORKSPACE ── */
+        .tracker-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 1100px) {
+            .tracker-grid-2col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── AI VOICE DICTATION STUDIO ── */
+        .voice-studio-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .voice-studio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .voice-studio-header h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .voice-rec-panel {
+            background: linear-gradient(135deg, #1B2A4A 0%, #121D33 100%);
+            border-radius: 12px;
+            padding: 16px;
+            color: #FFFFFF;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .voice-rec-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .rec-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .rec-wave-live {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            height: 24px;
+            margin-bottom: 12px;
+        }
+
+        .rec-wave-live .w-bar {
+            flex: 1;
+            background: var(--gold);
+            border-radius: 2px;
+            height: 6px;
+            transition: height 0.15s ease;
+        }
+
+        .voice-rec-panel.recording .rec-wave-live .w-bar {
+            animation: wave-anim 0.8s ease-in-out infinite alternate;
+        }
+
+        .voice-rec-panel.recording .rec-wave-live .w-bar:nth-child(2n) { animation-delay: 0.2s; }
+        .voice-rec-panel.recording .rec-wave-live .w-bar:nth-child(3n) { animation-delay: 0.4s; }
+        .voice-rec-panel.recording .rec-wave-live .w-bar:nth-child(4n) { animation-delay: 0.1s; }
+
+        @keyframes wave-anim {
+            0% { height: 4px; }
+            100% { height: 22px; }
+        }
+
+        .voice-dictation-text {
+            width: 100%;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 12.5px;
+            color: #FAF8F3;
+            line-height: 1.45;
+            min-height: 85px;
+            max-height: 140px;
+            overflow-y: auto;
+            margin-bottom: 12px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .voice-action-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-voice-rec {
+            flex: 1;
+            background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%);
+            border: none;
+            color: var(--navy-dark);
+            font-weight: 700;
+            font-size: 12px;
+            padding: 9px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-voice-rec:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.35);
+        }
+
+        .btn-voice-rec.recording {
+            background: #FF3B30;
+            color: #FFFFFF;
+            animation: pulse-rec 1.5s infinite;
+        }
+
+        @keyframes pulse-rec {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .btn-voice-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #FFFFFF;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-voice-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .quick-dictate-chips {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .dictate-chip-btn {
+            background: #FAF8F3;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            color: var(--navy);
+            font-size: 10.5px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dictate-chip-btn:hover {
+            background: var(--navy);
+            color: #FFFFFF;
+            border-color: var(--navy);
+        }
+
+        /* ── CLIENT WHATSAPP DISPATCH CARD ── */
+        .whatsapp-dispatch-card {
+            background: #F0FDF4;
+            border: 1.5px solid #86EFAC;
+            border-radius: 12px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .whatsapp-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .whatsapp-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #15803D;
+        }
+
+        .whatsapp-preview-box {
+            background: #FFFFFF;
+            border: 1px solid #DCFCE7;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 11.5px;
+            color: #1F2937;
+            line-height: 1.45;
+            font-family: inherit;
+        }
+
+        .btn-dispatch-wa {
+            background: #16A34A;
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 18px;
+            font-size: 11.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-dispatch-wa:hover {
+            background: #15803D;
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+        }
+
+        /* ── CHRONOLOGICAL VOICE LOGS & TASK BOARD ── */
+        .voice-logs-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .task-board-box {
+            background: #FAF8F2;
+            border: 1.5px solid #EBE4D5;
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+
+        .task-board-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .task-board-head h5 {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .task-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .task-item.completed {
+            background: #F9FAFB;
+            text-decoration: line-through;
+            color: var(--text-tertiary);
+            border-color: #E5E7EB;
+        }
+
+        .task-checkbox {
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: var(--gold);
+        }
+
+        .task-meta-tag {
+            font-size: 10px;
+            background: #FAF5EA;
+            color: var(--gold);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+
+        .voice-log-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .voice-log-item {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-left: 3.5px solid var(--gold);
+            border-radius: 10px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .voice-log-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .voice-log-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .voice-author-avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .voice-author-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .voice-stage-tag {
+            font-size: 9.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #FAF5EA;
+            color: var(--gold);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+        }
+
+        .voice-log-summary {
+            font-size: 12px;
+            color: #374151;
+            line-height: 1.45;
+        }
+
+        .voice-log-milestones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .milestone-pill {
+            font-size: 10px;
+            font-weight: 600;
+            background: #F0FDF4;
+            color: #16A34A;
+            border: 1px solid #BBF7D0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+    </style></head><body>');
         
         // Branded Header with Original Base64 Logo
         printWindow.document.write('<div class="memo-brand-header">');
@@ -7584,7 +9525,655 @@
         printWindow.document.write('.memo-full-width { grid-column: span 2; }');
         printWindow.document.write('.memo-sec-title { font-weight: 800; font-size: 10.5px; text-transform: uppercase; color: #1B2A4A; border-bottom: 1px solid #EBE4D5; padding-bottom: 4px; margin-bottom: 6px; letter-spacing: 0.8px; }');
         printWindow.document.write('.memo-sec-content { font-size: 11.5px; line-height: 1.5; color: #374151; }');
-        printWindow.document.write('</style></head><body>');
+        printWindow.document.write('
+        /* ── PROJECT LIFECYCLE & AI VOICE TRACKER STYLING ── */
+        .tracker-hero-card {
+            background: linear-gradient(135deg, var(--navy) 0%, #101B30 100%);
+            border-radius: var(--radius-lg);
+            padding: 22px 26px;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            box-shadow: 0 12px 32px rgba(16, 27, 48, 0.18);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .tracker-hero-info h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 27px;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .tracker-hero-info p {
+            font-size: 13px;
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+
+        .tracker-client-bar {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 4px 2px 14px 2px;
+            margin-bottom: 20px;
+            scrollbar-width: thin;
+        }
+
+        .tracker-client-pill {
+            background: #FFFFFF;
+            border: 1.5px solid var(--border-light);
+            border-radius: 12px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            min-width: 230px;
+            user-select: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .tracker-client-pill:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(27, 42, 74, 0.08);
+        }
+
+        .tracker-client-pill.active {
+            background: #FAF8F3;
+            border-color: var(--gold);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
+        }
+
+        .tracker-pill-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy) 0%, #243B66 100%);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+            font-family: 'Cormorant Garamond', serif;
+            border: 1.5px solid var(--gold);
+            flex-shrink: 0;
+        }
+
+        .tracker-pill-meta .client-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .tracker-pill-meta .project-tag {
+            font-size: 10.5px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ── 7-STAGE HORIZONTAL VISUAL STEPPER ── */
+        .stepper-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 22px 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .stepper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .stepper-title-wrap h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .stepper-title-wrap span {
+            font-size: 11.5px;
+            color: var(--text-secondary);
+        }
+
+        .stepper-progress-badge {
+            background: #FAF5EA;
+            border: 1px solid var(--gold);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stepper-track-wrap {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            padding: 10px 0 6px;
+        }
+
+        .step-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .step-node:hover .step-circle {
+            transform: scale(1.1);
+        }
+
+        .step-circle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #ECE7DE;
+            color: #7A8699;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 2.5px solid #FFFFFF;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .step-node.completed .step-circle {
+            background: #2E7D32;
+            color: #FFFFFF;
+            box-shadow: 0 0 0 2px #2E7D32;
+        }
+
+        .step-node.active .step-circle {
+            background: var(--gold);
+            color: var(--navy-dark);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.4);
+            animation: pulse-step 2s infinite;
+        }
+
+        @keyframes pulse-step {
+            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.6); }
+            70% { box-shadow: 0 0 0 8px rgba(197, 160, 89, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+        }
+
+        .step-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            line-height: 1.25;
+            max-width: 105px;
+        }
+
+        .step-node.active .step-label {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .step-node.completed .step-label {
+            color: #2E7D32;
+        }
+
+        .step-time-tag {
+            font-size: 9.5px;
+            color: var(--text-tertiary);
+            margin-top: 3px;
+        }
+
+        /* ── DUAL COLUMN WORKSPACE ── */
+        .tracker-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 1100px) {
+            .tracker-grid-2col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── AI VOICE DICTATION STUDIO ── */
+        .voice-studio-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .voice-studio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .voice-studio-header h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .voice-rec-panel {
+            background: linear-gradient(135deg, #1B2A4A 0%, #121D33 100%);
+            border-radius: 12px;
+            padding: 16px;
+            color: #FFFFFF;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .voice-rec-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .rec-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .rec-wave-live {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            height: 24px;
+            margin-bottom: 12px;
+        }
+
+        .rec-wave-live .w-bar {
+            flex: 1;
+            background: var(--gold);
+            border-radius: 2px;
+            height: 6px;
+            transition: height 0.15s ease;
+        }
+
+        .voice-rec-panel.recording .rec-wave-live .w-bar {
+            animation: wave-anim 0.8s ease-in-out infinite alternate;
+        }
+
+        .voice-rec-panel.recording .rec-wave-live .w-bar:nth-child(2n) { animation-delay: 0.2s; }
+        .voice-rec-panel.recording .rec-wave-live .w-bar:nth-child(3n) { animation-delay: 0.4s; }
+        .voice-rec-panel.recording .rec-wave-live .w-bar:nth-child(4n) { animation-delay: 0.1s; }
+
+        @keyframes wave-anim {
+            0% { height: 4px; }
+            100% { height: 22px; }
+        }
+
+        .voice-dictation-text {
+            width: 100%;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 12.5px;
+            color: #FAF8F3;
+            line-height: 1.45;
+            min-height: 85px;
+            max-height: 140px;
+            overflow-y: auto;
+            margin-bottom: 12px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .voice-action-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-voice-rec {
+            flex: 1;
+            background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%);
+            border: none;
+            color: var(--navy-dark);
+            font-weight: 700;
+            font-size: 12px;
+            padding: 9px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-voice-rec:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.35);
+        }
+
+        .btn-voice-rec.recording {
+            background: #FF3B30;
+            color: #FFFFFF;
+            animation: pulse-rec 1.5s infinite;
+        }
+
+        @keyframes pulse-rec {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .btn-voice-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #FFFFFF;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-voice-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .quick-dictate-chips {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .dictate-chip-btn {
+            background: #FAF8F3;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            color: var(--navy);
+            font-size: 10.5px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dictate-chip-btn:hover {
+            background: var(--navy);
+            color: #FFFFFF;
+            border-color: var(--navy);
+        }
+
+        /* ── CLIENT WHATSAPP DISPATCH CARD ── */
+        .whatsapp-dispatch-card {
+            background: #F0FDF4;
+            border: 1.5px solid #86EFAC;
+            border-radius: 12px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .whatsapp-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .whatsapp-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #15803D;
+        }
+
+        .whatsapp-preview-box {
+            background: #FFFFFF;
+            border: 1px solid #DCFCE7;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 11.5px;
+            color: #1F2937;
+            line-height: 1.45;
+            font-family: inherit;
+        }
+
+        .btn-dispatch-wa {
+            background: #16A34A;
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 18px;
+            font-size: 11.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-dispatch-wa:hover {
+            background: #15803D;
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+        }
+
+        /* ── CHRONOLOGICAL VOICE LOGS & TASK BOARD ── */
+        .voice-logs-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .task-board-box {
+            background: #FAF8F2;
+            border: 1.5px solid #EBE4D5;
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+
+        .task-board-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .task-board-head h5 {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .task-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .task-item.completed {
+            background: #F9FAFB;
+            text-decoration: line-through;
+            color: var(--text-tertiary);
+            border-color: #E5E7EB;
+        }
+
+        .task-checkbox {
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: var(--gold);
+        }
+
+        .task-meta-tag {
+            font-size: 10px;
+            background: #FAF5EA;
+            color: var(--gold);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+
+        .voice-log-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .voice-log-item {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-left: 3.5px solid var(--gold);
+            border-radius: 10px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .voice-log-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .voice-log-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .voice-author-avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .voice-author-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .voice-stage-tag {
+            font-size: 9.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #FAF5EA;
+            color: var(--gold);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+        }
+
+        .voice-log-summary {
+            font-size: 12px;
+            color: #374151;
+            line-height: 1.45;
+        }
+
+        .voice-log-milestones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .milestone-pill {
+            font-size: 10px;
+            font-weight: 600;
+            background: #F0FDF4;
+            color: #16A34A;
+            border: 1px solid #BBF7D0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+    </style></head><body>');
         
         // Branded Header with Original Base64 Logo
         printWindow.document.write('<div class="memo-brand-header">');

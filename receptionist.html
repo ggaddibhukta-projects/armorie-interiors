@@ -5446,6 +5446,134 @@
             background: #FFFFFF;
             border-color: #94A3B8;
         }
+/* ── COMPACT PROFESSIONAL CRM CLIENT JOURNEY HEADER ── */
+        .pro-flow-topbar {
+            background: #FFFFFF;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            margin-bottom: 16px;
+        }
+
+        .pro-topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-topbar-back {
+            background: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            color: #0F172A;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 7px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-topbar-back:hover {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+
+        .pro-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #64748B;
+        }
+
+        .pro-breadcrumb strong {
+            color: #0F172A;
+            font-weight: 700;
+        }
+
+        .pro-client-switcher-bar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 3px 6px;
+        }
+
+        .pro-client-chip {
+            background: transparent;
+            border: none;
+            color: #475569;
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .pro-client-chip:hover {
+            background: #E2E8F0;
+            color: #0F172A;
+        }
+
+        .pro-client-chip.active {
+            background: var(--navy);
+            color: #FFFFFF;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
+        }
+
+        .pro-client-chip.active span.chip-avatar {
+            background: var(--gold);
+            color: #0F172A;
+        }
+
+        .chip-avatar {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #CBD5E1;
+            color: #334155;
+            font-size: 9.5px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pro-metrics-strip {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 11.5px;
+        }
+
+        .metric-pill-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .metric-pill-item span.lbl {
+            color: #64748B;
+            font-size: 10.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
@@ -6136,44 +6264,65 @@
                     <!-- MODULE 1: INBOUND CALLS & TRANSCRIPTS -->
                     <!-- ── MODULE 8: COMPLETE CLIENT JOURNEY & LIVE STAGING FLOW (HANDWRITTEN SPEC DEMO) ── -->
                     <!-- ── MODULE 8: COMPLETE CLIENT JOURNEY & LIVE STAGING FLOW (HANDWRITTEN SPEC DEMO) ── -->
+                    <!-- ── MODULE 8: COMPLETE CLIENT JOURNEY & LIVE STAGING FLOW (HANDWRITTEN SPEC DEMO) ── -->
                     <div id="cmod-client-flow" class="crm-module-pane">
                         <div class="pro-flow-container">
 
-                            <!-- Executive Hero Card -->
-                            <div class="pro-hero-banner">
-                                <div class="pro-hero-top">
-                                    <div>
-                                        <div class="pro-hero-kicker">
-                                            <span>✨ Active Studio Consultation Pipeline</span>
-                                        </div>
-                                        <h2 class="pro-hero-title">End-to-End Client Journey & Shared Tandem Tracking</h2>
-                                    </div>
-                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                        <button onclick="resetClientDemoFlow()" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #FFFFFF; font-size: 11.5px; font-weight: 700; padding: 9px 15px; border-radius: 8px; cursor: pointer;">
-                                            ↺ Reset Flow
-                                        </button>
-                                        <button onclick="loadSampleClientDemo('sarah')" style="background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%); border: none; color: #0F172A; font-size: 11.5px; font-weight: 800; padding: 9px 16px; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 14px rgba(197, 160, 89, 0.35);">
-                                            ⚡ Load Sarah Jenkins (Demo)
-                                        </button>
+                            <!-- Compact Professional Top Bar with Back Button & Client Switcher -->
+                            <div class="pro-flow-topbar">
+                                <div class="pro-topbar-left">
+                                    <button class="btn-topbar-back" onclick="switchCrmNav('clients')">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                        <span>Back to Clients Directory</span>
+                                    </button>
+                                    <div class="pro-breadcrumb">
+                                        <span>CRM</span>
+                                        <span>/</span>
+                                        <span>Clients</span>
+                                        <span>/</span>
+                                        <strong id="flow-crumb-name">Sarah Jenkins</strong>
+                                        <span>/</span>
+                                        <span style="color: var(--gold); font-weight: 700;">5-Stage Onboarding Flow</span>
                                     </div>
                                 </div>
 
-                                <div class="pro-hero-metrics">
-                                    <div class="hero-metric-item">
-                                        <span class="hero-metric-label">Active Client</span>
-                                        <span class="hero-metric-val" id="hero-m-client">Sarah Jenkins</span>
+                                <!-- Dynamic Client Switcher Chips -->
+                                <div class="pro-client-switcher-bar" id="flow-client-switcher-bar">
+                                    <button class="pro-client-chip active" id="cchip-sarah" onclick="loadDynamicClientFlow('sarah')">
+                                        <span class="chip-avatar">SJ</span>
+                                        <span>Sarah Jenkins</span>
+                                    </button>
+                                    <button class="pro-client-chip" id="cchip-vance" onclick="loadDynamicClientFlow('vance')">
+                                        <span class="chip-avatar">EV</span>
+                                        <span>Elena Vance</span>
+                                    </button>
+                                    <button class="pro-client-chip" id="cchip-harrison" onclick="loadDynamicClientFlow('harrison')">
+                                        <span class="chip-avatar">HF</span>
+                                        <span>Harrison Estate</span>
+                                    </button>
+                                    <button class="pro-client-chip" id="cchip-thornton" onclick="loadDynamicClientFlow('thornton')">
+                                        <span class="chip-avatar">CT</span>
+                                        <span>Claire Thornton</span>
+                                    </button>
+                                    <button class="pro-client-chip" id="cchip-preston" onclick="loadDynamicClientFlow('preston')">
+                                        <span class="chip-avatar">PR</span>
+                                        <span>Preston Ridge</span>
+                                    </button>
+                                </div>
+
+                                <!-- Compact Live Metrics -->
+                                <div class="pro-metrics-strip">
+                                    <div class="metric-pill-item">
+                                        <span class="lbl">Valuation:</span>
+                                        <strong id="hero-m-val" style="color: var(--gold); font-size: 13.5px;">$18,000.00</strong>
                                     </div>
-                                    <div class="hero-metric-item">
-                                        <span class="hero-metric-label">Project Valuation</span>
-                                        <span class="hero-metric-val" style="color: var(--gold);" id="hero-m-val">$18,000.00</span>
+                                    <div class="metric-pill-item">
+                                        <span class="lbl">Mill Status:</span>
+                                        <span id="hero-m-status" style="background: #DCFCE7; color: #166534; font-weight: 800; font-size: 10px; padding: 2px 7px; border-radius: 6px;">Ghent Linen Reserved</span>
                                     </div>
-                                    <div class="hero-metric-item">
-                                        <span class="hero-metric-label">Hardwood Mill Status</span>
-                                        <span class="hero-metric-val" style="color: #4ADE80;">Ghent Linen Reserved</span>
-                                    </div>
-                                    <div class="hero-metric-item">
-                                        <span class="hero-metric-label">Target Install Date</span>
-                                        <span class="hero-metric-val">Prior to Thanksgiving</span>
+                                    <div class="metric-pill-item">
+                                        <span class="lbl">Target Install:</span>
+                                        <span id="hero-m-date" style="font-weight: 700; color: #0F172A;">Nov 20, 2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -6221,15 +6370,9 @@
                             <div class="pro-card-stage" id="fstage-1" style="display: block;">
                                 <div class="pro-stage-header">
                                     <div>
-                                        <span class="pro-stage-badge">Stage 1 of 5 · Contact Capture</span>
-                                        <h3 class="pro-stage-h3">Client Profile & Residence Specification</h3>
+                                        <span class="pro-stage-badge">Stage 1 of 5 · Contact Profile</span>
+                                        <h3 class="pro-stage-h3" id="stage1-title-text">Client Profile & Residence Specification</h3>
                                         <p class="pro-stage-desc">Verified contact details, architectural location, and designer allocation.</p>
-                                    </div>
-                                    <div class="preset-chips-box">
-                                        <span style="font-size: 11px; color: #64748B; font-weight: 700;">Demo Presets:</span>
-                                        <button class="preset-chip" onclick="loadSampleClientDemo('sarah')">Sarah Jenkins</button>
-                                        <button class="preset-chip" onclick="loadSampleClientDemo('vance')">Elena Vance</button>
-                                        <button class="preset-chip" onclick="loadSampleClientDemo('harrison')">Greentree Estate</button>
                                     </div>
                                 </div>
 
@@ -6296,7 +6439,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="dossier-tag-row">
+                                        <div class="dossier-tag-row" id="flow-dossier-tags">
                                             <span class="dossier-tag">Texas Artisan Upholstery</span>
                                             <span class="dossier-tag">Belgian Linen</span>
                                             <span class="dossier-tag">Motorized Somfy</span>
@@ -6305,10 +6448,10 @@
 
                                         <div class="dossier-audio-snippet">
                                             <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; font-weight: 700; color: #0F172A;">
-                                                <span>🎙️ Inbound Receptionist Call Recording</span>
-                                                <span style="color: #64748B;">0:34s</span>
+                                                <span>🎙️ Inbound Call Recording</span>
+                                                <span style="color: #64748B;" id="flow-audio-time">0:34s</span>
                                             </div>
-                                            <div style="font-size: 11px; color: #475569; font-style: italic; margin-top: 2px;">
+                                            <div style="font-size: 11px; color: #475569; font-style: italic; margin-top: 2px;" id="flow-audio-quote">
                                                 "Looking for a custom 96-inch deep sofa for our Greentree home with Belgian linen and quiet motorized draperies..."
                                             </div>
                                             <div class="audio-wave-bar">
@@ -6453,7 +6596,7 @@
                                             <div style="font-size: 11px; color: #64748B; margin-top: 2px;">2612 West Front St, Suite A · Midland, TX 79701 · (432) 555-0188</div>
                                         </div>
                                         <div style="text-align: right;">
-                                            <div style="font-size: 17px; font-weight: 800; color: var(--gold); letter-spacing: 0.8px;">INVOICE #INV-8821</div>
+                                            <div style="font-size: 17px; font-weight: 800; color: var(--gold); letter-spacing: 0.8px;" id="inv-doc-number">INVOICE #INV-8821</div>
                                             <div style="font-size: 11px; color: #64748B; margin-top: 2px;">Issue Date: Aug 22, 2026 · Due Upon Receipt</div>
                                         </div>
                                     </div>
@@ -6467,7 +6610,7 @@
                                         </div>
                                         <div>
                                             <div style="font-size: 10px; font-weight: 800; color: #94A3B8; text-transform: uppercase;">Project Specification:</div>
-                                            <div style="font-size: 13px; font-weight: 700; color: #0F172A; margin-top: 2px;">Bespoke Great Room Living Suite & Motorized Drapery</div>
+                                            <div id="inv-project-title" style="font-size: 13px; font-weight: 700; color: #0F172A; margin-top: 2px;">Bespoke Great Room Living Suite & Motorized Drapery</div>
                                             <div style="font-size: 11px; color: #64748B;">Lead Artisan: Marcus Thorne · Lead Designer: Sarah Collins</div>
                                         </div>
                                     </div>
@@ -6673,22 +6816,22 @@
                                                 <div style="color: #4ADE80; font-weight: 700;">● Live Tandem</div>
                                             </div>
                                             <div class="phone-mockup-body">
-                                                <div style="font-size: 14px; font-weight: 700; color: #FFFFFF; font-family: 'Cormorant Garamond', Georgia, serif;">The Camille 96" Custom Living Room Suite</div>
-                                                <div style="font-size: 11px; color: #94A3B8; margin-top: 2px;">Client: Sarah Jenkins · Contract #ORD-8821</div>
+                                                <div id="phone-mockup-title" style="font-size: 14px; font-weight: 700; color: #FFFFFF; font-family: 'Cormorant Garamond', Georgia, serif;">The Camille 96" Custom Living Room Suite</div>
+                                                <div id="phone-mockup-sub" style="font-size: 11px; color: #94A3B8; margin-top: 2px;">Client: Sarah Jenkins · Contract #ORD-8821</div>
 
                                                 <div class="mini-stepper-display">
                                                     <div class="mini-step done">Measure ✓</div>
                                                     <div class="mini-step done">Concept ✓</div>
-                                                    <div class="mini-step active">Mill Procure (45%)</div>
+                                                    <div class="mini-step active" id="phone-mini-stage">Mill Procure (45%)</div>
                                                     <div class="mini-step">Frame</div>
                                                 </div>
 
                                                 <div class="mini-voice-memo-card">
                                                     <div style="display: flex; justify-content: space-between; font-size: 10px; color: #F5E6C8; font-weight: 800;">
-                                                        <span>🎙️ Voice Memo from Sarah Collins</span>
+                                                        <span id="phone-memo-author">🎙️ Voice Memo from Sarah Collins</span>
                                                         <span>Today</span>
                                                     </div>
-                                                    <div style="font-size: 11.5px; color: #E2E8F0; margin-top: 4px; line-height: 1.4;">
+                                                    <div id="phone-memo-text" style="font-size: 11.5px; color: #E2E8F0; margin-top: 4px; line-height: 1.4;">
                                                         "Belgian linen fabric cleared customs. Kiln-dried hardwood frame cut sheets dispatched to master artisan Marcus Thorne."
                                                     </div>
                                                 </div>
@@ -9147,44 +9290,14 @@
     /* ── CLIENT JOURNEY & LIVE STAGING JAVASCRIPT CONTROLLER ── */
 function launchJourneyForClient(clientId, event) {
         if (event) event.stopPropagation();
-        const c = (typeof allClients !== 'undefined' ? allClients.find(item => item.id === clientId) : null) || (typeof allCalls !== 'undefined' ? allCalls.find(item => item.id === clientId) : null);
-        if (c) {
-            const nameEl = document.getElementById('flow-input-name');
-            if (nameEl) nameEl.value = c.name;
-            const phoneEl = document.getElementById('flow-input-phone');
-            if (phoneEl) phoneEl.value = c.phone || '(432) 555-0192';
-            const emailEl = document.getElementById('flow-input-email');
-            if (emailEl) emailEl.value = c.email || (c.name.toLowerCase().replace(/[^a-z]/g, '.') + '@client-residence.com');
-            const locEl = document.getElementById('flow-input-location');
-            if (locEl) locEl.value = c.address || 'Midland, TX · Greentree Estates';
-            const notesEl = document.getElementById('flow-consult-notes');
-            if (notesEl) notesEl.value = c.summary || `Consultation notes for ${c.name}: Custom tailored living suite and window treatments.`;
+        const idLower = String(clientId || '').toLowerCase();
+        let matchedKey = 'sarah';
+        if (idLower.includes('vance') || idLower.includes('mv44') || idLower.includes('elena')) matchedKey = 'vance';
+        else if (idLower.includes('harrison') || idLower.includes('hf99') || idLower.includes('charles')) matchedKey = 'harrison';
+        else if (idLower.includes('thornton') || idLower.includes('ct83') || idLower.includes('claire')) matchedKey = 'thornton';
+        else if (idLower.includes('preston') || idLower.includes('pr88') || idLower.includes('dan')) matchedKey = 'preston';
 
-            // Auto-populate relevant tagged products based on project description
-            flowTaggedProducts = [];
-            const pDesc = (c.pieces || c.project || c.summary || '').toLowerCase();
-            if (pDesc.includes('camille') || pDesc.includes('sofa') || pDesc.includes('sectional')) {
-                flowTaggedProducts.push({ id: 'camille', name: 'The Camille 96" Custom Sofa', price: 8400, category: 'Living Room Seating' });
-            }
-            if (pDesc.includes('linen') || pDesc.includes('fabric')) {
-                flowTaggedProducts.push({ id: 'linen', name: 'Oatmeal Belgian Linen (24 Yards)', price: 3600, category: 'Fabric Mill Bolt' });
-            }
-            if (pDesc.includes('drapery') || pDesc.includes('window') || pDesc.includes('somfy')) {
-                flowTaggedProducts.push({ id: 'somfy', name: 'Somfy Motorized Ripplefold Drapery (4x 12ft)', price: 4800, category: 'Window Treatments' });
-            }
-            if (pDesc.includes('swivel') || pDesc.includes('chair') || pDesc.includes('armchair')) {
-                flowTaggedProducts.push({ id: 'swivel', name: 'Two Camille Curved Swivel Armchairs', price: 4600, category: 'Living Room Seating' });
-            }
-            if (flowTaggedProducts.length === 0) {
-                flowTaggedProducts.push({ id: 'camille', name: 'The Camille 96" Custom Sofa', price: 8400, category: 'Living Room Seating' });
-                flowTaggedProducts.push({ id: 'linen', name: 'Oatmeal Belgian Linen (24 Yards)', price: 3600, category: 'Fabric Mill Bolt' });
-                flowTaggedProducts.push({ id: 'somfy', name: 'Somfy Motorized Ripplefold Drapery (4x 12ft)', price: 4800, category: 'Window Treatments' });
-            }
-
-            syncFlowState();
-            renderTaggedProducts();
-            updateInvoiceDocument();
-        }
+        loadDynamicClientFlow(matchedKey);
         switchCrmNav('client-flow');
         goToFlowStep(1);
     }
@@ -9238,41 +9351,232 @@ function launchJourneyForClient(clientId, event) {
         if (invLoc) invLoc.textContent = loc;
     }
 
-    function loadSampleClientDemo(type) {
-        if (type === 'sarah') {
-            document.getElementById('flow-input-name').value = 'Sarah Jenkins';
-            document.getElementById('flow-input-phone').value = '(432) 555-0192';
-            document.getElementById('flow-input-email').value = 'sarah.jenkins@wtx-properties.com';
-            document.getElementById('flow-input-location').value = 'Midland, TX · Greentree Estates';
-            flowTaggedProducts = [
+    /* ── FULLY DYNAMIC CLIENT DATASET FOR ONBOARDING FLOW ── */
+    const DYNAMIC_CLIENT_PROFILES = {
+        sarah: {
+            id: 'CL-SJ01',
+            contractId: 'INV-8821',
+            name: 'Sarah Jenkins',
+            initials: 'SJ',
+            phone: '(432) 555-0192',
+            email: 'sarah.jenkins@wtx-properties.com',
+            address: 'Midland, TX · Greentree Estates',
+            projectTitle: 'The Camille 96" Custom Living Room Suite',
+            designer: 'Sarah Collins (Lead Studio Designer)',
+            notes: 'Primary Great Room Seating & Custom Motorized Window Elevation. Client requested 8-way hand-tied custom sofa with deep Belgian linen seating and matching motorized linen draperies for four 12-foot architectural windows.',
+            quote: 'Looking for a custom 96-inch deep sofa for our Greentree home with Belgian linen and quiet motorized draperies...',
+            audioTime: '0:34s',
+            tags: ['Texas Artisan Upholstery', 'Belgian Linen', 'Motorized Somfy', 'Laser Measured'],
+            millStatus: 'Ghent Linen Reserved',
+            targetDate: 'Nov 20, 2026',
+            memoUpdate: 'Belgian linen fabric cleared customs. Kiln-dried hardwood frame cut sheets dispatched to master artisan Marcus Thorne.',
+            products: [
                 { id: 'camille', name: 'The Camille 96" Custom Sofa', price: 8400, category: 'Living Room Seating' },
                 { id: 'linen', name: 'Oatmeal Belgian Linen (24 Yards)', price: 3600, category: 'Fabric Mill Bolt' },
                 { id: 'somfy', name: 'Somfy Motorized Ripplefold Drapery (4x 12ft)', price: 4800, category: 'Window Treatments' }
-            ];
-        } else if (type === 'vance') {
-            document.getElementById('flow-input-name').value = 'Elena Vance';
-            document.getElementById('flow-input-phone').value = '(432) 555-0144';
-            document.getElementById('flow-input-email').value = 'elena.vance@pecosholdings.com';
-            document.getElementById('flow-input-location').value = 'Midland, TX · Pecos Penthouse';
-            flowTaggedProducts = [
+            ]
+        },
+        vance: {
+            id: 'CL-MV44',
+            contractId: 'INV-8822',
+            name: 'Marcus & Elena Vance',
+            initials: 'EV',
+            phone: '(432) 555-0144',
+            email: 'elena.vance@pecosholdings.com',
+            address: 'Pecos Penthouse, Midland, TX',
+            projectTitle: 'Pecos Penthouse Cognac Velvet Chairs & Motorized Drapery',
+            designer: 'Elena Rostova (Textile Specialist)',
+            notes: 'Penthouse master living salon elevation. Client requested two custom French Bergere curved swivel armchairs in Cognac performance velvet and ceiling-height ripple-fold motorized draperies.',
+            quote: 'We want two curved swivel armchairs in Cognac velvet and ceiling-height motorized ripple-fold draperies for our penthouse...',
+            audioTime: '0:42s',
+            tags: ['Italian Velvet', 'Motorized Somfy', '360 Swivel Base', 'Penthouse Elevation'],
+            millStatus: 'Cognac Velvet Inspected',
+            targetDate: 'Oct 15, 2026',
+            memoUpdate: 'Vance family approved Cognac performance velvet in studio lab. Motorized track measurements finalized for 14-foot glass wall.',
+            products: [
                 { id: 'swivel', name: 'Two Camille Curved Swivel Armchairs', price: 4600, category: 'Living Room Seating' },
                 { id: 'somfy', name: 'Somfy Motorized Ripplefold Drapery (4x 12ft)', price: 4800, category: 'Window Treatments' }
-            ];
-        } else if (type === 'harrison') {
-            document.getElementById('flow-input-name').value = 'Harrison Family Estate';
-            document.getElementById('flow-input-phone').value = '(432) 555-0188';
-            document.getElementById('flow-input-email').value = 'harrison@greentree-estate.com';
-            document.getElementById('flow-input-location').value = 'Greentree Estates · Midland, TX';
-            flowTaggedProducts = [
+            ]
+        },
+        harrison: {
+            id: 'CL-HF99',
+            contractId: 'INV-8819',
+            name: 'Harrison Family Estate',
+            initials: 'HF',
+            phone: '(432) 555-0155',
+            email: 'charles@harrisonranch.com',
+            address: 'Midland Ranch Residence (6,200 sq ft)',
+            projectTitle: 'Greentree Estate Complete Furniture & Dining Build',
+            designer: 'Marcus Thorne (Master Artisan)',
+            notes: 'Full estate furnishing package: Laurent 120-inch slipcovered sectional in heavyweight Belgian linen, 4 dining armchairs, and Texan white oak bench.',
+            quote: 'Full estate custom build: need our 120-inch sectional in Belgian linen and custom solid walnut dining pieces...',
+            audioTime: '1:15s',
+            tags: ['Full Estate Package', 'Down Wrapped Core', 'Solid White Oak', 'Hand-Tied Coil'],
+            millStatus: 'Down Wrap Tailoring in Progress',
+            targetDate: 'Nov 10, 2026',
+            memoUpdate: 'Laurent 120-inch sectional cushions stuffed with 90/10 Hungarian goose down. French seam tailoring in progress.',
+            products: [
                 { id: 'camille', name: 'The Camille 96" Custom Sofa', price: 8400, category: 'Living Room Seating' },
                 { id: 'swivel', name: 'Two Camille Curved Swivel Armchairs', price: 4600, category: 'Living Room Seating' },
                 { id: 'bench', name: 'Texan White Oak Bench with Down Wrap', price: 1100, category: 'Accent Furniture' },
                 { id: 'linen', name: 'Oatmeal Belgian Linen (24 Yards)', price: 3600, category: 'Fabric Mill Bolt' }
-            ];
+            ]
+        },
+        thornton: {
+            id: 'CL-CT83',
+            contractId: 'INV-8825',
+            name: 'Claire Thornton',
+            initials: 'CT',
+            phone: '(432) 555-0183',
+            email: 'claire.thornton@gmail.com',
+            address: 'Saddle Club Estates, Midland, TX',
+            projectTitle: 'Saddle Club Estates Motorized Roman Shades & Bench',
+            designer: 'Elena Rostova (Textile Specialist)',
+            notes: 'In-home laser elevation scan of 8 primary windows. Inside-mount Belgian linen Roman shades with Somfy wirefree rechargeable motors and white oak accent bench.',
+            quote: 'In-home laser scan for 8 primary windows with Somfy wirefree rechargeable motorized Roman shades...',
+            audioTime: '0:28s',
+            tags: ['Motorized Roman Shades', 'Somfy Wirefree', 'Texan Hardwood', 'Laser Scanned'],
+            millStatus: 'Laser Scan Complete',
+            targetDate: 'Oct 28, 2026',
+            memoUpdate: 'Completed laser elevation scans at Saddle Club residence. 3.5-inch window depth confirmed perfect for wirefree motorized shades.',
+            products: [
+                { id: 'somfy', name: 'Somfy Motorized Ripplefold Drapery (4x 12ft)', price: 4800, category: 'Window Treatments' },
+                { id: 'bench', name: 'Texan White Oak Bench with Down Wrap', price: 1100, category: 'Accent Furniture' },
+                { id: 'linen', name: 'Oatmeal Belgian Linen (24 Yards)', price: 3600, category: 'Fabric Mill Bolt' }
+            ]
+        },
+        preston: {
+            id: 'CL-PR88',
+            contractId: 'INV-8824',
+            name: 'Preston Ridge Custom Homes',
+            initials: 'PR',
+            phone: '(432) 555-0177',
+            email: 'dan@prestonridgehomes.com',
+            address: 'Midland Builder Trade Account',
+            projectTitle: 'Preston Ridge Luxury Model Home Turnkey Package',
+            designer: 'Sarah Collins (Lead Studio Designer)',
+            notes: 'Trade staging contract for two luxury model homes in Midland. Turnkey furniture package including 2 custom sofas, 4 armchairs, dining bench, and Belgian draperies.',
+            quote: 'Setting up trade staging for two luxury model homes in Midland with custom performance upholstery...',
+            audioTime: '0:50s',
+            tags: ['Trade Partner (20% Off)', 'Model Home Staging', 'Commercial Grade', 'Multi-Unit Build'],
+            millStatus: 'Hardwood Cut Sheets Approved',
+            targetDate: 'Dec 1, 2026',
+            memoUpdate: 'Builder approved turnkey model home layout. Hardwood timber batch reserved for 6 custom furniture frames.',
+            products: [
+                { id: 'camille', name: 'The Camille 96" Custom Sofa', price: 8400, category: 'Living Room Seating' },
+                { id: 'swivel', name: 'Two Camille Curved Swivel Armchairs', price: 4600, category: 'Living Room Seating' },
+                { id: 'linen', name: 'Oatmeal Belgian Linen (24 Yards)', price: 3600, category: 'Fabric Mill Bolt' },
+                { id: 'somfy', name: 'Somfy Motorized Ripplefold Drapery (4x 12ft)', price: 4800, category: 'Window Treatments' }
+            ]
         }
-        syncFlowState();
+    };
+
+    let activeClientKey = 'sarah';
+
+    function loadDynamicClientFlow(clientKey) {
+        activeClientKey = clientKey;
+        const data = DYNAMIC_CLIENT_PROFILES[clientKey] || DYNAMIC_CLIENT_PROFILES.sarah;
+
+        // 1. Update Top Bar & Switcher Chips
+        document.querySelectorAll('.pro-client-chip').forEach(c => c.classList.remove('active'));
+        const chip = document.getElementById('cchip-' + clientKey);
+        if (chip) chip.classList.add('active');
+
+        const crumbName = document.getElementById('flow-crumb-name');
+        if (crumbName) crumbName.textContent = data.name;
+        const heroVal = document.getElementById('hero-m-val');
+        const heroStatus = document.getElementById('hero-m-status');
+        const heroDate = document.getElementById('hero-m-date');
+        if (heroStatus) heroStatus.textContent = data.millStatus;
+        if (heroDate) heroDate.textContent = data.targetDate;
+
+        // 2. Update Form Fields
+        const nameInp = document.getElementById('flow-input-name');
+        if (nameInp) nameInp.value = data.name;
+        const phoneInp = document.getElementById('flow-input-phone');
+        if (phoneInp) phoneInp.value = data.phone;
+        const emailInp = document.getElementById('flow-input-email');
+        if (emailInp) emailInp.value = data.email;
+        const locInp = document.getElementById('flow-input-location');
+        if (locInp) locInp.value = data.address;
+        const desInp = document.getElementById('flow-input-designer');
+        if (desInp) desInp.value = data.designer;
+        const notesInp = document.getElementById('flow-consult-notes');
+        if (notesInp) notesInp.value = data.notes;
+
+        // 3. Update Dossier Card
+        const prevId = document.getElementById('flow-preview-id');
+        if (prevId) prevId.textContent = `CLIENT #${data.id}`;
+        const prevAvatar = document.getElementById('flow-preview-avatar');
+        if (prevAvatar) prevAvatar.textContent = data.initials;
+        const prevName = document.getElementById('flow-preview-name');
+        if (prevName) prevName.textContent = data.name;
+        const prevContact = document.getElementById('flow-preview-contact');
+        if (prevContact) prevContact.textContent = `${data.phone} · ${data.email}`;
+        const prevLoc = document.getElementById('flow-preview-loc');
+        if (prevLoc) prevLoc.textContent = data.address;
+
+        const audioQuote = document.getElementById('flow-audio-quote');
+        if (audioQuote) audioQuote.textContent = `"${data.quote}"`;
+        const audioTime = document.getElementById('flow-audio-time');
+        if (audioTime) audioTime.textContent = data.audioTime;
+
+        const tagsContainer = document.getElementById('flow-dossier-tags');
+        if (tagsContainer) {
+            let tagsHtml = '';
+            data.tags.forEach(t => tagsHtml += `<span class="dossier-tag">${t}</span>`);
+            tagsContainer.innerHTML = tagsHtml;
+        }
+
+        // 4. Update Invoice Document Details
+        const invNum = document.getElementById('inv-doc-number');
+        if (invNum) invNum.textContent = `INVOICE #${data.contractId}`;
+        const invName = document.getElementById('inv-client-name');
+        if (invName) invName.textContent = data.name;
+        const invContact = document.getElementById('inv-client-contact');
+        if (invContact) invContact.textContent = `${data.phone} · ${data.email}`;
+        const invLoc = document.getElementById('inv-client-loc');
+        if (invLoc) invLoc.textContent = data.address;
+        const invProj = document.getElementById('inv-project-title');
+        if (invProj) invProj.textContent = data.projectTitle;
+
+        // 5. Update Tagged Products
+        flowTaggedProducts = [...data.products];
         renderTaggedProducts();
         updateInvoiceDocument();
+
+        // 6. Update Shared Tandem Tracker Phone Mockup
+        const phoneTitle = document.getElementById('phone-mockup-title');
+        if (phoneTitle) phoneTitle.textContent = data.projectTitle;
+        const phoneSub = document.getElementById('phone-mockup-sub');
+        if (phoneSub) phoneSub.textContent = `Client: ${data.name} · Contract #${data.contractId}`;
+        const phoneMemoText = document.getElementById('phone-memo-text');
+        if (phoneMemoText) phoneMemoText.textContent = `"${data.memoUpdate}"`;
+        const sharedLink = document.getElementById('shared-client-link-input');
+        if (sharedLink) {
+            const slug = data.name.toLowerCase().replace(/[^a-z0-9]/g, '-');
+            sharedLink.value = `https://ggaddibhukta-projects.github.io/armorie-interiors/receptionist?client=${slug}&token=arm_${data.contractId.toLowerCase()}`;
+        }
+
+        // Reset payment state
+        isFlowPaymentDone = false;
+        const payBtn = document.getElementById('btn-simulate-pay');
+        if (payBtn) {
+            payBtn.disabled = false;
+            payBtn.style.background = 'linear-gradient(135deg, #166534 0%, #14532D 100%)';
+        }
+        const payAlert = document.getElementById('pay-success-alert');
+        if (payAlert) payAlert.style.display = 'none';
+        const payBadge = document.getElementById('pay-status-badge');
+        if (payBadge) {
+            payBadge.style.background = '#FEF3C7';
+            payBadge.style.color = '#B45309';
+            payBadge.textContent = 'AWAITING DEPOSIT';
+        }
+    }
+
+    function loadSampleClientDemo(type) {
+        loadDynamicClientFlow(type);
     }
 
     function toggleProductTag(id, name, price, category) {

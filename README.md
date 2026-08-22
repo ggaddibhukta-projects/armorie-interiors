@@ -10,29 +10,18 @@ Once GitHub Pages is enabled on your repository, the flows are accessible at:
 
 | Module | URL Path | Description |
 | :--- | :--- | :--- |
-| **Luxury Website & Concierge** | `https://<username>.github.io/<repo-name>/` | Texas bench-made sofa lookbook, 5,000+ European textile archive, Benjamin Moore color curation, and interactive **Armorie Concierge Chatbot**. |
-| **AI Voice Receptionist & CRM** | `https://<username>.github.io/<repo-name>/receptionist` | Real-time speech synthesis simulator, audio waveforms, call scenarios, and enterprise CRM dashboard with live call logs. |
-| **Executive Proposal (PDF)** | `https://<username>.github.io/<repo-name>/Armorie_Interiors_AI_Executive_Proposal.pdf` | Complete executive pitch deck and ROI model document. |
+| **Luxury Website & Concierge** | [**https://ggaddibhukta-projects.github.io/armorie-interiors/**](https://ggaddibhukta-projects.github.io/armorie-interiors/) | Texas bench-made sofa lookbook, 5,000+ European textile archive, Benjamin Moore color curation, and interactive **Armorie Concierge Chatbot**. |
+| **AI Voice Receptionist & CRM** | [**https://ggaddibhukta-projects.github.io/armorie-interiors/receptionist**](https://ggaddibhukta-projects.github.io/armorie-interiors/receptionist) | Real-time speech synthesis simulator, audio waveforms, call scenarios, and enterprise CRM dashboard with live call logs. |
+| **Executive Proposal (PDF)** | [**https://ggaddibhukta-projects.github.io/armorie-interiors/Armorie_Interiors_AI_Executive_Proposal.pdf**](https://ggaddibhukta-projects.github.io/armorie-interiors/Armorie_Interiors_AI_Executive_Proposal.pdf) | Complete executive pitch deck and ROI model document. |
 
 ---
 
 ## 🚀 How to Enable GitHub Pages (30 Seconds)
 
-1. Create a new repository on [GitHub.com](https://github.com/new) (e.g. `armorie-interiors-ai`).
-2. Push this folder to GitHub:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: Armorie Interiors luxury website, AI Concierge & Voice Receptionist"
-   git branch -M main
-   git remote add origin https://github.com/<YOUR-USERNAME>/<REPO-NAME>.git
-   git push -u origin main
-   ```
-3. In your GitHub repository:
-   - Go to **Settings** $\rightarrow$ **Pages** (in left sidebar).
-   - Under **Build and deployment** $\rightarrow$ **Branch**: Select `main` and `/ (root)`.
-   - Click **Save**.
-4. Your live link will be ready in under a minute!
+1. Open your repository settings: [**https://github.com/ggaddibhukta-projects/armorie-interiors/settings/pages**](https://github.com/ggaddibhukta-projects/armorie-interiors/settings/pages)
+2. Under **Build and deployment** $\rightarrow$ **Branch**: Select `main` and `/ (root)`.
+3. Click **Save**.
+4. Your live links will be ready in under a minute!
 
 ---
 

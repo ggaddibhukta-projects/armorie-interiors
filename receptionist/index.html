@@ -4317,7 +4317,8 @@
                 <a href="http://localhost:3000" class="btn-website-link" style="text-decoration: none;">
                     <span>Website Catalog &rarr;</span>
                 </a>
-                <button class="btn-login-trigger" onclick="openLoginModal()">
+                <button class="btn-login-trigger" onclick="switchView('crm-portal')" style="cursor: pointer; background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%); color: var(--navy-dark); border: none; font-weight: 800; padding: 10px 18px; border-radius: 8px; box-shadow: 0 4px 14px rgba(197, 160, 89, 0.4); display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="18" rx="1.5"/><rect x="14" y="3" width="7" height="11" rx="1.5"/></svg>
                     <span>Studio CRM Login</span>
                 </button>
             </div>
@@ -4596,7 +4597,8 @@
                 <button class="btn-website-link" onclick="switchView('ai-flow')" style="border: 1.5px solid var(--border-light); background: #FFFFFF; color: var(--navy);">
                     <span>&larr; AI Receptionist</span>
                 </button>
-                <button class="btn-login-trigger" onclick="openLoginModal()">
+                <button class="btn-login-trigger" onclick="switchView('crm-portal')" style="cursor: pointer; background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%); color: var(--navy-dark); border: none; font-weight: 800; padding: 10px 18px; border-radius: 8px; box-shadow: 0 4px 14px rgba(197, 160, 89, 0.4); display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="18" rx="1.5"/><rect x="14" y="3" width="7" height="11" rx="1.5"/></svg>
                     <span>Studio CRM Login</span>
                 </button>
             </div>
@@ -6887,27 +6889,43 @@
         const aiFlow = document.getElementById('view-ai-flow');
         const websiteView = document.getElementById('view-website');
         const crmPortal = document.getElementById('view-crm-portal');
+        
         // Hide all views
         if (aiFlow) aiFlow.style.display = 'none';
         if (websiteView) websiteView.style.display = 'none';
         if (crmPortal) crmPortal.style.display = 'none';
-        // Show requested view
+
         if (viewName === 'ai-flow') {
-            if (aiFlow) aiFlow.style.display = 'block';
+            if (aiFlow) {
+                aiFlow.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         } else if (viewName === 'website') {
             window.location.href = 'http://localhost:3000';
             return;
         } else {
-            if (crmPortal) crmPortal.style.display = 'block';
-            renderCallsTable(allCalls);
-            if (allCalls.length > 0) {
-                selectCall(allCalls[0].id);
+            // CRM Portal
+            if (crmPortal) {
+                crmPortal.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-            renderClientsTable(allClients);
-            if (allClients.length > 0) {
-                selectClient(allClients[0].id);
+            try {
+                if (typeof renderCallsTable === 'function' && typeof allCalls !== 'undefined') {
+                    renderCallsTable(allCalls);
+                    if (allCalls.length > 0) selectCall(allCalls[0].id);
+                }
+                if (typeof renderClientsTable === 'function' && typeof allClients !== 'undefined') {
+                    renderClientsTable(allClients);
+                    if (allClients.length > 0) selectClient(allClients[0].id);
+                }
+                if (typeof initTrackerModule === 'function') {
+                    initTrackerModule();
+                }
+            } catch(err) {
+                console.error("CRM Init Error:", err);
             }
         }
+    }
     }
 
     
@@ -7422,14 +7440,9 @@ ${text}`);
         openLiveConsultationModal();
     }
 
-    function openStudioCrmTab() {
-        openLoginModal();
-    }
+    function openStudioCrmTab() { switchView('crm-portal'); }
 
-    function openLoginModal() {
-        const modal = document.getElementById('modal-login');
-        if (modal) modal.classList.add('show');
-    }
+    function openLoginModal() { switchView('crm-portal'); }
 
     function closeLoginModal() {
         const modal = document.getElementById('modal-login');

@@ -6150,22 +6150,22 @@
 
                     <ul class="sidebar-menu-list">
                         <!-- Module 1: Inbound Calls -->
-                        <li class="sidebar-nav-item active" id="snav-calls" onclick="switchCrmNav('calls')" title="Inbound AI Calls">
+                        <li class="sidebar-nav-item active" id="snav-calls" onclick="switchCrmNav('calls')" title="Inbound AI Concierge">
                             <div class="snav-svg-icon">
                                 <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                             </div>
-                            <span class="snav-label">Inbound AI Calls</span>
+                            <span class="snav-label">Inbound AI Concierge</span>
                             <span class="sidebar-badge">142</span>
                         </li>
 
                                                 <!-- Module 7: Project Lifecycle & AI Voice Tracker (NEW) -->
                         <!-- Module 8: Client Journey & Live Staging (Handwritten Spec Demo) -->
-                        <li class="sidebar-nav-item" id="snav-client-flow" onclick="switchCrmNav('client-flow')" title="5-Stage Client Journey (Demo Flow)">
+                        <li class="sidebar-nav-item" id="snav-client-flow" onclick="switchCrmNav('client-flow')" title="5-Stage Client Onboarding & Tandem Staging Flow">
                             <div class="snav-svg-icon">
                                 <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
                             </div>
                             <span class="snav-label">Client Journey Flow</span>
-                            <span class="sidebar-badge gold-badge" style="background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%); color: #101B30; font-weight: 800; font-size: 9.5px; padding: 2px 7px;">DEMO</span>
+                            <span class="sidebar-badge gold-badge" style="background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%); color: #101B30; font-weight: 800; font-size: 9px; padding: 2px 7px;">WORKFLOW</span>
                         </li>
 
                         <li class="sidebar-nav-item" id="snav-tracker" onclick="switchCrmNav('tracker')" title="Client Project Lifecycle & AI Voice Tracker">
@@ -6190,7 +6190,7 @@
                             <div class="snav-svg-icon">
                                 <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="18" rx="1.5"/><rect x="14" y="3" width="7" height="11" rx="1.5"/></svg>
                             </div>
-                            <span class="snav-label">Leads & Pipeline</span>
+                            <span class="snav-label">Consultation Pipeline</span>
                             <span class="sidebar-badge">14</span>
                         </li>
 
@@ -6208,7 +6208,7 @@
                             <div class="snav-svg-icon">
                                 <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                             </div>
-                            <span class="snav-label">Trade Accounts</span>
+                            <span class="snav-label">Trade & Builder Program</span>
                             <span class="sidebar-badge">2</span>
                         </li>
 
@@ -6217,7 +6217,7 @@
                             <div class="snav-svg-icon">
                                 <svg viewBox="0 0 24 24"><path d="M3 13h18v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6z"/><path d="M6 13V8a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v5"/></svg>
                             </div>
-                            <span class="snav-label">Custom Orders</span>
+                            <span class="snav-label">Bespoke Production</span>
                             <span class="sidebar-badge">5</span>
                         </li>
                     </ul>
@@ -6340,7 +6340,7 @@
                                     <div class="pro-step-icon">02</div>
                                     <div class="pro-step-meta">
                                         <span class="pro-step-num">Step 02</span>
-                                        <span class="pro-step-title">Product Tagging & Specs</span>
+                                        <span class="pro-step-title">Product Specifications</span>
                                     </div>
                                 </div>
                                 <div class="pro-step-card" id="fstep-pill-3" onclick="goToFlowStep(3)">
@@ -6354,7 +6354,7 @@
                                     <div class="pro-step-icon">04</div>
                                     <div class="pro-step-meta">
                                         <span class="pro-step-num">Step 04</span>
-                                        <span class="pro-step-title">Payment Complete</span>
+                                        <span class="pro-step-title">Deposit Authorization</span>
                                     </div>
                                 </div>
                                 <div class="pro-step-card" id="fstep-pill-5" onclick="goToFlowStep(5)">
@@ -6384,17 +6384,17 @@
                                                 <input type="text" id="flow-input-name" value="Sarah Jenkins" placeholder="e.g. Sarah Jenkins" oninput="syncFlowState()">
                                             </div>
                                             <div class="pro-input-box">
-                                                <label>Direct Contact Phone *</label>
+                                                <label>Direct Telephone Number *</label>
                                                 <input type="text" id="flow-input-phone" value="(432) 555-0192" placeholder="(432) 555-0000" oninput="syncFlowState()">
                                             </div>
                                         </div>
                                         <div class="pro-form-2row">
                                             <div class="pro-input-box">
-                                                <label>Client Email Address *</label>
+                                                <label>Client Business / Personal Email *</label>
                                                 <input type="email" id="flow-input-email" value="sarah.jenkins@wtx-properties.com" placeholder="client@domain.com" oninput="syncFlowState()">
                                             </div>
                                             <div class="pro-input-box">
-                                                <label>Residence / Project Location</label>
+                                                <label>Residence & Project Architectural Location</label>
                                                 <input type="text" id="flow-input-location" value="Midland, TX · Greentree Estates" placeholder="Neighborhood / City" oninput="syncFlowState()">
                                             </div>
                                         </div>
@@ -6419,7 +6419,7 @@
 
                                         <div style="margin-top: 10px; display: flex; justify-content: flex-end;">
                                             <button class="btn-pro-primary" onclick="goToFlowStep(2)">
-                                                <span>Proceed to Consultation & Product Tagging &rarr;</span>
+                                                <span>Proceed to Consultation & Product Specification &rarr;</span>
                                             </button>
                                         </div>
                                     </div>
@@ -6448,7 +6448,7 @@
 
                                         <div class="dossier-audio-snippet">
                                             <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; font-weight: 700; color: #0F172A;">
-                                                <span>🎙️ Inbound Call Recording</span>
+                                                <span>🎙️ Verified Telephone Inquiry Recording</span>
                                                 <span style="color: #64748B;" id="flow-audio-time">0:34s</span>
                                             </div>
                                             <div style="font-size: 11px; color: #475569; font-style: italic; margin-top: 2px;" id="flow-audio-quote">
@@ -6548,7 +6548,7 @@
                                         <div style="margin-top: 14px; display: flex; justify-content: space-between;">
                                             <button class="btn-pro-secondary" onclick="goToFlowStep(1)">&larr; Back to Contact</button>
                                             <button class="btn-pro-primary" onclick="goToFlowStep(3)">
-                                                <span>Generate Studio Invoice &rarr;</span>
+                                                <span>Generate Studio Specification Invoice &rarr;</span>
                                             </button>
                                         </div>
                                     </div>
@@ -6653,7 +6653,7 @@
                                 <div style="margin-top: 18px; display: flex; justify-content: space-between;">
                                     <button class="btn-pro-secondary" onclick="goToFlowStep(2)">&larr; Back to Tagging</button>
                                     <button class="btn-pro-primary" onclick="goToFlowStep(4)">
-                                        <span>Proceed to Payment Completion &rarr;</span>
+                                        <span>Proceed to Deposit Authorization &rarr;</span>
                                     </button>
                                 </div>
                             </div>
@@ -6663,7 +6663,7 @@
                                 <div class="pro-stage-header">
                                     <div>
                                         <span class="pro-stage-badge">Stage 4 of 5 · Payment Lock</span>
-                                        <h3 class="pro-stage-h3">Deposit Collection & Hardwood Mill Authorization</h3>
+                                        <h3 class="pro-stage-h3">Mobilization Deposit & Workshop Allocation</h3>
                                         <p class="pro-stage-desc">Process initial mobilization deposit to authorize timber allocation and workshop bench queue.</p>
                                     </div>
                                 </div>
@@ -6698,14 +6698,14 @@
 
                                         <div>
                                             <button id="btn-simulate-pay" class="btn-execute-payment" onclick="executeSimulatedPayment()">
-                                                <span>⚡ Collect Payment & Authorize Workshop Build ($9,000.00)</span>
+                                                <span>⚡ Authorize Mobilization Deposit & Lock Mill Queue ($9,000.00)</span>
                                             </button>
                                         </div>
 
                                         <div id="pay-success-alert" class="payment-success-banner" style="display: none;">
                                             <div style="font-size: 22px;">✅</div>
                                             <div>
-                                                <div style="font-weight: 800; font-size: 13px; color: #166534;">Deposit Successfully Captured & Verified!</div>
+                                                <div style="font-weight: 800; font-size: 13px; color: #166534;">Mobilization Deposit Successfully Received & Verified</div>
                                                 <div style="font-size: 11.5px; color: #15803D; margin-top: 2px;">Receipt #REC-88219 dispatched to client. Timber milling authorized.</div>
                                             </div>
                                         </div>
@@ -6713,7 +6713,7 @@
                                         <div style="margin-top: 14px; display: flex; justify-content: space-between;">
                                             <button class="btn-pro-secondary" onclick="goToFlowStep(3)">&larr; Back to Invoice</button>
                                             <button class="btn-pro-primary" id="btn-next-step5" onclick="goToFlowStep(5)">
-                                                <span>Configure Client Tracking &rarr;</span>
+                                                <span>Configure Client Tandem Tracking &rarr;</span>
                                             </button>
                                         </div>
                                     </div>
@@ -6747,7 +6747,7 @@
                                 <div class="pro-stage-header">
                                     <div>
                                         <span class="pro-stage-badge" style="background: #DCFCE7; color: #166534;">Stage 5 of 5 · Client in Tandem</span>
-                                        <h3 class="pro-stage-h3">Next Steps & Live Tandem Tracking Dispatch</h3>
+                                        <h3 class="pro-stage-h3">Client Communication Protocol & Shared Tandem Portal</h3>
                                         <p class="pro-stage-desc">Configure client tracking preferences and share the real-time tandem progress portal with the client.</p>
                                     </div>
                                 </div>
@@ -8348,7 +8348,7 @@
                 <button type="submit" class="btn-modal-primary">Sign In to Studio Portal</button>
             </form>
 
-            <button class="btn-modal-secondary" onclick="handleQuickDemoLogin()">1-Click Instant Demo Login</button>
+            <button class="btn-modal-secondary" onclick="handleQuickDemoLogin()">Direct Studio Authentication</button>
         </div>
     </div>
 
@@ -9655,7 +9655,7 @@ function launchJourneyForClient(clientId, event) {
         if (payCollect) payCollect.textContent = `$${deposit.toLocaleString()}.00 USD`;
         const btnSimPay = document.getElementById('btn-simulate-pay');
         if (btnSimPay && !isFlowPaymentDone) {
-            btnSimPay.innerHTML = `<span>⚡ Collect Payment & Authorize Workshop Build ($${deposit.toLocaleString()}.00)</span>`;
+            btnSimPay.innerHTML = `<span>⚡ Authorize Mobilization Deposit & Lock Mill Queue ($${deposit.toLocaleString()}.00)</span>`;
         }
 
         const pstatTotal = document.getElementById('pstat-total');

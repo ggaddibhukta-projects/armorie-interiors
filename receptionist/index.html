@@ -6160,7 +6160,7 @@
 
                                                 <!-- Module 7: Project Lifecycle & AI Voice Tracker (NEW) -->
                         <!-- Module 8: Client Journey & Live Staging (Handwritten Spec Demo) -->
-                        <li class="sidebar-nav-item" id="snav-client-flow" onclick="switchCrmNav('client-flow')" title="5-Stage Client Onboarding & Tandem Staging Flow">
+                        <li class="sidebar-nav-item" id="snav-client-flow" onclick="switchCrmNav('client-flow')" title="5-Stage Client Onboarding & Live Staging Flow">
                             <div class="snav-svg-icon">
                                 <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
                             </div>
@@ -6361,7 +6361,7 @@
                                     <div class="pro-step-icon">05</div>
                                     <div class="pro-step-meta">
                                         <span class="pro-step-num">Step 05</span>
-                                        <span class="pro-step-title">Shared Tandem Tracker</span>
+                                        <span class="pro-step-title">Client Progress Portal</span>
                                     </div>
                                 </div>
                             </div>
@@ -6713,7 +6713,7 @@
                                         <div style="margin-top: 14px; display: flex; justify-content: space-between;">
                                             <button class="btn-pro-secondary" onclick="goToFlowStep(3)">&larr; Back to Invoice</button>
                                             <button class="btn-pro-primary" id="btn-next-step5" onclick="goToFlowStep(5)">
-                                                <span>Configure Client Tandem Tracking &rarr;</span>
+                                                <span>Setup Client Live Tracking Portal &rarr;</span>
                                             </button>
                                         </div>
                                     </div>
@@ -6746,9 +6746,9 @@
                             <div class="pro-card-stage" id="fstage-5" style="display: none;">
                                 <div class="pro-stage-header">
                                     <div>
-                                        <span class="pro-stage-badge" style="background: #DCFCE7; color: #166534;">Stage 5 of 5 · Client in Tandem</span>
-                                        <h3 class="pro-stage-h3">Client Communication Protocol & Shared Tandem Portal</h3>
-                                        <p class="pro-stage-desc">Configure client tracking preferences and share the real-time tandem progress portal with the client.</p>
+                                        <span class="pro-stage-badge" style="background: #DCFCE7; color: #166534;">Stage 5 of 5 · Live Progress Portal</span>
+                                        <h3 class="pro-stage-h3">Client Communication Protocol & Live Progress Portal</h3>
+                                        <p class="pro-stage-desc">Configure client notification preferences and share the private live progress portal directly with the client.</p>
                                     </div>
                                 </div>
 
@@ -6778,7 +6778,7 @@
                                             <div class="pref-toggle-card">
                                                 <input type="checkbox" id="pref-portal" checked class="task-checkbox">
                                                 <div>
-                                                    <div style="font-weight: 800; font-size: 13px; color: #0F172A;">Private Client Tandem Web Link</div>
+                                                    <div style="font-weight: 800; font-size: 13px; color: #0F172A;">Private 24/7 Client Live Tracking Link</div>
                                                     <div style="font-size: 11px; color: #64748B; margin-top: 2px;">Interactive mobile-optimized tracking page accessible 24/7.</div>
                                                 </div>
                                             </div>
@@ -6786,7 +6786,7 @@
 
                                         <div style="margin-top: 12px; border-top: 1.5px solid #F1F5F9; padding-top: 14px;">
                                             <div style="font-size: 11px; font-weight: 800; color: #0F172A; text-transform: uppercase; margin-bottom: 6px;">
-                                                🔗 Shared Client Tandem Tracking Link
+                                                🔗 Private Client Live Tracking Link
                                             </div>
                                             <div class="shared-link-box">
                                                 <input type="text" id="shared-client-link-input" readonly value="https://ggaddibhukta-projects.github.io/armorie-interiors/receptionist?client=sarah-jenkins&token=arm_live_8821">
@@ -6798,7 +6798,7 @@
                                             <button class="btn-whatsapp-dispatch" onclick="sendSharedLinkWhatsApp()">
                                                 <span>📲 Dispatch Live Link to Client on WhatsApp</span>
                                             </button>
-                                            <button class="btn-pro-secondary" onclick="openClientTandemModal()">
+                                            <button class="btn-pro-secondary" onclick="openClientPortalModal()">
                                                 <span>👁️ Preview Live Client View</span>
                                             </button>
                                         </div>
@@ -6807,13 +6807,13 @@
                                     <div class="pro-dossier-card" style="background: #0F172A; color: #FFFFFF; border-color: rgba(197,160,89,0.3);">
                                         <div style="display: flex; justify-content: space-between; align-items: center;">
                                             <span style="background: rgba(197,160,89,0.25); color: #F5E6C8; font-size: 10.5px; font-weight: 800; padding: 3px 8px; border-radius: 6px;">LIVE SHARED CLIENT PORTAL</span>
-                                            <span style="font-size: 11px; color: #94A3B8;">Real-Time Tandem Sync</span>
+                                            <span style="font-size: 11px; color: #94A3B8;">Real-Time Studio Sync</span>
                                         </div>
 
                                         <div class="client-phone-mockup-frame">
                                             <div class="phone-mockup-header">
                                                 <div style="color: #F8FAFC; font-weight: 700;">Armorie Interiors · Client Portal</div>
-                                                <div style="color: #4ADE80; font-weight: 700;">● Live Tandem</div>
+                                                <div style="color: #4ADE80; font-weight: 700;">● Live Progress Portal</div>
                                             </div>
                                             <div class="phone-mockup-body">
                                                 <div id="phone-mockup-title" style="font-size: 14px; font-weight: 700; color: #FFFFFF; font-family: 'Cormorant Garamond', Georgia, serif;">The Camille 96" Custom Living Room Suite</div>
@@ -9545,7 +9545,7 @@ function launchJourneyForClient(clientId, event) {
         renderTaggedProducts();
         updateInvoiceDocument();
 
-        // 6. Update Shared Tandem Tracker Phone Mockup
+        // 6. Update Client Progress Portal Phone Mockup
         const phoneTitle = document.getElementById('phone-mockup-title');
         if (phoneTitle) phoneTitle.textContent = data.projectTitle;
         const phoneSub = document.getElementById('phone-mockup-sub');
@@ -9707,7 +9707,7 @@ function launchJourneyForClient(clientId, event) {
         if (input) {
             input.select();
             navigator.clipboard.writeText(input.value);
-            alert('✓ Shared Client Tandem Tracking Link copied to clipboard!\n\n' + input.value);
+            alert('✓ Private Client Live Tracking Link copied to clipboard!\n\n' + input.value);
         }
     }
 
@@ -9715,10 +9715,11 @@ function launchJourneyForClient(clientId, event) {
         const name = document.getElementById('flow-input-name')?.value || 'Sarah';
         const phone = document.getElementById('flow-input-phone')?.value || '(432) 555-0192';
         const link = document.getElementById('shared-client-link-input')?.value;
-        alert(`✓ WhatsApp Message Dispatched to ${name} (${phone})!\n\n"Hi ${name}! Thank you for your consultation with Armorie Interiors. Your bespoke furniture project is now active in our Texas workshop. Track your build live in tandem with our master artisans here:\n${link}"`);
+        alert(`✓ WhatsApp Message Dispatched to ${name} (${phone})!\n\n"Hi ${name}! Thank you for your consultation with Armorie Interiors. Your bespoke furniture project is now active in our Texas workshop. Track your custom build progress live here:\n${link}"`);
     }
 
-    function openClientTandemModal() {
+    function openClientPortalModal() { openClientTandemModalImpl(); }
+    function openClientTandemModalImpl() {
         window.open('https://ggaddibhukta-projects.github.io/armorie-interiors/receptionist', '_blank');
     }
 
@@ -11164,7 +11165,7 @@ function launchJourneyForClient(clientId, event) {
                 </td>
                 <td style="text-align: right;">
                     <div class="table-action-btns" style="justify-content: flex-end;">
-                        <button class="btn-action-icon gold" onclick="launchJourneyForClient('${c.id}', event)" title="Launch 5-Stage Client Journey (Tagging & Tandem Tracker)" style="background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%); color: #0F172A; border-color: var(--gold); box-shadow: 0 2px 8px rgba(197, 160, 89, 0.35); font-weight: 800;">
+                        <button class="btn-action-icon gold" onclick="launchJourneyForClient('${c.id}', event)" title="Launch 5-Stage Client Journey (Tagging & Live Tracking)" style="background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%); color: #0F172A; border-color: var(--gold); box-shadow: 0 2px 8px rgba(197, 160, 89, 0.35); font-weight: 800;">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
                         </button>
                         <button class="btn-action-icon gold" onclick="openRecordInspectorForClient('${c.id}', 'memo', event)" title="Branded AI Specification Brief">

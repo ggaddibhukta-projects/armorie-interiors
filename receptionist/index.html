@@ -4928,6 +4928,517 @@
             font-weight: 700;
             cursor: pointer;
         }
+/* ── LUXURY ENTERPRISE CLIENT JOURNEY STYLES ── */
+        .pro-flow-container {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .pro-hero-banner {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #131E32 100%);
+            border-radius: 16px;
+            padding: 24px 28px;
+            color: #FFFFFF;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pro-hero-banner::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .pro-hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .pro-hero-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin: 4px 0 0 0;
+            letter-spacing: -0.3px;
+        }
+
+        .pro-hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(197, 160, 89, 0.18);
+            border: 1px solid var(--gold);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 10.5px;
+            font-weight: 800;
+            color: #F5E6C8;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .pro-hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 12px 18px;
+        }
+
+        .hero-metric-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .hero-metric-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .hero-metric-val {
+            font-size: 14px;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+
+        /* ── 5-STEP LUXURY PIPELINE STEPPER ── */
+        .pro-stepper-track {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .pro-step-card {
+            background: #FFFFFF;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .pro-step-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.15);
+        }
+
+        .pro-step-card.active {
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            border-color: #0F172A;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+        }
+
+        .pro-step-card.completed {
+            border-color: #CBD5E1;
+            background: #F8FAFC;
+        }
+
+        .pro-step-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: #F1F5F9;
+            color: var(--navy);
+            font-size: 13px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.25s;
+        }
+
+        .pro-step-card.active .pro-step-icon {
+            background: var(--gold);
+            color: #0F172A;
+            box-shadow: 0 0 12px rgba(197, 160, 89, 0.5);
+        }
+
+        .pro-step-card.completed .pro-step-icon {
+            background: #DCFCE7;
+            color: #166534;
+        }
+
+        .pro-step-meta {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .pro-step-num {
+            font-size: 10px;
+            font-weight: 800;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .pro-step-card.active .pro-step-num {
+            color: var(--gold);
+        }
+
+        .pro-step-title {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--navy);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .pro-step-card.active .pro-step-title {
+            color: #FFFFFF;
+        }
+
+        /* ── STAGE CARDS & GRIDS ── */
+        .pro-card-stage {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 26px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .pro-stage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1.5px solid #F1F5F9;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .pro-stage-badge {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            background: #FAF5EA;
+            color: #B45309;
+            padding: 3px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .pro-stage-h3 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #0F172A;
+            margin: 0;
+        }
+
+        .pro-stage-desc {
+            font-size: 12.5px;
+            color: #64748B;
+            margin: 2px 0 0 0;
+        }
+
+        .pro-layout-2col {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 960px) {
+            .pro-layout-2col { grid-template-columns: 1fr; }
+            .pro-stepper-track { grid-template-columns: 1fr; }
+            .pro-hero-metrics { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ── FORMS & INPUTS ── */
+        .pro-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .pro-form-2row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .pro-input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .pro-input-box label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #334155;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .pro-input-box input, .pro-input-box select, .pro-input-box textarea {
+            background: #F8FAFC;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #0F172A;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .pro-input-box input:focus, .pro-input-box select:focus, .pro-input-box textarea:focus {
+            background: #FFFFFF;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+        }
+
+        /* ── RICH PREVIEW SIDEBAR ── */
+        .pro-dossier-card {
+            background: #F8FAFC;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .dossier-profile-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .dossier-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: var(--gold);
+            font-weight: 800;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--gold);
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .dossier-tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .dossier-tag {
+            font-size: 10.5px;
+            font-weight: 700;
+            background: #EFF6FF;
+            color: #1D4ED8;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid #DBEAFE;
+        }
+
+        .dossier-audio-snippet {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .audio-wave-bar {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            height: 18px;
+            margin-top: 4px;
+        }
+
+        .wave-line {
+            width: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+            animation: waveBounce 1.2s infinite ease-in-out;
+        }
+        .wave-line:nth-child(2) { height: 70%; animation-delay: 0.1s; }
+        .wave-line:nth-child(3) { height: 100%; animation-delay: 0.2s; }
+        .wave-line:nth-child(4) { height: 45%; animation-delay: 0.3s; }
+        .wave-line:nth-child(5) { height: 85%; animation-delay: 0.4s; }
+        .wave-line:nth-child(6) { height: 60%; animation-delay: 0.5s; }
+
+        @keyframes waveBounce {
+            0%, 100% { transform: scaleY(0.4); }
+            50% { transform: scaleY(1); }
+        }
+
+        /* ── PRODUCT TAGGING RICH CARDS ── */
+        .pro-catalog-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 340px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .pro-product-card {
+            background: #FFFFFF;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .pro-product-card:hover {
+            border-color: var(--gold);
+            background: #FAF8F2;
+            transform: translateX(2px);
+        }
+
+        .pro-product-card.tagged {
+            border-color: var(--gold);
+            background: #FAF5EA;
+            box-shadow: 0 4px 14px rgba(197, 160, 89, 0.12);
+        }
+
+        .pro-product-card.tagged .pro-check-box {
+            background: var(--gold);
+            color: #0F172A;
+            border-color: var(--gold);
+        }
+
+        .pro-check-box {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            border: 1.5px solid #CBD5E1;
+            background: #FFFFFF;
+            color: transparent;
+            font-size: 13px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .pro-prod-img-thumb {
+            width: 52px;
+            height: 52px;
+            border-radius: 8px;
+            background: #F1F5F9;
+            object-fit: cover;
+            border: 1px solid #E2E8F0;
+            flex-shrink: 0;
+        }
+
+        .pro-prod-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .pro-prod-name {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #0F172A;
+        }
+
+        .pro-prod-specs {
+            font-size: 11px;
+            color: #64748B;
+        }
+
+        .pro-prod-price {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--gold);
+            text-align: right;
+        }
+
+        /* ── BUTTONS ── */
+        .btn-pro-primary {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: #FFFFFF;
+            border: none;
+            padding: 11px 22px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 12.5px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+            transition: all 0.2s;
+        }
+
+        .btn-pro-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.3);
+        }
+
+        .btn-pro-secondary {
+            background: #F8FAFC;
+            border: 1.5px solid #CBD5E1;
+            color: #334155;
+            padding: 11px 18px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 12.5px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-pro-secondary:hover {
+            background: #FFFFFF;
+            border-color: #94A3B8;
+        }
     </style>
 </head>
 <body>
@@ -5617,536 +6128,576 @@
                     
                     <!-- MODULE 1: INBOUND CALLS & TRANSCRIPTS -->
                     <!-- ── MODULE 8: COMPLETE CLIENT JOURNEY & LIVE STAGING FLOW (HANDWRITTEN SPEC DEMO) ── -->
+                    <!-- ── MODULE 8: COMPLETE CLIENT JOURNEY & LIVE STAGING FLOW (HANDWRITTEN SPEC DEMO) ── -->
                     <div id="cmod-client-flow" class="crm-module-pane">
-                        
-                        <!-- Flow Hero Banner -->
-                        <div class="tracker-hero-card" style="background: linear-gradient(135deg, #121D33 0%, #1E2D4A 100%); border-left: 4px solid var(--gold); border-radius: var(--radius-lg); padding: 20px 24px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
-                            <div class="tracker-hero-info">
-                                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(197, 160, 89, 0.2); border: 1px solid var(--gold); padding: 4px 12px; border-radius: 20px; font-size: 10.5px; font-weight: 700; color: #F3E5AB; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 8px;">
-                                    <span>📋 Interactive 5-Stage Studio Client Flow</span>
-                                </div>
-                                <h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; color: #FFFFFF; font-weight: 700; margin: 0 0 4px 0;">
-                                    End-to-End Client Onboarding, Tagging & Tandem Tracking
-                                </h2>
-                                <p style="font-size: 12.5px; color: rgba(255,255,255,0.75); margin: 0; max-width: 800px;">
-                                    Implementation of your consultation workflow: <strong>Contact Profile &rarr; Product Tagging & Requirements &rarr; Studio Invoice &rarr; Payment Complete &rarr; Shared Client Tandem Tracker</strong>.
-                                </p>
-                            </div>
-                            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-                                <button onclick="resetClientDemoFlow()" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; font-size: 11.5px; font-weight: 700; padding: 9px 15px; border-radius: 8px; cursor: pointer;">
-                                    ↺ Reset Demo
-                                </button>
-                                <button onclick="loadSampleClientDemo('sarah')" style="background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%); border: none; color: var(--navy-dark); font-size: 11.5px; font-weight: 800; padding: 9px 16px; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(197, 160, 89, 0.35);">
-                                    ⚡ Load Sarah Jenkins Flow
-                                </button>
-                            </div>
-                        </div>
+                        <div class="pro-flow-container">
 
-                        <!-- Flow Stepper Header Navigation -->
-                        <div class="flow-nav-stepper" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 20px;">
-                            <div class="flow-step-pill active" id="fstep-pill-1" onclick="goToFlowStep(1)">
-                                <div class="step-num-badge">1</div>
-                                <div class="step-meta">
-                                    <div class="step-kicker">Step 01</div>
-                                    <div class="step-name">Name, Phone & Email</div>
-                                </div>
-                            </div>
-                            <div class="flow-step-pill" id="fstep-pill-2" onclick="goToFlowStep(2)">
-                                <div class="step-num-badge">2</div>
-                                <div class="step-meta">
-                                    <div class="step-kicker">Step 02</div>
-                                    <div class="step-name">Product Tagging & Specs</div>
-                                </div>
-                            </div>
-                            <div class="flow-step-pill" id="fstep-pill-3" onclick="goToFlowStep(3)">
-                                <div class="step-num-badge">3</div>
-                                <div class="step-meta">
-                                    <div class="step-kicker">Step 03</div>
-                                    <div class="step-name">Studio Invoice</div>
-                                </div>
-                            </div>
-                            <div class="flow-step-pill" id="fstep-pill-4" onclick="goToFlowStep(4)">
-                                <div class="step-num-badge">4</div>
-                                <div class="step-meta">
-                                    <div class="step-kicker">Step 04</div>
-                                    <div class="step-name">Payment Complete</div>
-                                </div>
-                            </div>
-                            <div class="flow-step-pill" id="fstep-pill-5" onclick="goToFlowStep(5)">
-                                <div class="step-num-badge">5</div>
-                                <div class="step-meta">
-                                    <div class="step-kicker">Step 05</div>
-                                    <div class="step-name">Shared Tandem Tracker</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- ── STEP 1 CONTAINER: CLIENT CONTACT PROFILE ── -->
-                        <div class="flow-stage-card" id="fstage-1" style="display: block;">
-                            <div class="flow-card-head">
-                                <div>
-                                    <span class="flow-step-badge">Stage 1 of 5</span>
-                                    <h3 class="flow-card-title">Client Contact Identification</h3>
-                                    <p class="flow-card-desc">Capture client identity, direct phone number, and architectural residence details.</p>
-                                </div>
-                                <div class="preset-chips-box">
-                                    <span style="font-size: 11px; color: var(--text-tertiary); font-weight: 600;">Fast Demo Presets:</span>
-                                    <button class="preset-chip" onclick="loadSampleClientDemo('sarah')">Sarah Jenkins</button>
-                                    <button class="preset-chip" onclick="loadSampleClientDemo('vance')">Elena Vance</button>
-                                    <button class="preset-chip" onclick="loadSampleClientDemo('harrison')">Greentree Estate</button>
-                                </div>
-                            </div>
-
-                            <div class="flow-grid-2col">
-                                <div class="flow-form-panel">
-                                    <div class="flow-form-row">
-                                        <div class="flow-field">
-                                            <label>Client Full Name *</label>
-                                            <input type="text" id="flow-input-name" value="Sarah Jenkins" placeholder="e.g. Sarah Jenkins" oninput="syncFlowState()">
+                            <!-- Executive Hero Card -->
+                            <div class="pro-hero-banner">
+                                <div class="pro-hero-top">
+                                    <div>
+                                        <div class="pro-hero-kicker">
+                                            <span>✨ Active Studio Consultation Pipeline</span>
                                         </div>
-                                        <div class="flow-field">
-                                            <label>Direct Contact Phone *</label>
-                                            <input type="text" id="flow-input-phone" value="(432) 555-0192" placeholder="(432) 555-0000" oninput="syncFlowState()">
-                                        </div>
+                                        <h2 class="pro-hero-title">End-to-End Client Journey & Shared Tandem Tracking</h2>
                                     </div>
-                                    <div class="flow-form-row">
-                                        <div class="flow-field">
-                                            <label>Client Email Address *</label>
-                                            <input type="email" id="flow-input-email" value="sarah.jenkins@wtx-properties.com" placeholder="client@domain.com" oninput="syncFlowState()">
-                                        </div>
-                                        <div class="flow-field">
-                                            <label>Residence / Project Location</label>
-                                            <input type="text" id="flow-input-location" value="Midland, TX · Greentree Estates" placeholder="Neighborhood / City" oninput="syncFlowState()">
-                                        </div>
-                                    </div>
-                                    <div class="flow-form-row">
-                                        <div class="flow-field">
-                                            <label>Assigned Lead Designer</label>
-                                            <select id="flow-input-designer" onchange="syncFlowState()">
-                                                <option value="Sarah Collins (Lead Studio Designer)">Sarah Collins (Lead Studio Designer)</option>
-                                                <option value="Marcus Thorne (Master Artisan)">Marcus Thorne (Master Artisan)</option>
-                                                <option value="Elena Rostova (Textile Specialist)">Elena Rostova (Textile Specialist)</option>
-                                            </select>
-                                        </div>
-                                        <div class="flow-field">
-                                            <label>Inbound Lead Channel</label>
-                                            <select id="flow-input-channel">
-                                                <option value="AI Voice Receptionist (Phone Concierge)">AI Voice Receptionist (Phone Concierge)</option>
-                                                <option value="Website Consultation Booking">Website Consultation Booking</option>
-                                                <option value="Midland Showroom Walk-in">Midland Showroom Walk-in</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div style="margin-top: 14px; display: flex; justify-content: flex-end;">
-                                        <button class="btn-flow-next" onclick="goToFlowStep(2)">
-                                            <span>Proceed to Consultation & Product Tagging &rarr;</span>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button onclick="resetClientDemoFlow()" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #FFFFFF; font-size: 11.5px; font-weight: 700; padding: 9px 15px; border-radius: 8px; cursor: pointer;">
+                                            ↺ Reset Flow
+                                        </button>
+                                        <button onclick="loadSampleClientDemo('sarah')" style="background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%); border: none; color: #0F172A; font-size: 11.5px; font-weight: 800; padding: 9px 16px; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 14px rgba(197, 160, 89, 0.35);">
+                                            ⚡ Load Sarah Jenkins (Demo)
                                         </button>
                                     </div>
                                 </div>
 
-                                <div class="flow-summary-preview-card">
-                                    <div class="preview-badge-row" style="display: flex; justify-content: space-between; align-items: center;">
-                                        <span class="preview-live-tag" style="color: #166534; font-weight: 700; font-size: 11px;">● Live Contact Synchronized</span>
-                                        <span class="preview-id-tag" id="flow-preview-id" style="font-size: 10.5px; font-weight: 800; color: var(--navy);">CLIENT #ARM-8821</span>
+                                <div class="pro-hero-metrics">
+                                    <div class="hero-metric-item">
+                                        <span class="hero-metric-label">Active Client</span>
+                                        <span class="hero-metric-val" id="hero-m-client">Sarah Jenkins</span>
                                     </div>
-                                    <div class="client-avatar-preview">
-                                        <div class="client-large-avatar" id="flow-preview-avatar">SJ</div>
-                                        <div>
-                                            <h4 id="flow-preview-name" style="margin: 0; font-size: 15px; color: var(--navy); font-weight: 700;">Sarah Jenkins</h4>
-                                            <div id="flow-preview-contact" style="font-size: 11.5px; color: var(--text-secondary); margin-top: 2px;">(432) 555-0192 · sarah.jenkins@wtx-properties.com</div>
-                                            <div id="flow-preview-loc" style="font-size: 11px; color: var(--gold); font-weight: 600; margin-top: 3px;">Midland, TX · Greentree Estates</div>
-                                        </div>
+                                    <div class="hero-metric-item">
+                                        <span class="hero-metric-label">Project Valuation</span>
+                                        <span class="hero-metric-val" style="color: var(--gold);" id="hero-m-val">$18,000.00</span>
                                     </div>
-
-                                    <div class="preview-info-box" style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 8px; padding: 10px;">
-                                        <div style="font-size: 10.5px; font-weight: 700; color: var(--navy); text-transform: uppercase; margin-bottom: 4px;">Pipeline Integration Status</div>
-                                        <div style="display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: var(--text-secondary);">
-                                            <div>✓ Voice Receptionist Audio Verified</div>
-                                            <div>✓ SMS / WhatsApp Dispatch Permissions Active</div>
-                                            <div>✓ Consultation Workspace Provisioned</div>
-                                        </div>
+                                    <div class="hero-metric-item">
+                                        <span class="hero-metric-label">Hardwood Mill Status</span>
+                                        <span class="hero-metric-val" style="color: #4ADE80;">Ghent Linen Reserved</span>
+                                    </div>
+                                    <div class="hero-metric-item">
+                                        <span class="hero-metric-label">Target Install Date</span>
+                                        <span class="hero-metric-val">Prior to Thanksgiving</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- ── STEP 2 CONTAINER: CONSULTATION REQUIREMENTS & WEBSITE PRODUCT TAGGING ── -->
-                        <div class="flow-stage-card" id="fstage-2" style="display: none;">
-                            <div class="flow-card-head">
-                                <div>
-                                    <span class="flow-step-badge">Stage 2 of 5</span>
-                                    <h3 class="flow-card-title">Consultation Requirements & Website Product Tagging</h3>
-                                    <p class="flow-card-desc">Document client vision and tag custom furniture silhouettes directly from the website catalog.</p>
-                                </div>
-                                <div style="display: flex; gap: 8px;">
-                                    <a href="http://localhost:3000/#special-collection" target="_blank" class="btn-flow-outline" style="text-decoration: none;">
-                                        <span>🌐 Open Website Catalog &rarr;</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="flow-grid-2col">
-                                <div class="flow-form-panel">
-                                    <div class="flow-field">
-                                        <label>Consultation Scope & Architectural Vision Notes</label>
-                                        <textarea id="flow-consult-notes" rows="3" style="width: 100%; border: 1px solid var(--border-light); border-radius: 8px; padding: 10px; font-size: 12px; line-height: 1.45;" placeholder="Document room dimensions, window heights, fabric preferences...">Primary Great Room Seating & Custom Motorized Window Elevation. Client requested 8-way hand-tied custom sofa with deep Belgian linen seating and matching motorized linen draperies for four 12-foot architectural windows.</textarea>
-                                    </div>
-
-                                    <div style="margin-top: 14px;">
-                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                            <label style="font-size: 11px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px;">
-                                                🏷️ Link Website Catalog Products (Click to Tag & Add)
-                                            </label>
-                                            <span style="font-size: 10.5px; color: var(--text-tertiary);">Interactive Catalog Staging</span>
-                                        </div>
-
-                                        <div class="product-tagging-grid">
-                                            <div class="prod-tag-card" id="ptag-camille" onclick="toggleProductTag('camille', 'The Camille 96\" Custom Sofa', 8400, 'Living Room Seating')">
-                                                <div class="prod-tag-check">✓</div>
-                                                <div class="prod-tag-info">
-                                                    <div class="prod-tag-title">The Camille 96" Custom Sofa</div>
-                                                    <div class="prod-tag-sub">Kiln-Dried Hardwood · 8-Way Hand-Tied</div>
-                                                </div>
-                                                <div class="prod-tag-price">$8,400</div>
-                                            </div>
-
-                                            <div class="prod-tag-card" id="ptag-linen" onclick="toggleProductTag('linen', 'Oatmeal Belgian Linen (24 Yards)', 3600, 'Fabric Mill Bolt')">
-                                                <div class="prod-tag-check">✓</div>
-                                                <div class="prod-tag-info">
-                                                    <div class="prod-tag-title">Oatmeal Belgian Linen (24 Yds)</div>
-                                                    <div class="prod-tag-sub">Ghent Mill · 100% Flax Performance</div>
-                                                </div>
-                                                <div class="prod-tag-price">$3,600</div>
-                                            </div>
-
-                                            <div class="prod-tag-card" id="ptag-somfy" onclick="toggleProductTag('somfy', 'Somfy Motorized Ripplefold Drapery (4x 12ft)', 4800, 'Window Treatments')">
-                                                <div class="prod-tag-check">✓</div>
-                                                <div class="prod-tag-info">
-                                                    <div class="prod-tag-title">Somfy Motorized Ripplefold Drapes</div>
-                                                    <div class="prod-tag-sub">4x 12-Ft Architectural Panels · Quiet Motor</div>
-                                                </div>
-                                                <div class="prod-tag-price">$4,800</div>
-                                            </div>
-
-                                            <div class="prod-tag-card" id="ptag-swivel" onclick="toggleProductTag('swivel', 'Two Camille Curved Swivel Armchairs', 4600, 'Living Room Seating')">
-                                                <div class="prod-tag-check">✓</div>
-                                                <div class="prod-tag-info">
-                                                    <div class="prod-tag-title">Two Camille Swivel Armchairs</div>
-                                                    <div class="prod-tag-sub">Cognac Italian Velvet · Smooth 360° Swivel</div>
-                                                </div>
-                                                <div class="prod-tag-price">$4,600</div>
-                                            </div>
-
-                                            <div class="prod-tag-card" id="ptag-bench" onclick="toggleProductTag('bench', 'Texan White Oak Bench with Down Wrap', 1100, 'Accent Furniture')">
-                                                <div class="prod-tag-check">✓</div>
-                                                <div class="prod-tag-info">
-                                                    <div class="prod-tag-title">Texan White Oak Bench</div>
-                                                    <div class="prod-tag-sub">Solid Hardwood · Down Wrapped Cushion</div>
-                                                </div>
-                                                <div class="prod-tag-price">$1,100</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div style="margin-top: 18px; display: flex; justify-content: space-between;">
-                                        <button class="btn-flow-back" onclick="goToFlowStep(1)">&larr; Back to Contact</button>
-                                        <button class="btn-flow-next" onclick="goToFlowStep(3)">
-                                            <span>Generate Studio Invoice &rarr;</span>
-                                        </button>
+                            <!-- 5-Stage Stepper Navigation -->
+                            <div class="pro-stepper-track">
+                                <div class="pro-step-card active" id="fstep-pill-1" onclick="goToFlowStep(1)">
+                                    <div class="pro-step-icon">01</div>
+                                    <div class="pro-step-meta">
+                                        <span class="pro-step-num">Step 01</span>
+                                        <span class="pro-step-title">Name, Phone & Email</span>
                                     </div>
                                 </div>
-
-                                <div class="flow-summary-preview-card">
-                                    <div class="preview-badge-row" style="display: flex; justify-content: space-between; align-items: center;">
-                                        <span class="preview-live-tag" style="color: #166534; font-weight: 700; font-size: 11px;">● Documented Requirements</span>
-                                        <span style="font-size: 11px; font-weight: 700; color: var(--navy);" id="tagged-items-count">3 Items Tagged</span>
+                                <div class="pro-step-card" id="fstep-pill-2" onclick="goToFlowStep(2)">
+                                    <div class="pro-step-icon">02</div>
+                                    <div class="pro-step-meta">
+                                        <span class="pro-step-num">Step 02</span>
+                                        <span class="pro-step-title">Product Tagging & Specs</span>
                                     </div>
-
-                                    <div style="font-size: 11.5px; font-weight: 700; color: var(--navy); margin-bottom: 6px;">Active Tagged Specification:</div>
-                                    <div id="tagged-items-list" class="tagged-items-mini-list">
-                                        <!-- Dynamic Tagged Items -->
+                                </div>
+                                <div class="pro-step-card" id="fstep-pill-3" onclick="goToFlowStep(3)">
+                                    <div class="pro-step-icon">03</div>
+                                    <div class="pro-step-meta">
+                                        <span class="pro-step-num">Step 03</span>
+                                        <span class="pro-step-title">Studio Invoice</span>
                                     </div>
-
-                                    <div class="tagged-total-row">
-                                        <span>Estimated Project Investment:</span>
-                                        <strong id="tagged-total-price" style="font-size: 15px; color: var(--gold);">$16,800</strong>
+                                </div>
+                                <div class="pro-step-card" id="fstep-pill-4" onclick="goToFlowStep(4)">
+                                    <div class="pro-step-icon">04</div>
+                                    <div class="pro-step-meta">
+                                        <span class="pro-step-num">Step 04</span>
+                                        <span class="pro-step-title">Payment Complete</span>
+                                    </div>
+                                </div>
+                                <div class="pro-step-card" id="fstep-pill-5" onclick="goToFlowStep(5)">
+                                    <div class="pro-step-icon">05</div>
+                                    <div class="pro-step-meta">
+                                        <span class="pro-step-num">Step 05</span>
+                                        <span class="pro-step-title">Shared Tandem Tracker</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- ── STEP 3 CONTAINER: STUDIO INVOICE ── -->
-                        <div class="flow-stage-card" id="fstage-3" style="display: none;">
-                            <div class="flow-card-head">
-                                <div>
-                                    <span class="flow-step-badge">Stage 3 of 5</span>
-                                    <h3 class="flow-card-title">Studio Itemized Invoice & Proposal</h3>
-                                    <p class="flow-card-desc">Official branded proposal and mobilization invoice for client review.</p>
-                                </div>
-                                <div style="display: flex; gap: 8px;">
-                                    <button class="btn-flow-outline" onclick="printFlowInvoice()">🖨️ Print / Download PDF</button>
-                                </div>
-                            </div>
-
-                            <div class="flow-invoice-document" id="invoice-doc-box">
-                                <div class="inv-doc-header">
+                            <!-- ── STAGE 1: CONTACT IDENTIFICATION ── -->
+                            <div class="pro-card-stage" id="fstage-1" style="display: block;">
+                                <div class="pro-stage-header">
                                     <div>
-                                        <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--navy);">Armorie Interiors & Textiles</div>
-                                        <div style="font-size: 11px; color: var(--text-secondary); margin-top: 2px;">2612 West Front St, Suite A · Midland, TX 79701 · (432) 555-0188</div>
+                                        <span class="pro-stage-badge">Stage 1 of 5 · Contact Capture</span>
+                                        <h3 class="pro-stage-h3">Client Profile & Residence Specification</h3>
+                                        <p class="pro-stage-desc">Verified contact details, architectural location, and designer allocation.</p>
                                     </div>
-                                    <div style="text-align: right;">
-                                        <div style="font-size: 16px; font-weight: 800; color: var(--gold); letter-spacing: 0.8px;">INVOICE #INV-8821</div>
-                                        <div style="font-size: 10.5px; color: var(--text-secondary); margin-top: 2px;">Issue Date: Aug 22, 2026 · Due Upon Receipt</div>
-                                    </div>
-                                </div>
-
-                                <div class="inv-doc-client-grid">
-                                    <div>
-                                        <div style="font-size: 9.5px; font-weight: 700; color: var(--text-tertiary); text-transform: uppercase;">Billed To:</div>
-                                        <div id="inv-client-name" style="font-size: 12.5px; font-weight: 700; color: var(--navy); margin-top: 2px;">Sarah Jenkins</div>
-                                        <div id="inv-client-contact" style="font-size: 11px; color: var(--text-secondary);">(432) 555-0192 · sarah.jenkins@wtx-properties.com</div>
-                                        <div id="inv-client-loc" style="font-size: 11px; color: var(--text-secondary);">Midland, TX · Greentree Estates</div>
-                                    </div>
-                                    <div>
-                                        <div style="font-size: 9.5px; font-weight: 700; color: var(--text-tertiary); text-transform: uppercase;">Project Specification:</div>
-                                        <div style="font-size: 12px; font-weight: 600; color: var(--navy); margin-top: 2px;">Bespoke Great Room Living Suite & Motorized Drapery</div>
-                                        <div style="font-size: 11px; color: var(--text-secondary);">Lead Artisan: Marcus Thorne · Lead Designer: Sarah Collins</div>
+                                    <div class="preset-chips-box">
+                                        <span style="font-size: 11px; color: #64748B; font-weight: 700;">Demo Presets:</span>
+                                        <button class="preset-chip" onclick="loadSampleClientDemo('sarah')">Sarah Jenkins</button>
+                                        <button class="preset-chip" onclick="loadSampleClientDemo('vance')">Elena Vance</button>
+                                        <button class="preset-chip" onclick="loadSampleClientDemo('harrison')">Greentree Estate</button>
                                     </div>
                                 </div>
 
-                                <table class="inv-doc-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Item Description</th>
-                                            <th>Category</th>
-                                            <th>Qty</th>
-                                            <th style="text-align: right;">Unit Price</th>
-                                            <th style="text-align: right;">Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="inv-table-body">
-                                        <!-- Dynamic Table Rows -->
-                                    </tbody>
-                                </table>
-
-                                <div class="inv-doc-totals-box">
-                                    <div class="inv-total-line">
-                                        <span>Subtotal Tagged Items:</span>
-                                        <span id="inv-subtotal">$16,800.00</span>
-                                    </div>
-                                    <div class="inv-total-line">
-                                        <span>Laser Measure & Texas Workshop White-Glove Installation:</span>
-                                        <span>$1,200.00</span>
-                                    </div>
-                                    <div class="inv-total-line" style="font-size: 13.5px; font-weight: 800; color: var(--navy); border-top: 1.5px solid var(--border-light); padding-top: 6px; margin-top: 4px;">
-                                        <span>Total Project Investment:</span>
-                                        <span id="inv-grand-total" style="color: var(--gold); font-size: 15px;">$18,000.00</span>
-                                    </div>
-                                    <div class="inv-deposit-highlight">
-                                        <span>50% Mobilization Deposit Required to Start Build:</span>
-                                        <strong id="inv-deposit-amount" style="font-size: 14px; color: #166534;">$9,000.00</strong>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style="margin-top: 18px; display: flex; justify-content: space-between;">
-                                <button class="btn-flow-back" onclick="goToFlowStep(2)">&larr; Back to Tagging</button>
-                                <button class="btn-flow-next" onclick="goToFlowStep(4)">
-                                    <span>Proceed to Payment Completion &rarr;</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- ── STEP 4 CONTAINER: PAYMENT COMPLETE ── -->
-                        <div class="flow-stage-card" id="fstage-4" style="display: none;">
-                            <div class="flow-card-head">
-                                <div>
-                                    <span class="flow-step-badge">Stage 4 of 5</span>
-                                    <h3 class="flow-card-title">Payment Completion & Hardwood Mill Authorization</h3>
-                                    <p class="flow-card-desc">Process initial mobilization deposit to authorize timber allocation, loom scheduling, and artisan bench queue.</p>
-                                </div>
-                            </div>
-
-                            <div class="flow-grid-2col">
-                                <div class="flow-form-panel">
-                                    <div style="font-size: 11px; font-weight: 700; color: var(--navy); text-transform: uppercase; margin-bottom: 8px;">Select Payment Method</div>
-                                    <div class="payment-method-selector">
-                                        <div class="pay-method-pill active" id="pm-wire" onclick="selectPayMethod('wire')">
-                                            <div style="font-weight: 700; font-size: 12px;">✨ Studio Wire / Direct ACH</div>
-                                            <div style="font-size: 10px; color: var(--text-tertiary);">Zero processing surcharge · Preferred for luxury orders</div>
+                                <div class="pro-layout-2col">
+                                    <div class="pro-form-group">
+                                        <div class="pro-form-2row">
+                                            <div class="pro-input-box">
+                                                <label>Client Full Name *</label>
+                                                <input type="text" id="flow-input-name" value="Sarah Jenkins" placeholder="e.g. Sarah Jenkins" oninput="syncFlowState()">
+                                            </div>
+                                            <div class="pro-input-box">
+                                                <label>Direct Contact Phone *</label>
+                                                <input type="text" id="flow-input-phone" value="(432) 555-0192" placeholder="(432) 555-0000" oninput="syncFlowState()">
+                                            </div>
                                         </div>
-                                        <div class="pay-method-pill" id="pm-card" onclick="selectPayMethod('card')">
-                                            <div style="font-weight: 700; font-size: 12px;">💳 Trade Amex / Visa Signature</div>
-                                            <div style="font-size: 10px; color: var(--text-tertiary);">Instant card authorization</div>
+                                        <div class="pro-form-2row">
+                                            <div class="pro-input-box">
+                                                <label>Client Email Address *</label>
+                                                <input type="email" id="flow-input-email" value="sarah.jenkins@wtx-properties.com" placeholder="client@domain.com" oninput="syncFlowState()">
+                                            </div>
+                                            <div class="pro-input-box">
+                                                <label>Residence / Project Location</label>
+                                                <input type="text" id="flow-input-location" value="Midland, TX · Greentree Estates" placeholder="Neighborhood / City" oninput="syncFlowState()">
+                                            </div>
                                         </div>
-                                        <div class="pay-method-pill" id="pm-apple" onclick="selectPayMethod('apple')">
-                                            <div style="font-weight: 700; font-size: 12px;">📱 Apple Pay / Tap to Pay</div>
-                                            <div style="font-size: 10px; color: var(--text-tertiary);">Direct showroom device authorization</div>
+                                        <div class="pro-form-2row">
+                                            <div class="pro-input-box">
+                                                <label>Assigned Lead Designer</label>
+                                                <select id="flow-input-designer" onchange="syncFlowState()">
+                                                    <option value="Sarah Collins (Lead Studio Designer)">Sarah Collins (Lead Studio Designer)</option>
+                                                    <option value="Marcus Thorne (Master Artisan)">Marcus Thorne (Master Artisan)</option>
+                                                    <option value="Elena Rostova (Textile Specialist)">Elena Rostova (Textile Specialist)</option>
+                                                </select>
+                                            </div>
+                                            <div class="pro-input-box">
+                                                <label>Estimated Project Budget</label>
+                                                <select id="flow-input-budget">
+                                                    <option value="$15,000 – $25,000">$15,000 – $25,000 (Living Room Suite)</option>
+                                                    <option value="$25,000 – $50,000">$25,000 – $50,000 (Multi-Room Furniture + Drapery)</option>
+                                                    <option value="$50,000+">$50,000+ (Turnkey Full Estate Furnishing)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top: 10px; display: flex; justify-content: flex-end;">
+                                            <button class="btn-pro-primary" onclick="goToFlowStep(2)">
+                                                <span>Proceed to Consultation & Product Tagging &rarr;</span>
+                                            </button>
                                         </div>
                                     </div>
 
-                                    <div class="payment-amount-box" style="margin-top: 14px; background: #FAF8F2; border: 1.5px solid #EBE4D5; border-radius: 10px; padding: 12px 16px;">
+                                    <div class="pro-dossier-card">
                                         <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <span style="font-size: 11px; font-weight: 800; color: #166534; background: #DCFCE7; padding: 3px 8px; border-radius: 6px;">● VERIFIED LEAD DOSSIER</span>
+                                            <span id="flow-preview-id" style="font-size: 11px; font-weight: 800; color: #0F172A;">CLIENT #ARM-8821</span>
+                                        </div>
+
+                                        <div class="dossier-profile-row">
+                                            <div class="dossier-avatar" id="flow-preview-avatar">SJ</div>
                                             <div>
-                                                <div style="font-size: 10.5px; color: var(--text-secondary); text-transform: uppercase;">Amount to Collect:</div>
-                                                <div id="pay-collect-amt" style="font-size: 20px; font-weight: 800; color: var(--navy); font-family: 'Cormorant Garamond', Georgia, serif;">$9,000.00 USD</div>
+                                                <div id="flow-preview-name" style="font-size: 16px; font-weight: 800; color: #0F172A;">Sarah Jenkins</div>
+                                                <div id="flow-preview-contact" style="font-size: 11.5px; color: #64748B; margin-top: 2px;">(432) 555-0192 · sarah.jenkins@wtx-properties.com</div>
+                                                <div id="flow-preview-loc" style="font-size: 11px; color: var(--gold); font-weight: 700; margin-top: 3px;">Midland, TX · Greentree Estates</div>
                                             </div>
-                                            <span style="background: #E8F5E9; color: #166534; font-size: 10.5px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">50% Mobilization Deposit</span>
+                                        </div>
+
+                                        <div class="dossier-tag-row">
+                                            <span class="dossier-tag">Texas Artisan Upholstery</span>
+                                            <span class="dossier-tag">Belgian Linen</span>
+                                            <span class="dossier-tag">Motorized Somfy</span>
+                                            <span class="dossier-tag">Laser Measured</span>
+                                        </div>
+
+                                        <div class="dossier-audio-snippet">
+                                            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; font-weight: 700; color: #0F172A;">
+                                                <span>🎙️ Inbound Receptionist Call Recording</span>
+                                                <span style="color: #64748B;">0:34s</span>
+                                            </div>
+                                            <div style="font-size: 11px; color: #475569; font-style: italic; margin-top: 2px;">
+                                                "Looking for a custom 96-inch deep sofa for our Greentree home with Belgian linen and quiet motorized draperies..."
+                                            </div>
+                                            <div class="audio-wave-bar">
+                                                <div class="wave-line"></div>
+                                                <div class="wave-line"></div>
+                                                <div class="wave-line"></div>
+                                                <div class="wave-line"></div>
+                                                <div class="wave-line"></div>
+                                                <div class="wave-line"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ── STAGE 2: CONSULTATION REQUIREMENTS & WEBSITE PRODUCT TAGGING ── -->
+                            <div class="pro-card-stage" id="fstage-2" style="display: none;">
+                                <div class="pro-stage-header">
+                                    <div>
+                                        <span class="pro-stage-badge">Stage 2 of 5 · Product Tagging</span>
+                                        <h3 class="pro-stage-h3">Consultation Requirements & Website Product Tagging</h3>
+                                        <p class="pro-stage-desc">Document client vision and tag pieces directly from the website collection.</p>
+                                    </div>
+                                    <div style="display: flex; gap: 8px;">
+                                        <a href="http://localhost:3000/#special-collection" target="_blank" class="btn-pro-secondary" style="text-decoration: none; padding: 7px 12px; font-size: 11.5px;">
+                                            <span>🌐 View Website Collection &rarr;</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="pro-layout-2col">
+                                    <div class="pro-form-group">
+                                        <div class="pro-input-box">
+                                            <label>Consultation Scope & Architectural Vision Notes</label>
+                                            <textarea id="flow-consult-notes" rows="3" placeholder="Document room dimensions, window heights, fabric preferences...">Primary Great Room Seating & Custom Motorized Window Elevation. Client requested 8-way hand-tied custom sofa with deep Belgian linen seating and matching motorized linen draperies for four 12-foot architectural windows.</textarea>
+                                        </div>
+
+                                        <div style="margin-top: 6px;">
+                                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                                <label style="font-size: 11px; font-weight: 800; color: #0F172A; text-transform: uppercase; letter-spacing: 0.5px;">
+                                                    🏷️ Link Website Catalog Products (Click to Tag & Add)
+                                                </label>
+                                                <span style="font-size: 11px; color: #64748B;">Click cards to configure</span>
+                                            </div>
+
+                                            <div class="pro-catalog-grid">
+                                                <div class="pro-product-card" id="ptag-camille" onclick="toggleProductTag('camille', 'The Camille 96\" Custom Sofa', 8400, 'Living Room Seating')">
+                                                    <div class="pro-check-box">✓</div>
+                                                    <div class="pro-prod-details">
+                                                        <div class="pro-prod-name">The Camille 96" Custom Sofa</div>
+                                                        <div class="pro-prod-specs">Kiln-Dried Hardwood Maple · 8-Way Hand-Tied Coil Springs · Down Wrap</div>
+                                                    </div>
+                                                    <div class="pro-prod-price">$8,400</div>
+                                                </div>
+
+                                                <div class="pro-product-card" id="ptag-linen" onclick="toggleProductTag('linen', 'Oatmeal Belgian Linen (24 Yards)', 3600, 'Fabric Mill Bolt')">
+                                                    <div class="pro-check-box">✓</div>
+                                                    <div class="pro-prod-details">
+                                                        <div class="pro-prod-name">Oatmeal Belgian Linen (24 Yds)</div>
+                                                        <div class="pro-prod-specs">Ghent Mill Direct · Heavy 540 GSM Grade A Flax · Custom Dyed</div>
+                                                    </div>
+                                                    <div class="pro-prod-price">$3,600</div>
+                                                </div>
+
+                                                <div class="pro-product-card" id="ptag-somfy" onclick="toggleProductTag('somfy', 'Somfy Motorized Ripplefold Drapery (4x 12ft)', 4800, 'Window Treatments')">
+                                                    <div class="pro-check-box">✓</div>
+                                                    <div class="pro-prod-details">
+                                                        <div class="pro-prod-name">Somfy Motorized Ripplefold Drapes</div>
+                                                        <div class="pro-prod-specs">4x 12-Ft Architectural Panels · Ultra-Quiet Lithium Recharging Motor</div>
+                                                    </div>
+                                                    <div class="pro-prod-price">$4,800</div>
+                                                </div>
+
+                                                <div class="pro-product-card" id="ptag-swivel" onclick="toggleProductTag('swivel', 'Two Camille Curved Swivel Armchairs', 4600, 'Living Room Seating')">
+                                                    <div class="pro-check-box">✓</div>
+                                                    <div class="pro-prod-details">
+                                                        <div class="pro-prod-name">Two Camille Curved Swivel Armchairs</div>
+                                                        <div class="pro-prod-specs">Cognac Italian Velvet · Smooth 360° Concealed Swivel Base</div>
+                                                    </div>
+                                                    <div class="pro-prod-price">$4,600</div>
+                                                </div>
+
+                                                <div class="pro-product-card" id="ptag-bench" onclick="toggleProductTag('bench', 'Texan White Oak Bench with Down Wrap', 1100, 'Accent Furniture')">
+                                                    <div class="pro-check-box">✓</div>
+                                                    <div class="pro-prod-details">
+                                                        <div class="pro-prod-name">Texan White Oak Bench</div>
+                                                        <div class="pro-prod-specs">Solid Texan Hardwood · Hypoallergenic Down-Blend Topper</div>
+                                                    </div>
+                                                    <div class="pro-prod-price">$1,100</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top: 14px; display: flex; justify-content: space-between;">
+                                            <button class="btn-pro-secondary" onclick="goToFlowStep(1)">&larr; Back to Contact</button>
+                                            <button class="btn-pro-primary" onclick="goToFlowStep(3)">
+                                                <span>Generate Studio Invoice &rarr;</span>
+                                            </button>
                                         </div>
                                     </div>
 
-                                    <div style="margin-top: 14px;">
-                                        <button id="btn-simulate-pay" class="btn-execute-payment" onclick="executeSimulatedPayment()">
-                                            <span>⚡ Collect Payment & Authorize Workshop Build ($9,000.00)</span>
-                                        </button>
-                                    </div>
+                                    <div class="pro-dossier-card">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <span style="font-size: 11px; font-weight: 800; color: #0F172A;">TAGGED SPECIFICATION</span>
+                                            <span style="font-size: 11px; font-weight: 800; color: #166534; background: #DCFCE7; padding: 2px 7px; border-radius: 6px;" id="tagged-items-count">3 Items Tagged</span>
+                                        </div>
 
-                                    <div id="pay-success-alert" class="payment-success-banner" style="display: none;">
-                                        <div style="font-size: 20px;">✅</div>
+                                        <div id="tagged-items-list" class="tagged-items-mini-list">
+                                            <!-- Tagged items dynamic list -->
+                                        </div>
+
+                                        <div class="tagged-total-row">
+                                            <span style="color: #475569; font-weight: 700;">Estimated Subtotal:</span>
+                                            <strong id="tagged-total-price" style="font-size: 17px; color: var(--gold);">$16,800.00</strong>
+                                        </div>
+
+                                        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px; font-size: 11.5px; color: #475569; line-height: 1.45;">
+                                            <div style="font-weight: 800; color: #0F172A; margin-bottom: 4px; text-transform: uppercase; font-size: 10.5px;">Artisan Fabrication Schedule</div>
+                                            Once tagged, cut sheets and fabric bolt reservations are queued automatically with our master upholsterers in Midland.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ── STAGE 3: STUDIO INVOICE ── -->
+                            <div class="pro-card-stage" id="fstage-3" style="display: none;">
+                                <div class="pro-stage-header">
+                                    <div>
+                                        <span class="pro-stage-badge">Stage 3 of 5 · Billing & Deposit</span>
+                                        <h3 class="pro-stage-h3">Studio Itemized Proposal & Invoice</h3>
+                                        <p class="pro-stage-desc">Official branded specification invoice with 50% mobilization deposit terms.</p>
+                                    </div>
+                                    <div style="display: flex; gap: 8px;">
+                                        <button class="btn-pro-secondary" onclick="printFlowInvoice()">🖨️ Print / Download PDF</button>
+                                    </div>
+                                </div>
+
+                                <div class="flow-invoice-document" id="invoice-doc-box" style="border: 2px solid #E2E8F0; border-radius: 14px; background: #FFFFFF; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+                                    <div class="inv-doc-header">
                                         <div>
-                                            <div style="font-weight: 800; font-size: 12.5px; color: #166534;">Payment Successfully Received & Verified!</div>
-                                            <div style="font-size: 11px; color: #15803D; margin-top: 2px;">Receipt #REC-88219 dispatched to client email. Kiln-dried maple allocation authorized.</div>
+                                            <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; font-weight: 800; color: #0F172A;">Armorie Interiors & Textiles</div>
+                                            <div style="font-size: 11px; color: #64748B; margin-top: 2px;">2612 West Front St, Suite A · Midland, TX 79701 · (432) 555-0188</div>
+                                        </div>
+                                        <div style="text-align: right;">
+                                            <div style="font-size: 17px; font-weight: 800; color: var(--gold); letter-spacing: 0.8px;">INVOICE #INV-8821</div>
+                                            <div style="font-size: 11px; color: #64748B; margin-top: 2px;">Issue Date: Aug 22, 2026 · Due Upon Receipt</div>
                                         </div>
                                     </div>
 
-                                    <div style="margin-top: 18px; display: flex; justify-content: space-between;">
-                                        <button class="btn-flow-back" onclick="goToFlowStep(3)">&larr; Back to Invoice</button>
-                                        <button class="btn-flow-next" id="btn-next-step5" onclick="goToFlowStep(5)">
-                                            <span>Configure Client Tracking &rarr;</span>
-                                        </button>
+                                    <div class="inv-doc-client-grid">
+                                        <div>
+                                            <div style="font-size: 10px; font-weight: 800; color: #94A3B8; text-transform: uppercase;">Billed To:</div>
+                                            <div id="inv-client-name" style="font-size: 14px; font-weight: 800; color: #0F172A; margin-top: 2px;">Sarah Jenkins</div>
+                                            <div id="inv-client-contact" style="font-size: 11.5px; color: #64748B;">(432) 555-0192 · sarah.jenkins@wtx-properties.com</div>
+                                            <div id="inv-client-loc" style="font-size: 11px; color: #64748B;">Midland, TX · Greentree Estates</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 10px; font-weight: 800; color: #94A3B8; text-transform: uppercase;">Project Specification:</div>
+                                            <div style="font-size: 13px; font-weight: 700; color: #0F172A; margin-top: 2px;">Bespoke Great Room Living Suite & Motorized Drapery</div>
+                                            <div style="font-size: 11px; color: #64748B;">Lead Artisan: Marcus Thorne · Lead Designer: Sarah Collins</div>
+                                        </div>
+                                    </div>
+
+                                    <table class="inv-doc-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Item Description</th>
+                                                <th>Category</th>
+                                                <th>Qty</th>
+                                                <th style="text-align: right;">Unit Price</th>
+                                                <th style="text-align: right;">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="inv-table-body">
+                                            <!-- Dynamic Line Items -->
+                                        </tbody>
+                                    </table>
+
+                                    <div class="inv-doc-totals-box">
+                                        <div class="inv-total-line">
+                                            <span>Subtotal Tagged Items:</span>
+                                            <span id="inv-subtotal" style="font-weight: 700;">$16,800.00</span>
+                                        </div>
+                                        <div class="inv-total-line">
+                                            <span>Laser Measure & Texas Workshop White-Glove Installation:</span>
+                                            <span style="font-weight: 700;">$1,200.00</span>
+                                        </div>
+                                        <div class="inv-total-line" style="font-size: 14.5px; font-weight: 800; color: #0F172A; border-top: 2px solid #F1F5F9; padding-top: 8px; margin-top: 6px;">
+                                            <span>Total Project Investment:</span>
+                                            <span id="inv-grand-total" style="color: var(--gold); font-size: 17px;">$18,000.00</span>
+                                        </div>
+                                        <div class="inv-deposit-highlight">
+                                            <span>50% Mobilization Deposit Required:</span>
+                                            <strong id="inv-deposit-amount" style="font-size: 15px; color: #166534;">$9,000.00</strong>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="flow-summary-preview-card">
-                                    <div class="preview-badge-row" style="display: flex; justify-content: space-between; align-items: center;">
-                                        <span class="preview-live-tag" style="color: #166534; font-weight: 700; font-size: 11px;">● Financial Summary</span>
-                                        <span id="pay-status-badge" style="background: #FEF3C7; color: #B45309; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px;">AWAITING DEPOSIT</span>
-                                    </div>
-
-                                    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
-                                        <div class="payment-stat-card">
-                                            <div style="font-size: 11px; color: var(--text-tertiary);">Total Project Value:</div>
-                                            <div id="pstat-total" style="font-size: 14px; font-weight: 700; color: var(--navy);">$18,000.00</div>
-                                        </div>
-                                        <div class="payment-stat-card">
-                                            <div style="font-size: 11px; color: var(--text-tertiary);">Deposit Paid:</div>
-                                            <div id="pstat-paid" style="font-size: 14px; font-weight: 700; color: #166534;">$0.00</div>
-                                        </div>
-                                        <div class="payment-stat-card">
-                                            <div style="font-size: 11px; color: var(--text-tertiary);">Remaining Balance:</div>
-                                            <div id="pstat-remain" style="font-size: 14px; font-weight: 700; color: var(--text-secondary);">$18,000.00</div>
-                                        </div>
-                                    </div>
+                                <div style="margin-top: 18px; display: flex; justify-content: space-between;">
+                                    <button class="btn-pro-secondary" onclick="goToFlowStep(2)">&larr; Back to Tagging</button>
+                                    <button class="btn-pro-primary" onclick="goToFlowStep(4)">
+                                        <span>Proceed to Payment Completion &rarr;</span>
+                                    </button>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- ── STEP 5 CONTAINER: NEXT STEPS & SHARED TANDEM CLIENT TRACKER ── -->
-                        <div class="flow-stage-card" id="fstage-5" style="display: none;">
-                            <div class="flow-card-head">
-                                <div>
-                                    <span class="flow-step-badge" style="background: #DCFCE7; color: #166534;">Stage 5 of 5 · Client in Tandem</span>
-                                    <h3 class="flow-card-title">Next Steps & Live Tandem Tracking Dispatch</h3>
-                                    <p class="flow-card-desc">Configure client tracking preferences and share the real-time tandem progress portal with the client.</p>
-                                </div>
-                            </div>
-
-                            <div class="flow-grid-2col">
-                                <div class="flow-form-panel">
-                                    <div style="font-size: 11px; font-weight: 700; color: var(--navy); text-transform: uppercase; margin-bottom: 8px;">
-                                        ⚙️ Client-Tailored Tracking Preferences
-                                    </div>
-
-                                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                                        <div class="pref-toggle-card">
-                                            <input type="checkbox" id="pref-whatsapp" checked class="task-checkbox">
-                                            <div>
-                                                <div style="font-weight: 700; font-size: 12px; color: var(--navy);">WhatsApp Live Voice & Photo Dispatches</div>
-                                                <div style="font-size: 10.5px; color: var(--text-secondary);">Direct WhatsApp updates sent whenever master artisans dictate a voice memo.</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="pref-toggle-card">
-                                            <input type="checkbox" id="pref-email" checked class="task-checkbox">
-                                            <div>
-                                                <div style="font-weight: 700; font-size: 12px; color: var(--navy);">Weekly Executive Designer Digest</div>
-                                                <div style="font-size: 10.5px; color: var(--text-secondary);">High-res photos of frame joinery, fabric arrival, and foam density tests.</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="pref-toggle-card">
-                                            <input type="checkbox" id="pref-portal" checked class="task-checkbox">
-                                            <div>
-                                                <div style="font-weight: 700; font-size: 12px; color: var(--navy);">Private Client Tandem Web Link</div>
-                                                <div style="font-size: 10.5px; color: var(--text-secondary);">Interactive mobile-optimized tracking page accessible 24/7.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div style="margin-top: 14px; border-top: 1.5px solid var(--border-light); padding-top: 12px;">
-                                        <div style="font-size: 11px; font-weight: 700; color: var(--navy); text-transform: uppercase; margin-bottom: 6px;">
-                                            🔗 Shared Client Tandem Tracking Link
-                                        </div>
-                                        <div class="shared-link-box">
-                                            <input type="text" id="shared-client-link-input" readonly value="https://ggaddibhukta-projects.github.io/armorie-interiors/receptionist?client=sarah-jenkins&token=arm_live_8821">
-                                            <button class="btn-copy-link" onclick="copyClientTrackingLink()">Copy Link</button>
-                                        </div>
-                                    </div>
-
-                                    <div style="margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap;">
-                                        <button class="btn-whatsapp-dispatch" onclick="sendSharedLinkWhatsApp()">
-                                            <span>📲 Dispatch Live Link to Client on WhatsApp</span>
-                                        </button>
-                                        <button class="btn-flow-outline" onclick="openClientTandemModal()">
-                                            <span>👁️ Preview Client View</span>
-                                        </button>
+                            <!-- ── STAGE 4: PAYMENT COMPLETE ── -->
+                            <div class="pro-card-stage" id="fstage-4" style="display: none;">
+                                <div class="pro-stage-header">
+                                    <div>
+                                        <span class="pro-stage-badge">Stage 4 of 5 · Payment Lock</span>
+                                        <h3 class="pro-stage-h3">Deposit Collection & Hardwood Mill Authorization</h3>
+                                        <p class="pro-stage-desc">Process initial mobilization deposit to authorize timber allocation and workshop bench queue.</p>
                                     </div>
                                 </div>
 
-                                <div class="flow-summary-preview-card" style="background: #111C30; color: #FFFFFF; border-color: rgba(197,160,89,0.3);">
-                                    <div class="preview-badge-row" style="display: flex; justify-content: space-between; align-items: center;">
-                                        <span style="background: rgba(197,160,89,0.25); color: #F3E5AB; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px;">LIVE SHARED CLIENT PORTAL</span>
-                                        <span style="font-size: 10.5px; color: #94A3B8;">Real-Time Tandem Sync</span>
-                                    </div>
-
-                                    <div class="client-phone-mockup-frame">
-                                        <div class="phone-mockup-header">
-                                            <div>Armorie Interiors · Client Portal</div>
-                                            <div style="color: #10B981; font-weight: 700;">● Live Tandem</div>
-                                        </div>
-                                        <div class="phone-mockup-body">
-                                            <div style="font-size: 13.5px; font-weight: 700; color: #FFFFFF; font-family: 'Cormorant Garamond', Georgia, serif;">The Camille 96" Custom Living Room Suite</div>
-                                            <div style="font-size: 10.5px; color: #94A3B8; margin-top: 2px;">Client: Sarah Jenkins · Contract #ORD-8821</div>
-
-                                            <div class="mini-stepper-display">
-                                                <div class="mini-step done">Measure ✓</div>
-                                                <div class="mini-step done">Concept ✓</div>
-                                                <div class="mini-step active">Mill Procure (45%)</div>
-                                                <div class="mini-step">Frame</div>
+                                <div class="pro-layout-2col">
+                                    <div class="pro-form-group">
+                                        <div style="font-size: 11px; font-weight: 800; color: #0F172A; text-transform: uppercase; letter-spacing: 0.5px;">Select Payment Method</div>
+                                        <div class="payment-method-selector">
+                                            <div class="pay-method-pill active" id="pm-wire" onclick="selectPayMethod('wire')">
+                                                <div style="font-weight: 800; font-size: 13px; color: #0F172A;">✨ Studio Wire / Direct ACH</div>
+                                                <div style="font-size: 11px; color: #64748B;">Zero surcharge · Standard for bespoke luxury orders</div>
                                             </div>
+                                            <div class="pay-method-pill" id="pm-card" onclick="selectPayMethod('card')">
+                                                <div style="font-weight: 800; font-size: 13px; color: #0F172A;">💳 Trade Amex / Visa Signature</div>
+                                                <div style="font-size: 11px; color: #64748B;">Instant merchant terminal authorization</div>
+                                            </div>
+                                            <div class="pay-method-pill" id="pm-apple" onclick="selectPayMethod('apple')">
+                                                <div style="font-weight: 800; font-size: 13px; color: #0F172A;">📱 Apple Pay / Showroom Tap</div>
+                                                <div style="font-size: 11px; color: #64748B;">Contactless in-person device payment</div>
+                                            </div>
+                                        </div>
 
-                                            <div class="mini-voice-memo-card">
-                                                <div style="display: flex; justify-content: space-between; font-size: 9.5px; color: #C5A059; font-weight: 700;">
-                                                    <span>🎙️ Voice Memo from Sarah Collins</span>
-                                                    <span>Today</span>
+                                        <div class="payment-amount-box" style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 12px; padding: 14px 18px;">
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <div>
+                                                    <div style="font-size: 11px; color: #64748B; text-transform: uppercase; font-weight: 700;">Deposit to Collect:</div>
+                                                    <div id="pay-collect-amt" style="font-size: 24px; font-weight: 800; color: #0F172A; font-family: 'Cormorant Garamond', Georgia, serif;">$9,000.00 USD</div>
                                                 </div>
-                                                <div style="font-size: 11px; color: #E2E8F0; margin-top: 4px; line-height: 1.35;">
-                                                    "Belgian linen fabric cleared customs. Kiln-dried hardwood frame cut sheets dispatched to master artisan Marcus Thorne."
-                                                </div>
+                                                <span style="background: #DCFCE7; color: #166534; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 20px;">50% Mobilization Deposit</span>
                                             </div>
+                                        </div>
+
+                                        <div>
+                                            <button id="btn-simulate-pay" class="btn-execute-payment" onclick="executeSimulatedPayment()">
+                                                <span>⚡ Collect Payment & Authorize Workshop Build ($9,000.00)</span>
+                                            </button>
+                                        </div>
+
+                                        <div id="pay-success-alert" class="payment-success-banner" style="display: none;">
+                                            <div style="font-size: 22px;">✅</div>
+                                            <div>
+                                                <div style="font-weight: 800; font-size: 13px; color: #166534;">Deposit Successfully Captured & Verified!</div>
+                                                <div style="font-size: 11.5px; color: #15803D; margin-top: 2px;">Receipt #REC-88219 dispatched to client. Timber milling authorized.</div>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top: 14px; display: flex; justify-content: space-between;">
+                                            <button class="btn-pro-secondary" onclick="goToFlowStep(3)">&larr; Back to Invoice</button>
+                                            <button class="btn-pro-primary" id="btn-next-step5" onclick="goToFlowStep(5)">
+                                                <span>Configure Client Tracking &rarr;</span>
+                                            </button>
                                         </div>
                                     </div>
 
-                                    <div style="margin-top: 14px; text-align: center;">
-                                        <button onclick="switchCrmNav('tracker')" style="background: var(--gold); color: #0F172A; border: none; font-weight: 800; font-size: 11.5px; padding: 9px 18px; border-radius: 8px; cursor: pointer;">
-                                            Open Studio Lifecycle & Voice Tracker &rarr;
-                                        </button>
+                                    <div class="pro-dossier-card">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <span style="font-size: 11px; font-weight: 800; color: #0F172A;">FINANCIAL SUMMARY</span>
+                                            <span id="pay-status-badge" style="background: #FEF3C7; color: #B45309; font-size: 10.5px; font-weight: 800; padding: 3px 8px; border-radius: 6px;">AWAITING DEPOSIT</span>
+                                        </div>
+
+                                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                                            <div class="payment-stat-card">
+                                                <span style="font-size: 11.5px; color: #64748B;">Total Contract Value:</span>
+                                                <strong id="pstat-total" style="font-size: 15px; color: #0F172A;">$18,000.00</strong>
+                                            </div>
+                                            <div class="payment-stat-card">
+                                                <span style="font-size: 11.5px; color: #64748B;">Deposit Received:</span>
+                                                <strong id="pstat-paid" style="font-size: 15px; color: #166534;">$0.00</strong>
+                                            </div>
+                                            <div class="payment-stat-card">
+                                                <span style="font-size: 11.5px; color: #64748B;">Balance Upon Delivery:</span>
+                                                <strong id="pstat-remain" style="font-size: 15px; color: #64748B;">$18,000.00</strong>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
+                            <!-- ── STAGE 5: NEXT STEPS & SHARED TANDEM CLIENT TRACKER ── -->
+                            <div class="pro-card-stage" id="fstage-5" style="display: none;">
+                                <div class="pro-stage-header">
+                                    <div>
+                                        <span class="pro-stage-badge" style="background: #DCFCE7; color: #166534;">Stage 5 of 5 · Client in Tandem</span>
+                                        <h3 class="pro-stage-h3">Next Steps & Live Tandem Tracking Dispatch</h3>
+                                        <p class="pro-stage-desc">Configure client tracking preferences and share the real-time tandem progress portal with the client.</p>
+                                    </div>
+                                </div>
+
+                                <div class="pro-layout-2col">
+                                    <div class="pro-form-group">
+                                        <div style="font-size: 11px; font-weight: 800; color: #0F172A; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            ⚙️ Client-Tailored Tracking Preferences
+                                        </div>
+
+                                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                                            <div class="pref-toggle-card">
+                                                <input type="checkbox" id="pref-whatsapp" checked class="task-checkbox">
+                                                <div>
+                                                    <div style="font-weight: 800; font-size: 13px; color: #0F172A;">WhatsApp Live Voice & Photo Dispatches</div>
+                                                    <div style="font-size: 11px; color: #64748B; margin-top: 2px;">Direct WhatsApp updates sent whenever master artisans dictate a voice memo.</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="pref-toggle-card">
+                                                <input type="checkbox" id="pref-email" checked class="task-checkbox">
+                                                <div>
+                                                    <div style="font-weight: 800; font-size: 13px; color: #0F172A;">Weekly Executive Designer Digest</div>
+                                                    <div style="font-size: 11px; color: #64748B; margin-top: 2px;">High-res photography of frame joinery, fabric arrival, and down wrap inspection.</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="pref-toggle-card">
+                                                <input type="checkbox" id="pref-portal" checked class="task-checkbox">
+                                                <div>
+                                                    <div style="font-weight: 800; font-size: 13px; color: #0F172A;">Private Client Tandem Web Link</div>
+                                                    <div style="font-size: 11px; color: #64748B; margin-top: 2px;">Interactive mobile-optimized tracking page accessible 24/7.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top: 12px; border-top: 1.5px solid #F1F5F9; padding-top: 14px;">
+                                            <div style="font-size: 11px; font-weight: 800; color: #0F172A; text-transform: uppercase; margin-bottom: 6px;">
+                                                🔗 Shared Client Tandem Tracking Link
+                                            </div>
+                                            <div class="shared-link-box">
+                                                <input type="text" id="shared-client-link-input" readonly value="https://ggaddibhukta-projects.github.io/armorie-interiors/receptionist?client=sarah-jenkins&token=arm_live_8821">
+                                                <button class="btn-copy-link" onclick="copyClientTrackingLink()">Copy Link</button>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap;">
+                                            <button class="btn-whatsapp-dispatch" onclick="sendSharedLinkWhatsApp()">
+                                                <span>📲 Dispatch Live Link to Client on WhatsApp</span>
+                                            </button>
+                                            <button class="btn-pro-secondary" onclick="openClientTandemModal()">
+                                                <span>👁️ Preview Live Client View</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="pro-dossier-card" style="background: #0F172A; color: #FFFFFF; border-color: rgba(197,160,89,0.3);">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <span style="background: rgba(197,160,89,0.25); color: #F5E6C8; font-size: 10.5px; font-weight: 800; padding: 3px 8px; border-radius: 6px;">LIVE SHARED CLIENT PORTAL</span>
+                                            <span style="font-size: 11px; color: #94A3B8;">Real-Time Tandem Sync</span>
+                                        </div>
+
+                                        <div class="client-phone-mockup-frame">
+                                            <div class="phone-mockup-header">
+                                                <div style="color: #F8FAFC; font-weight: 700;">Armorie Interiors · Client Portal</div>
+                                                <div style="color: #4ADE80; font-weight: 700;">● Live Tandem</div>
+                                            </div>
+                                            <div class="phone-mockup-body">
+                                                <div style="font-size: 14px; font-weight: 700; color: #FFFFFF; font-family: 'Cormorant Garamond', Georgia, serif;">The Camille 96" Custom Living Room Suite</div>
+                                                <div style="font-size: 11px; color: #94A3B8; margin-top: 2px;">Client: Sarah Jenkins · Contract #ORD-8821</div>
+
+                                                <div class="mini-stepper-display">
+                                                    <div class="mini-step done">Measure ✓</div>
+                                                    <div class="mini-step done">Concept ✓</div>
+                                                    <div class="mini-step active">Mill Procure (45%)</div>
+                                                    <div class="mini-step">Frame</div>
+                                                </div>
+
+                                                <div class="mini-voice-memo-card">
+                                                    <div style="display: flex; justify-content: space-between; font-size: 10px; color: #F5E6C8; font-weight: 800;">
+                                                        <span>🎙️ Voice Memo from Sarah Collins</span>
+                                                        <span>Today</span>
+                                                    </div>
+                                                    <div style="font-size: 11.5px; color: #E2E8F0; margin-top: 4px; line-height: 1.4;">
+                                                        "Belgian linen fabric cleared customs. Kiln-dried hardwood frame cut sheets dispatched to master artisan Marcus Thorne."
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top: 10px; text-align: center;">
+                                            <button onclick="switchCrmNav('tracker')" style="background: var(--gold); color: #0F172A; border: none; font-weight: 800; font-size: 12px; padding: 10px 20px; border-radius: 8px; cursor: pointer; width: 100%;">
+                                                Open Studio Lifecycle & Voice Tracker &rarr;
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
 
                     <div id="cmod-calls" class="crm-module-pane active">

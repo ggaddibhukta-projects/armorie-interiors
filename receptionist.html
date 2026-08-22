@@ -9138,6 +9138,49 @@
     }
 
     /* ── CLIENT JOURNEY & LIVE STAGING JAVASCRIPT CONTROLLER ── */
+function launchJourneyForClient(clientId, event) {
+        if (event) event.stopPropagation();
+        const c = (typeof allClients !== 'undefined' ? allClients.find(item => item.id === clientId) : null) || (typeof allCalls !== 'undefined' ? allCalls.find(item => item.id === clientId) : null);
+        if (c) {
+            const nameEl = document.getElementById('flow-input-name');
+            if (nameEl) nameEl.value = c.name;
+            const phoneEl = document.getElementById('flow-input-phone');
+            if (phoneEl) phoneEl.value = c.phone || '(432) 555-0192';
+            const emailEl = document.getElementById('flow-input-email');
+            if (emailEl) emailEl.value = c.email || (c.name.toLowerCase().replace(/[^a-z]/g, '.') + '@client-residence.com');
+            const locEl = document.getElementById('flow-input-location');
+            if (locEl) locEl.value = c.address || 'Midland, TX · Greentree Estates';
+            const notesEl = document.getElementById('flow-consult-notes');
+            if (notesEl) notesEl.value = c.summary || `Consultation notes for ${c.name}: Custom tailored living suite and window treatments.`;
+
+            // Auto-populate relevant tagged products based on project description
+            flowTaggedProducts = [];
+            const pDesc = (c.pieces || c.project || c.summary || '').toLowerCase();
+            if (pDesc.includes('camille') || pDesc.includes('sofa') || pDesc.includes('sectional')) {
+                flowTaggedProducts.push({ id: 'camille', name: 'The Camille 96" Custom Sofa', price: 8400, category: 'Living Room Seating' });
+            }
+            if (pDesc.includes('linen') || pDesc.includes('fabric')) {
+                flowTaggedProducts.push({ id: 'linen', name: 'Oatmeal Belgian Linen (24 Yards)', price: 3600, category: 'Fabric Mill Bolt' });
+            }
+            if (pDesc.includes('drapery') || pDesc.includes('window') || pDesc.includes('somfy')) {
+                flowTaggedProducts.push({ id: 'somfy', name: 'Somfy Motorized Ripplefold Drapery (4x 12ft)', price: 4800, category: 'Window Treatments' });
+            }
+            if (pDesc.includes('swivel') || pDesc.includes('chair') || pDesc.includes('armchair')) {
+                flowTaggedProducts.push({ id: 'swivel', name: 'Two Camille Curved Swivel Armchairs', price: 4600, category: 'Living Room Seating' });
+            }
+            if (flowTaggedProducts.length === 0) {
+                flowTaggedProducts.push({ id: 'camille', name: 'The Camille 96" Custom Sofa', price: 8400, category: 'Living Room Seating' });
+                flowTaggedProducts.push({ id: 'linen', name: 'Oatmeal Belgian Linen (24 Yards)', price: 3600, category: 'Fabric Mill Bolt' });
+                flowTaggedProducts.push({ id: 'somfy', name: 'Somfy Motorized Ripplefold Drapery (4x 12ft)', price: 4800, category: 'Window Treatments' });
+            }
+
+            syncFlowState();
+            renderTaggedProducts();
+            updateInvoiceDocument();
+        }
+        switchCrmNav('client-flow');
+        goToFlowStep(1);
+    }
     let curFlowStep = 1;
     let flowTaggedProducts = [
         { id: 'camille', name: 'The Camille 96" Custom Sofa', price: 8400, category: 'Living Room Seating' },
@@ -10810,6 +10853,9 @@
                 </td>
                 <td style="text-align: right;">
                     <div class="table-action-btns" style="justify-content: flex-end;">
+                        <button class="btn-action-icon gold" onclick="launchJourneyForClient('${c.id}', event)" title="Launch 5-Stage Client Journey (Tagging & Tandem Tracker)" style="background: linear-gradient(135deg, var(--gold) 0%, #A98338 100%); color: #0F172A; border-color: var(--gold); box-shadow: 0 2px 8px rgba(197, 160, 89, 0.35); font-weight: 800;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+                        </button>
                         <button class="btn-action-icon gold" onclick="openRecordInspectorForClient('${c.id}', 'memo', event)" title="Branded AI Specification Brief">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>

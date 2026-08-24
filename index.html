@@ -1300,10 +1300,10 @@
                             <button class="fab-cat-btn" onclick="filterFabricCat('leather')">Heritage Leather</button>
                         </div>
 
-                        <!-- Swatches Grid with Real Photo Triggers -->
+                        <!-- Swatches Grid with Real Photo Triggers for ALL 14 Swatches -->
                         <div class="swatch-grid" id="swatches-container">
                             
-                            <!-- Belgian Linen -->
+                            <!-- Belgian Linen (5 Swatches) -->
                             <div class="swatch-item active" data-cat="linen" onclick="applyFabricSwatch('#E8DFD1', '#DCD2C3', '#C2B7A5', 'Belgian Linen · Oatmeal Flax', 'Oatmeal Heavyweight Belgian Linen (540 GSM)', '100% Belgian Flax', 0, 'linen-oatmeal')">
                                 <div class="swatch-bubble" style="background: #DCD2C3;"></div>
                                 <span class="swatch-label">Oatmeal Flax</span>
@@ -1329,7 +1329,7 @@
                                 <span class="swatch-label">Olive Timber</span>
                             </div>
 
-                            <!-- Italian Velvet -->
+                            <!-- Italian Velvet (4 Swatches) -->
                             <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#B66B38', '#9E5828', '#7E421A', 'Italian Velvet · Cognac Saddle', 'Cognac Saddle Como Performance Velvet', 'Italian Velvet Sheen', 600, 'velvet-cognac')">
                                 <div class="swatch-bubble" style="background: #9E5828;"></div>
                                 <span class="swatch-label">Cognac Saddle</span>
@@ -1350,7 +1350,7 @@
                                 <span class="swatch-label">Champagne</span>
                             </div>
 
-                            <!-- Textured Bouclé -->
+                            <!-- Textured Bouclé (3 Swatches) -->
                             <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#F8F6F2', '#EFECE6', '#D6D2CA', 'Cloud Bouclé · Ivory Cloud', 'Ivory Cloud Textured Alpaca Bouclé', 'Textured Bouclé Nub', 400, 'boucle-ivory')">
                                 <div class="swatch-bubble" style="background: #EFECE6;"></div>
                                 <span class="swatch-label">Ivory Cloud</span>
@@ -1366,7 +1366,7 @@
                                 <span class="swatch-label">Charcoal</span>
                             </div>
 
-                            <!-- Heritage Leather -->
+                            <!-- Heritage Leather (2 Swatches) -->
                             <div class="swatch-item" data-cat="leather" onclick="applyFabricSwatch('#A45D34', '#8C4A27', '#6D3618', 'Heritage Leather · Bourbon Tan', 'Bourbon Tan Full-Grain Aniline Leather', 'Full-Grain Leather', 1400, 'leather-bourbon')">
                                 <div class="swatch-bubble" style="background: #8C4A27;"></div>
                                 <span class="swatch-label">Bourbon Tan</span>
@@ -1757,22 +1757,22 @@
         let currentLegFinish = 'oak';
         let currentLighting = 'day';
 
-        // Real Photo Asset Dictionary
+        // Real Photo Asset Dictionary for ALL 14 Swatches
         const REAL_SOFA_PHOTOS = {
             'linen-oatmeal': 'images/camille_oatmeal_linen.jpg',
-            'linen-chalk': 'images/camille_oatmeal_linen.jpg',
-            'linen-slate': 'images/camille_oatmeal_linen.jpg',
+            'linen-chalk': 'images/camille_chalk_white.jpg',
+            'linen-slate': 'images/camille_slate_fog.jpg',
             'linen-dune': 'images/camille_oatmeal_linen.jpg',
             'linen-olive': 'images/camille_forest_pine.jpg',
             'velvet-cognac': 'images/camille_cognac_velvet.jpg',
             'velvet-forest': 'images/camille_forest_pine.jpg',
             'velvet-navy': 'images/camille_midnight_navy.jpg',
-            'velvet-champagne': 'images/camille_cognac_velvet.jpg',
+            'velvet-champagne': 'images/camille_champagne_velvet.jpg',
             'boucle-ivory': 'images/camille_ivory_boucle.jpg',
             'boucle-taupe': 'images/camille_ivory_boucle.jpg',
             'boucle-charcoal': 'images/camille_midnight_navy.jpg',
             'leather-bourbon': 'images/camille_bourbon_leather.jpg',
-            'leather-espresso': 'images/camille_bourbon_leather.jpg',
+            'leather-espresso': 'images/camille_aged_espresso.jpg',
             'laurent-default': 'images/laurent_linen_sectional.jpg'
         };
 
@@ -1785,15 +1785,17 @@
             // Update Real Photo with smooth transition
             const photoEl = document.getElementById('real-sofa-photo');
             if (photoEl) {
-                photoEl.classList.add('loading');
+                photoEl.style.opacity = '0.35';
+                photoEl.style.transform = 'scale(0.985)';
                 setTimeout(() => {
                     if (currentSilhouette.id === 'laurent') {
                         photoEl.src = REAL_SOFA_PHOTOS['laurent-default'];
                     } else {
                         photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || REAL_SOFA_PHOTOS['linen-oatmeal'];
                     }
-                    photoEl.classList.remove('loading');
-                }, 180);
+                    photoEl.style.opacity = '1';
+                    photoEl.style.transform = 'scale(1)';
+                }, 150);
             }
 
             // Update Labels
@@ -1815,54 +1817,48 @@
             updateTotalConfigPrice();
         }
 
-        function selectSilhouette(id, name, basePrice, dims) {
-            currentSilhouette = { id, name, basePrice, dims };
-
-            const titleEl = document.getElementById('stage-model-title');
-            if (titleEl) titleEl.textContent = name;
-            const lblSil = document.getElementById('label-active-sil');
-            if (lblSil) lblSil.textContent = name;
-
-            const photoEl = document.getElementById('real-sofa-photo');
-            if (photoEl) {
-                photoEl.classList.add('loading');
-                setTimeout(() => {
-                    if (id === 'laurent') {
-                        photoEl.src = REAL_SOFA_PHOTOS['laurent-default'];
-                    } else {
-                        photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || REAL_SOFA_PHOTOS['linen-oatmeal'];
-                    }
-                    photoEl.classList.remove('loading');
-                }, 180);
-            }
-
-            // Highlight Tab Button
-            document.querySelectorAll('.sil-tab-btn').forEach(btn => btn.classList.remove('active'));
-            if (event && event.currentTarget && event.currentTarget.classList.contains('sil-tab-btn')) {
-                event.currentTarget.classList.add('active');
-            }
-
-            updateTotalConfigPrice();
-
-            const studioEl = document.getElementById('customizer-studio');
-            if (studioEl && window.scrollY > 1200) {
-                studioEl.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Fabric Category Filter
+        // Category Filter with Automatic First-Item Activation
         function filterFabricCat(cat) {
             document.querySelectorAll('.fab-cat-btn').forEach(b => b.classList.remove('active'));
             if (event && event.currentTarget) event.currentTarget.classList.add('active');
 
             const swatches = document.querySelectorAll('.swatch-item');
+            let firstVisible = null;
+
             swatches.forEach(sw => {
-                if (cat === 'all' || sw.getAttribute('data-cat') === cat) {
+                const itemCat = sw.getAttribute('data-cat');
+                if (cat === 'all' || itemCat === cat) {
                     sw.style.display = 'flex';
+                    if (!firstVisible) firstVisible = sw;
                 } else {
                     sw.style.display = 'none';
                 }
             });
+
+            // Automatically trigger first visible swatch in that category
+            if (firstVisible) {
+                firstVisible.click();
+            }
+        }
+
+        // Realistic Studio Lighting
+        function setStudioLighting(mode) {
+            currentLighting = mode;
+            document.querySelectorAll('.light-btn').forEach(b => b.classList.remove('active'));
+            const photoEl = document.getElementById('real-sofa-photo');
+            const stage = document.getElementById('sofa-stage-viewport');
+
+            if (mode === 'day') {
+                const btnDay = document.getElementById('btn-light-day');
+                if (btnDay) btnDay.classList.add('active');
+                if (photoEl) photoEl.style.filter = 'brightness(1) contrast(1)';
+                if (stage) stage.style.background = '#EAE4DC';
+            } else {
+                const btnEve = document.getElementById('btn-light-eve');
+                if (btnEve) btnEve.classList.add('active');
+                if (photoEl) photoEl.style.filter = 'brightness(0.92) sepia(0.18) saturate(1.15)';
+                if (stage) stage.style.background = '#DFD6C9';
+            }
         }
 
         // Apply Leg Finish

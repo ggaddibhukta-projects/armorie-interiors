@@ -1575,23 +1575,23 @@
                             <span class="active-name" id="label-active-sil">The Camille (96")</span>
                         </div>
                         <div class="silhouette-tabs-grid">
-                            <div class="sil-tab-btn active" data-sil="camille" onclick="selectSilhouette('camille', 'The Camille 96\" Deep Lounge Sofa', 8400, '96\"W × 41\"D × 34\"H', this)">
+                            <div class="sil-tab-btn active" data-sil="camille" onclick="selectSilhouette('camille', 'The Camille 96-inch Deep Lounge Sofa', 8400, '96in W × 41in D × 34in H', this)">
                                 <span class="sil-tab-name">The Camille</span>
-                                <span class="sil-tab-sub">96" Deep Sofa · $8,400</span>
+                                <span class="sil-tab-sub">96-inch Deep Sofa · $8,400</span>
                             </div>
-                            <div class="sil-tab-btn" data-sil="laurent" onclick="selectSilhouette('laurent', 'The Laurent 120\" Modular Sectional', 12600, '120\"W × 84\"D × 33\"H', this)">
+                            <div class="sil-tab-btn" data-sil="laurent" onclick="selectSilhouette('laurent', 'The Laurent 120-inch Modular Sectional', 12600, '120in W × 84in D × 33in H', this)">
                                 <span class="sil-tab-name">The Laurent</span>
-                                <span class="sil-tab-sub">120" Sectional · $12,600</span>
+                                <span class="sil-tab-sub">120-inch Sectional · $12,600</span>
                             </div>
-                            <div class="sil-tab-btn" data-sil="beaumont" onclick="selectSilhouette('beaumont', 'The Beaumont 88\" Tuxedo Sofa', 7800, '88\"W × 38\"D × 32\"H', this)">
+                            <div class="sil-tab-btn" data-sil="beaumont" onclick="selectSilhouette('beaumont', 'The Beaumont 88-inch Tuxedo Sofa', 7800, '88in W × 38in D × 32in H', this)">
                                 <span class="sil-tab-name">The Beaumont</span>
-                                <span class="sil-tab-sub">88" Tuxedo · $7,800</span>
+                                <span class="sil-tab-sub">88-inch Tuxedo · $7,800</span>
                             </div>
-                            <div class="sil-tab-btn" data-sil="marseille" onclick="selectSilhouette('marseille', 'The Marseille Swivel Armchair', 2300, '36\"W × 36\"D × 32\"H', this)">
+                            <div class="sil-tab-btn" data-sil="marseille" onclick="selectSilhouette('marseille', 'The Marseille Swivel Armchair', 2300, '36in W × 36in D × 32in H', this)">
                                 <span class="sil-tab-name">The Marseille</span>
                                 <span class="sil-tab-sub">Swivel Chair · $2,300</span>
                             </div>
-                            <div class="sil-tab-btn" data-sil="austin" onclick="selectSilhouette('austin', 'The Austin Solid White Oak Bench', 1100, '60\"W × 18\"D × 19\"H', this)">
+                            <div class="sil-tab-btn" data-sil="austin" onclick="selectSilhouette('austin', 'The Austin Solid White Oak Bench', 1100, '60in W × 18in D × 19in H', this)">
                                 <span class="sil-tab-name">The Austin</span>
                                 <span class="sil-tab-sub">Oak Bench · $1,100</span>
                             </div>
@@ -2049,12 +2049,12 @@
        ── INTERACTIVE VISUALIZER JAVASCRIPT CONTROLLER ──
     ══════════════════════════════════════════════════════════════════════════ -->
     <script>
-        // State
+        // ── 1. SILHOUETTE & VISUALIZER ENGINE ──
         let currentSilhouette = {
             id: 'camille',
-            name: 'The Camille 96" Deep Lounge Sofa',
+            name: 'The Camille 96-inch Deep Lounge Sofa',
             basePrice: 8400,
-            dims: '96"W × 41"D × 34"H'
+            dims: '96in W × 41in D × 34in H'
         };
 
         let currentFabric = {
@@ -2071,7 +2071,6 @@
         let currentLegFinish = 'oak';
         let currentLighting = 'day';
 
-        // Real Photo Asset Dictionary for ALL 5 Silhouettes & Fabrics
         const SILHOUETTE_DEFAULT_PHOTOS = {
             'camille': 'images/camille_oatmeal_linen.jpg',
             'laurent': 'images/laurent_linen_sectional.jpg',
@@ -2099,13 +2098,47 @@
 
         let currentActiveFabricKey = 'linen-oatmeal';
 
+        function selectSilhouette(id, name, basePrice, dims, clickedEl) {
+            currentSilhouette = { id: id, name: name, basePrice: basePrice, dims: dims };
+
+            const titleEl = document.getElementById('stage-model-title');
+            if (titleEl) titleEl.textContent = name;
+            const lblSil = document.getElementById('label-active-sil');
+            if (lblSil) lblSil.textContent = name;
+
+            const photoEl = document.getElementById('real-sofa-photo');
+            if (photoEl) {
+                photoEl.style.opacity = '0.3';
+                photoEl.style.transform = 'scale(0.985)';
+                setTimeout(function() {
+                    if (id === 'camille') {
+                        photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || 'images/camille_oatmeal_linen.jpg';
+                    } else {
+                        photoEl.src = SILHOUETTE_DEFAULT_PHOTOS[id] || 'images/camille_oatmeal_linen.jpg';
+                    }
+                    photoEl.style.opacity = '1';
+                    photoEl.style.transform = 'scale(1)';
+                }, 100);
+            }
+
+            document.querySelectorAll('.sil-tab-btn').forEach(function(btn) { btn.classList.remove('active'); });
+            if (clickedEl) {
+                clickedEl.classList.add('active');
+            } else {
+                const targetBtn = document.querySelector('.sil-tab-btn[data-sil="' + id + '"]');
+                if (targetBtn) targetBtn.classList.add('active');
+            }
+
+            updateTotalConfigPrice();
+        }
+
         function applyFabricSwatch(topColor, midColor, botColor, name, subText, macroDesc, extraCost, photoKey, clickedEl) {
             currentActiveFabricKey = photoKey || 'linen-oatmeal';
             currentFabric = { topColor, midColor, botColor, name, subText, macroDesc, extraCost };
 
             const photoEl = document.getElementById('real-sofa-photo');
             if (photoEl) {
-                photoEl.style.opacity = '0.35';
+                photoEl.style.opacity = '0.3';
                 photoEl.style.transform = 'scale(0.985)';
                 setTimeout(function() {
                     if (currentSilhouette.id === 'camille') {
@@ -2123,7 +2156,7 @@
                     }
                     photoEl.style.opacity = '1';
                     photoEl.style.transform = 'scale(1)';
-                }, 120);
+                }, 100);
             }
 
             const lblFabric = document.getElementById('label-active-fabric');
@@ -2138,40 +2171,6 @@
             document.querySelectorAll('.swatch-item').forEach(function(el) { el.classList.remove('active'); });
             if (clickedEl) {
                 clickedEl.classList.add('active');
-            }
-
-            updateTotalConfigPrice();
-        }
-
-        function selectSilhouette(id, name, basePrice, dims, clickedEl) {
-            currentSilhouette = { id: id, name: name, basePrice: basePrice, dims: dims };
-
-            const titleEl = document.getElementById('stage-model-title');
-            if (titleEl) titleEl.textContent = name;
-            const lblSil = document.getElementById('label-active-sil');
-            if (lblSil) lblSil.textContent = name;
-
-            const photoEl = document.getElementById('real-sofa-photo');
-            if (photoEl) {
-                photoEl.style.opacity = '0.35';
-                photoEl.style.transform = 'scale(0.985)';
-                setTimeout(function() {
-                    if (id === 'camille') {
-                        photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || 'images/camille_oatmeal_linen.jpg';
-                    } else {
-                        photoEl.src = SILHOUETTE_DEFAULT_PHOTOS[id] || 'images/camille_oatmeal_linen.jpg';
-                    }
-                    photoEl.style.opacity = '1';
-                    photoEl.style.transform = 'scale(1)';
-                }, 120);
-            }
-
-            document.querySelectorAll('.sil-tab-btn').forEach(function(btn) { btn.classList.remove('active'); });
-            if (clickedEl) {
-                clickedEl.classList.add('active');
-            } else {
-                const targetBtn = document.querySelector('.sil-tab-btn[data-sil="' + id + '"]');
-                if (targetBtn) targetBtn.classList.add('active');
             }
 
             updateTotalConfigPrice();
@@ -2295,7 +2294,272 @@
             }
         }
 
-// Initialize on Load
+        // ── 2. CHLOE AI LUXURY CONCIERGE CHATBOT ENGINE ──
+        let isChatOpen = false;
+
+        function toggleChatModal() {
+            const modal = document.getElementById("chloeChatModal");
+            if (!modal) return;
+            isChatOpen = !isChatOpen;
+            if (isChatOpen) {
+                modal.classList.add("active");
+                setTimeout(function() {
+                    const inp = document.getElementById("chat-input-field");
+                    if (inp) inp.focus();
+                }, 200);
+            } else {
+                modal.classList.remove("active");
+            }
+        }
+
+        function resetChatHistory() {
+            const container = document.getElementById("chat-messages-container");
+            if (!container) return;
+            container.innerHTML = `
+                <div class="chat-msg bot">
+                    <div class="chat-bubble">
+                        Welcome to <strong>Armorie Interiors & Textiles</strong>. I am Chloe, your AI Design Concierge.<br><br>
+                        How may I assist you today? I can provide custom sofa specifications, arrange complimentary in-home laser measurement in Midland, dispatch fabric swatches, or schedule a consultation with our design team.
+                    </div>
+                    <div class="chat-msg-time">Armorie · Just now</div>
+                </div>
+            `;
+        }
+
+        function handleChatKeyDown(e) {
+            if (e.key === "Enter") {
+                handleSendChat();
+            }
+        }
+
+        function handleSendChat() {
+            const input = document.getElementById("chat-input-field");
+            if (!input) return;
+            const text = input.value.trim();
+            if (!text) return;
+            
+            appendUserMessage(text);
+            input.value = "";
+
+            showTypingIndicator();
+            
+            setTimeout(function() {
+                removeTypingIndicator();
+                const responseObj = generateChloeResponse(text);
+                appendBotMessage(responseObj.text, responseObj.cards);
+            }, 600);
+        }
+
+        function sendQuickPrompt(promptText) {
+            const modal = document.getElementById("chloeChatModal");
+            if (!modal.classList.contains("active")) {
+                toggleChatModal();
+            }
+            appendUserMessage(promptText);
+            showTypingIndicator();
+            setTimeout(function() {
+                removeTypingIndicator();
+                const responseObj = generateChloeResponse(promptText);
+                appendBotMessage(responseObj.text, responseObj.cards);
+            }, 500);
+        }
+
+        function generateChloeResponse(userQuery) {
+            const q = userQuery.toLowerCase();
+
+            // 1. SOFA SPECIFICATIONS & LEAD TIMES
+            if (q.includes('sofa') || q.includes('couch') || q.includes('furniture') || q.includes('custom') || q.includes('lead time') || q.includes('camille') || q.includes('laurent') || q.includes('beaumont') || q.includes('marseille') || q.includes('austin')) {
+                return {
+                    text: "Every Armorie sofa and seating silhouette is bench-made to order by Texas master artisans. We utilize sustainably harvested American kiln-dried hardwood frames, 8-way hand-tied steel coil springs, and 90/10 Hungarian goose down cushion wraps. Standard lead time is 4 to 6 weeks from textile receipt.",
+                    cards: [
+                        {
+                            tag: "Customizer Studio",
+                            title: "Interactive Sofa & Fabric Visualizer",
+                            desc: "Explore 5 bespoke silhouettes and 15+ mill-direct Belgian linens, Italian velvets, and heritage leathers.",
+                            btnText: "Open Customizer Studio",
+                            action: "window.location.hash = 'customizer-studio'; toggleChatModal();"
+                        },
+                        {
+                            tag: "Midland Studio",
+                            title: "Showroom Sit-Test & Curation",
+                            desc: "Test seat depths and cushion densities in person at 2612 West Front St, Suite A.",
+                            btnText: "Book Sit-Test",
+                            action: "sendQuickPrompt('Schedule a showroom sit-test consultation in Midland')"
+                        }
+                    ]
+                };
+            }
+
+            // 2. FABRIC SWATCHES
+            if (q.includes('swatch') || q.includes('sample') || q.includes('fabric') || q.includes('linen') || q.includes('velvet') || q.includes('boucle') || q.includes('leather')) {
+                return {
+                    text: "We provide complimentary Swatch Boxes containing up to 4 generous 6"×6" textile samples in our signature keepsake box, delivered free via 2-day courier across Midland and the Permian Basin.",
+                    cards: [
+                        {
+                            tag: "Complimentary Service",
+                            title: "Order Keepsake Swatch Box",
+                            desc: "Select 4 luxury swatches from our Belgian Linen, Como Velvet, and Alpaca Bouclé libraries.",
+                            btnText: "Order Swatch Box",
+                            action: "openSwatchOrderModal(); toggleChatModal();"
+                        }
+                    ]
+                };
+            }
+
+            // 3. LASER MEASUREMENT
+            if (q.includes('measure') || q.includes('laser') || q.includes('in-home') || q.includes('scan') || q.includes('dimension')) {
+                return {
+                    text: "Our Architectural Laser Measurement service is completely complimentary for residential projects in Midland and Odessa. Our lead designer visits your residence with Leica laser scanners to capture ceiling heights, doorway clearances, and room scale to ensure a flawless fit.",
+                    cards: [
+                        {
+                            tag: "White-Glove Service",
+                            title: "Book In-Home Laser Scan",
+                            desc: "Includes spatial CAD layout check and textile pairing in your home's natural light.",
+                            btnText: "Schedule Laser Measure",
+                            action: "openConsultationModal(); toggleChatModal();"
+                        }
+                    ]
+                };
+            }
+
+            // 4. SHOWROOM & HOURS
+            if (q.includes('location') || q.includes('address') || q.includes('where') || q.includes('hours') || q.includes('showroom') || q.includes('phone')) {
+                return {
+                    text: "Our Midland Flagship Showroom & Atelier is located at 2612 West Front Street, Suite A, Midland, TX 79701.<br><br><strong>Hours:</strong><br>• Tuesday – Friday: 10:00 AM – 5:30 PM<br>• Saturday: 10:00 AM – 4:00 PM<br>• Sunday & Monday: Private Design Consultations<br>• Direct Line: (432) 465-2121",
+                    cards: [
+                        {
+                            tag: "Midland Studio",
+                            title: "2612 West Front Street, Suite A",
+                            desc: "Midland, TX 79701 · Permian Basin Design District.",
+                            btnText: "Call Studio Concierge",
+                            action: "window.location.href = 'tel:4324652121';"
+                        }
+                    ]
+                };
+            }
+
+            // 5. CONSULTATION & BOOKING
+            if (q.includes('book') || q.includes('consultation') || q.includes('appointment') || q.includes('designer') || q.includes('sarah')) {
+                return {
+                    text: "We would be honored to partner on your interior vision. Our design consultations include comprehensive spatial planning, custom furniture tailoring, European drapery curation, and finish palettes.",
+                    cards: [
+                        {
+                            tag: "Private Appointment",
+                            title: "Schedule Design Consultation",
+                            desc: "Select between In-Home Laser Curation or Private Studio Appointment.",
+                            btnText: "Open Booking Form",
+                            action: "openConsultationModal(); toggleChatModal();"
+                        }
+                    ]
+                };
+            }
+
+            // DEFAULT
+            return {
+                text: "At Armorie Interiors & Textiles, we craft bespoke bench-made sofas, curate over 5,000 European textiles, and deliver turnkey residential interior architecture in Texas. How may we assist your residence today?",
+                cards: [
+                    {
+                        tag: "Bespoke Silhouettes",
+                        title: "Custom Sofa & Fabric Studio",
+                        desc: "Visualizer with real-time Belgian linen and velvet swatches.",
+                        btnText: "Explore Visualizer",
+                        action: "window.location.hash = 'customizer-studio'; toggleChatModal();"
+                    },
+                    {
+                        tag: "Studio Service",
+                        title: "In-Home Laser Measurement",
+                        desc: "Complimentary space measurement across Midland and Odessa.",
+                        btnText: "Request Service",
+                        action: "sendQuickPrompt('How does in-home laser measurement work?')"
+                    }
+                ]
+            };
+        }
+
+        function appendUserMessage(text) {
+            const container = document.getElementById("chat-messages-container");
+            if (!container) return;
+            const msgDiv = document.createElement("div");
+            msgDiv.className = "chat-msg user";
+            
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            msgDiv.innerHTML = `
+                <div class="chat-bubble">${escapeHtml(text)}</div>
+                <div class="chat-msg-time">${timeStr}</div>
+            `;
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function appendBotMessage(text, cards) {
+            const container = document.getElementById("chat-messages-container");
+            if (!container) return;
+            const msgDiv = document.createElement("div");
+            msgDiv.className = "chat-msg bot";
+            
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            let cardsHtml = "";
+            if (cards && cards.length > 0) {
+                cards.forEach(function(c) {
+                    const tagHtml = c.tag ? `<span class="chat-card-tag">${escapeHtml(c.tag)}</span>` : "";
+                    cardsHtml += `
+                        <div class="chat-card">
+                            ${tagHtml}
+                            <div class="chat-card-title">${escapeHtml(c.title)}</div>
+                            <div class="chat-card-sub">${escapeHtml(c.desc)}</div>
+                            <a href="javascript:void(0)" class="chat-card-action" onclick="${c.action}">${escapeHtml(c.btnText)} &rarr;</a>
+                        </div>
+                    `;
+                });
+            }
+
+            msgDiv.innerHTML = `
+                <div class="chat-bubble">
+                    ${text}
+                    ${cardsHtml}
+                </div>
+                <div class="chat-msg-time">Armorie · ${timeStr}</div>
+            `;
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const container = document.getElementById("chat-messages-container");
+            if (!container) return;
+            const typingDiv = document.createElement("div");
+            typingDiv.id = "chat-typing-bubble";
+            typingDiv.className = "chat-msg bot";
+            typingDiv.innerHTML = `
+                <div class="typing-indicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            `;
+            container.appendChild(typingDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const el = document.getElementById("chat-typing-bubble");
+            if (el) el.remove();
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Initialize on Load
         document.addEventListener('DOMContentLoaded', function() {
             updateTotalConfigPrice();
         });

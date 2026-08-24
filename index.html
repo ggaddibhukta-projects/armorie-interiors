@@ -1575,23 +1575,23 @@
                             <span class="active-name" id="label-active-sil">The Camille (96")</span>
                         </div>
                         <div class="silhouette-tabs-grid">
-                            <div class="sil-tab-btn active" onclick="selectSilhouette('camille', 'The Camille 96\" Deep Lounge Sofa', 8400, '96\"W × 41\"D × 34\"H')">
+                            <div class="sil-tab-btn active" data-sil="camille" onclick="selectSilhouette('camille', 'The Camille 96\" Deep Lounge Sofa', 8400, '96\"W × 41\"D × 34\"H', this)">
                                 <span class="sil-tab-name">The Camille</span>
                                 <span class="sil-tab-sub">96" Deep Sofa · $8,400</span>
                             </div>
-                            <div class="sil-tab-btn" onclick="selectSilhouette('laurent', 'The Laurent 120\" Modular Sectional', 12600, '120\"W × 84\"D × 33\"H')">
+                            <div class="sil-tab-btn" data-sil="laurent" onclick="selectSilhouette('laurent', 'The Laurent 120\" Modular Sectional', 12600, '120\"W × 84\"D × 33\"H', this)">
                                 <span class="sil-tab-name">The Laurent</span>
                                 <span class="sil-tab-sub">120" Sectional · $12,600</span>
                             </div>
-                            <div class="sil-tab-btn" onclick="selectSilhouette('beaumont', 'The Beaumont 88\" Tuxedo Sofa', 7800, '88\"W × 38\"D × 32\"H')">
+                            <div class="sil-tab-btn" data-sil="beaumont" onclick="selectSilhouette('beaumont', 'The Beaumont 88\" Tuxedo Sofa', 7800, '88\"W × 38\"D × 32\"H', this)">
                                 <span class="sil-tab-name">The Beaumont</span>
                                 <span class="sil-tab-sub">88" Tuxedo · $7,800</span>
                             </div>
-                            <div class="sil-tab-btn" onclick="selectSilhouette('marseille', 'The Marseille Swivel Armchair', 2300, '36\"W × 36\"D × 32\"H')">
+                            <div class="sil-tab-btn" data-sil="marseille" onclick="selectSilhouette('marseille', 'The Marseille Swivel Armchair', 2300, '36\"W × 36\"D × 32\"H', this)">
                                 <span class="sil-tab-name">The Marseille</span>
                                 <span class="sil-tab-sub">Swivel Chair · $2,300</span>
                             </div>
-                            <div class="sil-tab-btn" onclick="selectSilhouette('austin', 'The Austin Solid White Oak Bench', 1100, '60\"W × 18\"D × 19\"H')">
+                            <div class="sil-tab-btn" data-sil="austin" onclick="selectSilhouette('austin', 'The Austin Solid White Oak Bench', 1100, '60\"W × 18\"D × 19\"H', this)">
                                 <span class="sil-tab-name">The Austin</span>
                                 <span class="sil-tab-sub">Oak Bench · $1,100</span>
                             </div>
@@ -1607,86 +1607,86 @@
 
                         <!-- Fabric Category Filter -->
                         <div class="fabric-cat-tabs">
-                            <button class="fab-cat-btn active" onclick="filterFabricCat('all')">All Materials</button>
-                            <button class="fab-cat-btn" onclick="filterFabricCat('linen')">Belgian Linen</button>
-                            <button class="fab-cat-btn" onclick="filterFabricCat('velvet')">Italian Velvet</button>
-                            <button class="fab-cat-btn" onclick="filterFabricCat('boucle')">Cloud Bouclé</button>
-                            <button class="fab-cat-btn" onclick="filterFabricCat('leather')">Heritage Leather</button>
+                            <button class="fab-cat-btn active" onclick="filterFabricCat('all', this)">All Materials</button>
+                            <button class="fab-cat-btn" onclick="filterFabricCat('linen', this)">Belgian Linen</button>
+                            <button class="fab-cat-btn" onclick="filterFabricCat('velvet', this)">Italian Velvet</button>
+                            <button class="fab-cat-btn" onclick="filterFabricCat('boucle', this)">Cloud Bouclé</button>
+                            <button class="fab-cat-btn" onclick="filterFabricCat('leather', this)">Heritage Leather</button>
                         </div>
 
                         <!-- Swatches Grid with Real Photo Triggers for ALL 14 Swatches -->
                         <div class="swatch-grid" id="swatches-container">
                             
                             <!-- Belgian Linen (5 Swatches) -->
-                            <div class="swatch-item active" data-cat="linen" onclick="applyFabricSwatch('#E8DFD1', '#DCD2C3', '#C2B7A5', 'Belgian Linen · Oatmeal Flax', 'Oatmeal Heavyweight Belgian Linen (540 GSM)', '100% Belgian Flax', 0, 'linen-oatmeal')">
+                            <div class="swatch-item active" data-cat="linen" onclick="applyFabricSwatch('#E8DFD1', '#DCD2C3', '#C2B7A5', 'Belgian Linen · Oatmeal Flax', 'Oatmeal Heavyweight Belgian Linen (540 GSM)', '100% Belgian Flax', 0, 'linen-oatmeal', this)">
                                 <div class="swatch-bubble" style="background: #DCD2C3;"></div>
                                 <span class="swatch-label">Oatmeal Flax</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#FAF8F5', '#EFE9E0', '#D5CBC0', 'Belgian Linen · Chalk White', 'Chalk White Pure Organic Belgian Flax', '100% Belgian Flax', 0, 'linen-chalk')">
+                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#FAF8F5', '#EFE9E0', '#D5CBC0', 'Belgian Linen · Chalk White', 'Chalk White Pure Organic Belgian Flax', '100% Belgian Flax', 0, 'linen-chalk', this)">
                                 <div class="swatch-bubble" style="background: #EFE9E0;"></div>
                                 <span class="swatch-label">Chalk White</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#9AA5B2', '#8692A0', '#6C7886', 'Belgian Linen · Slate Fog', 'Slate Fog Mineral-Dyed Belgian Flax', '100% Belgian Flax', 200, 'linen-slate')">
+                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#9AA5B2', '#8692A0', '#6C7886', 'Belgian Linen · Slate Fog', 'Slate Fog Mineral-Dyed Belgian Flax', '100% Belgian Flax', 200, 'linen-slate', this)">
                                 <div class="swatch-bubble" style="background: #8692A0;"></div>
                                 <span class="swatch-label">Slate Fog</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#D2C4B0', '#C3B39E', '#A79782', 'Belgian Linen · Dune Sand', 'Dune Sand Belgian Performance Flax', '100% Belgian Flax', 0, 'linen-dune')">
+                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#D2C4B0', '#C3B39E', '#A79782', 'Belgian Linen · Dune Sand', 'Dune Sand Belgian Performance Flax', '100% Belgian Flax', 0, 'linen-dune', this)">
                                 <div class="swatch-bubble" style="background: #C3B39E;"></div>
                                 <span class="swatch-label">Dune Sand</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#7A806E', '#686F5D', '#515848', 'Belgian Linen · Olive Timber', 'Olive Timber Yarn-Dyed Belgian Flax', '100% Belgian Flax', 200, 'linen-olive')">
+                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#7A806E', '#686F5D', '#515848', 'Belgian Linen · Olive Timber', 'Olive Timber Yarn-Dyed Belgian Flax', '100% Belgian Flax', 200, 'linen-olive', this)">
                                 <div class="swatch-bubble" style="background: #686F5D;"></div>
                                 <span class="swatch-label">Olive Timber</span>
                             </div>
 
                             <!-- Italian Velvet (4 Swatches) -->
-                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#B66B38', '#9E5828', '#7E421A', 'Italian Velvet · Cognac Saddle', 'Cognac Saddle Como Performance Velvet', 'Italian Velvet Sheen', 600, 'velvet-cognac')">
+                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#B66B38', '#9E5828', '#7E421A', 'Italian Velvet · Cognac Saddle', 'Cognac Saddle Como Performance Velvet', 'Italian Velvet Sheen', 600, 'velvet-cognac', this)">
                                 <div class="swatch-bubble" style="background: #9E5828;"></div>
                                 <span class="swatch-label">Cognac Saddle</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#2B4A3D', '#1E3A2F', '#132820', 'Italian Velvet · Forest Pine', 'Forest Pine Heavy Cotton Velvet', 'Italian Velvet Sheen', 600, 'velvet-forest')">
+                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#2B4A3D', '#1E3A2F', '#132820', 'Italian Velvet · Forest Pine', 'Forest Pine Heavy Cotton Velvet', 'Italian Velvet Sheen', 600, 'velvet-forest', this)">
                                 <div class="swatch-bubble" style="background: #1E3A2F;"></div>
                                 <span class="swatch-label">Forest Pine</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#24354A', '#1B2838', '#111A24', 'Italian Velvet · Midnight Navy', 'Midnight Navy Lustrous Velvet', 'Italian Velvet Sheen', 600, 'velvet-navy')">
+                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#24354A', '#1B2838', '#111A24', 'Italian Velvet · Midnight Navy', 'Midnight Navy Lustrous Velvet', 'Italian Velvet Sheen', 600, 'velvet-navy', this)">
                                 <div class="swatch-bubble" style="background: #1B2838;"></div>
                                 <span class="swatch-label">Midnight Navy</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#E4D3AB', '#D9C59A', '#BCA87D', 'Italian Velvet · Champagne Pearl', 'Champagne Pearl Soft Sheen Velvet', 'Italian Velvet Sheen', 600, 'velvet-champagne')">
+                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#E4D3AB', '#D9C59A', '#BCA87D', 'Italian Velvet · Champagne Pearl', 'Champagne Pearl Soft Sheen Velvet', 'Italian Velvet Sheen', 600, 'velvet-champagne', this)">
                                 <div class="swatch-bubble" style="background: #D9C59A;"></div>
                                 <span class="swatch-label">Champagne</span>
                             </div>
 
                             <!-- Textured Bouclé (3 Swatches) -->
-                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#F8F6F2', '#EFECE6', '#D6D2CA', 'Cloud Bouclé · Ivory Cloud', 'Ivory Cloud Textured Alpaca Bouclé', 'Textured Bouclé Nub', 400, 'boucle-ivory')">
+                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#F8F6F2', '#EFECE6', '#D6D2CA', 'Cloud Bouclé · Ivory Cloud', 'Ivory Cloud Textured Alpaca Bouclé', 'Textured Bouclé Nub', 400, 'boucle-ivory', this)">
                                 <div class="swatch-bubble" style="background: #EFECE6;"></div>
                                 <span class="swatch-label">Ivory Cloud</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#C9BEB2', '#B5A89B', '#998C7F', 'Cloud Bouclé · Desert Taupe', 'Desert Taupe Curly Wool Bouclé', 'Textured Bouclé Nub', 400, 'boucle-taupe')">
+                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#C9BEB2', '#B5A89B', '#998C7F', 'Cloud Bouclé · Desert Taupe', 'Desert Taupe Curly Wool Bouclé', 'Textured Bouclé Nub', 400, 'boucle-taupe', this)">
                                 <div class="swatch-bubble" style="background: #B5A89B;"></div>
                                 <span class="swatch-label">Desert Taupe</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#48494E', '#38393D', '#28292C', 'Cloud Bouclé · Charcoal Night', 'Charcoal Night Heavy Bouclé', 'Textured Bouclé Nub', 400, 'boucle-charcoal')">
+                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#48494E', '#38393D', '#28292C', 'Cloud Bouclé · Charcoal Night', 'Charcoal Night Heavy Bouclé', 'Textured Bouclé Nub', 400, 'boucle-charcoal', this)">
                                 <div class="swatch-bubble" style="background: #38393D;"></div>
                                 <span class="swatch-label">Charcoal</span>
                             </div>
 
                             <!-- Heritage Leather (2 Swatches) -->
-                            <div class="swatch-item" data-cat="leather" onclick="applyFabricSwatch('#A45D34', '#8C4A27', '#6D3618', 'Heritage Leather · Bourbon Tan', 'Bourbon Tan Full-Grain Aniline Leather', 'Full-Grain Leather', 1400, 'leather-bourbon')">
+                            <div class="swatch-item" data-cat="leather" onclick="applyFabricSwatch('#A45D34', '#8C4A27', '#6D3618', 'Heritage Leather · Bourbon Tan', 'Bourbon Tan Full-Grain Aniline Leather', 'Full-Grain Leather', 1400, 'leather-bourbon', this)">
                                 <div class="swatch-bubble" style="background: #8C4A27;"></div>
                                 <span class="swatch-label">Bourbon Tan</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="leather" onclick="applyFabricSwatch('#4E342E', '#3E2723', '#2B1A17', 'Heritage Leather · Aged Espresso', 'Aged Espresso Hand-Burnished Leather', 'Full-Grain Leather', 1400, 'leather-espresso')">
+                            <div class="swatch-item" data-cat="leather" onclick="applyFabricSwatch('#4E342E', '#3E2723', '#2B1A17', 'Heritage Leather · Aged Espresso', 'Aged Espresso Hand-Burnished Leather', 'Full-Grain Leather', 1400, 'leather-espresso', this)">
                                 <div class="swatch-bubble" style="background: #3E2723;"></div>
                                 <span class="swatch-label">Aged Espresso</span>
                             </div>
@@ -2099,7 +2099,7 @@
 
         let currentActiveFabricKey = 'linen-oatmeal';
 
-        function applyFabricSwatch(topColor, midColor, botColor, name, subText, macroDesc, extraCost, photoKey) {
+        function applyFabricSwatch(topColor, midColor, botColor, name, subText, macroDesc, extraCost, photoKey, clickedEl) {
             currentActiveFabricKey = photoKey || 'linen-oatmeal';
             currentFabric = { topColor, midColor, botColor, name, subText, macroDesc, extraCost };
 
@@ -2107,12 +2107,10 @@
             if (photoEl) {
                 photoEl.style.opacity = '0.35';
                 photoEl.style.transform = 'scale(0.985)';
-                setTimeout(() => {
+                setTimeout(function() {
                     if (currentSilhouette.id === 'camille') {
                         photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || REAL_SOFA_PHOTOS['linen-oatmeal'];
-                    } else if (currentSilhouette.id === 'marseille' && currentActiveFabricKey === 'velvet-cognac') {
-                        photoEl.src = 'images/marseille_swivel_chair.jpg';
-                    } else if (currentSilhouette.id === 'marseille' && currentActiveFabricKey.includes('boucle')) {
+                    } else if (currentSilhouette.id === 'marseille') {
                         photoEl.src = 'images/marseille_swivel_chair.jpg';
                     } else if (currentSilhouette.id === 'laurent') {
                         photoEl.src = 'images/laurent_linen_sectional.jpg';
@@ -2125,7 +2123,7 @@
                     }
                     photoEl.style.opacity = '1';
                     photoEl.style.transform = 'scale(1)';
-                }, 150);
+                }, 120);
             }
 
             const lblFabric = document.getElementById('label-active-fabric');
@@ -2137,16 +2135,16 @@
             const macroName = document.getElementById('macro-swatch-name');
             if (macroName) macroName.textContent = macroDesc;
 
-            document.querySelectorAll('.swatch-item').forEach(el => el.classList.remove('active'));
-            if (event && event.currentTarget) {
-                event.currentTarget.classList.add('active');
+            document.querySelectorAll('.swatch-item').forEach(function(el) { el.classList.remove('active'); });
+            if (clickedEl) {
+                clickedEl.classList.add('active');
             }
 
             updateTotalConfigPrice();
         }
 
-        function selectSilhouette(id, name, basePrice, dims) {
-            currentSilhouette = { id, name, basePrice, dims };
+        function selectSilhouette(id, name, basePrice, dims, clickedEl) {
+            currentSilhouette = { id: id, name: name, basePrice: basePrice, dims: dims };
 
             const titleEl = document.getElementById('stage-model-title');
             if (titleEl) titleEl.textContent = name;
@@ -2157,7 +2155,7 @@
             if (photoEl) {
                 photoEl.style.opacity = '0.35';
                 photoEl.style.transform = 'scale(0.985)';
-                setTimeout(() => {
+                setTimeout(function() {
                     if (id === 'camille') {
                         photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || 'images/camille_oatmeal_linen.jpg';
                     } else {
@@ -2165,31 +2163,28 @@
                     }
                     photoEl.style.opacity = '1';
                     photoEl.style.transform = 'scale(1)';
-                }, 150);
+                }, 120);
             }
 
-            document.querySelectorAll('.sil-tab-btn').forEach(btn => btn.classList.remove('active'));
-            if (event && event.currentTarget && event.currentTarget.classList.contains('sil-tab-btn')) {
-                event.currentTarget.classList.add('active');
+            document.querySelectorAll('.sil-tab-btn').forEach(function(btn) { btn.classList.remove('active'); });
+            if (clickedEl) {
+                clickedEl.classList.add('active');
+            } else {
+                const targetBtn = document.querySelector('.sil-tab-btn[data-sil="' + id + '"]');
+                if (targetBtn) targetBtn.classList.add('active');
             }
 
             updateTotalConfigPrice();
-
-            const studioEl = document.getElementById('customizer-studio');
-            if (studioEl && window.scrollY > 1200) {
-                studioEl.scrollIntoView({ behavior: 'smooth' });
-            }
         }
 
-        // Category Filter with Automatic First-Item Activation
-        function filterFabricCat(cat) {
-            document.querySelectorAll('.fab-cat-btn').forEach(b => b.classList.remove('active'));
-            if (event && event.currentTarget) event.currentTarget.classList.add('active');
+        function filterFabricCat(cat, clickedBtn) {
+            document.querySelectorAll('.fab-cat-btn').forEach(function(b) { b.classList.remove('active'); });
+            if (clickedBtn) clickedBtn.classList.add('active');
 
             const swatches = document.querySelectorAll('.swatch-item');
             let firstVisible = null;
 
-            swatches.forEach(sw => {
+            swatches.forEach(function(sw) {
                 const itemCat = sw.getAttribute('data-cat');
                 if (cat === 'all' || itemCat === cat) {
                     sw.style.display = 'flex';
@@ -2199,16 +2194,14 @@
                 }
             });
 
-            // Automatically trigger first visible swatch in that category
             if (firstVisible) {
                 firstVisible.click();
             }
         }
 
-        // Realistic Studio Lighting
         function setStudioLighting(mode) {
             currentLighting = mode;
-            document.querySelectorAll('.light-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.light-btn').forEach(function(b) { b.classList.remove('active'); });
             const photoEl = document.getElementById('real-sofa-photo');
             const stage = document.getElementById('sofa-stage-viewport');
 
@@ -2225,62 +2218,32 @@
             }
         }
 
-        // Apply Leg Finish
         function applyLegFinish(finish) {
             currentLegFinish = finish;
-            const stop1 = document.getElementById('leg-stop1');
-            const stop2 = document.getElementById('leg-stop2');
-
-            if (finish === 'oak') {
-                if (stop1) stop1.setAttribute('stop-color', '#D7B98E');
-                if (stop2) stop2.setAttribute('stop-color', '#9C784A');
-            } else if (finish === 'walnut') {
-                if (stop1) stop1.setAttribute('stop-color', '#654321');
-                if (stop2) stop2.setAttribute('stop-color', '#3E2723');
-            } else if (finish === 'ash') {
-                if (stop1) stop1.setAttribute('stop-color', '#2B2B2B');
-                if (stop2) stop2.setAttribute('stop-color', '#121212');
-            } else if (finish === 'brass') {
-                if (stop1) stop1.setAttribute('stop-color', '#E5C158');
-                if (stop2) stop2.setAttribute('stop-color', '#B89230');
-            }
         }
 
-        // Studio Lighting Toggle
-        function setStudioLighting(mode) {
-            currentLighting = mode;
-            document.querySelectorAll('.light-btn').forEach(b => b.classList.remove('active'));
-            const stage = document.querySelector('.visualizer-stage-pane');
-
-            if (mode === 'day') {
-                document.getElementById('btn-light-day').classList.add('active');
-                if (stage) stage.style.background = 'radial-gradient(circle at center, #FFFFFF 0%, #F5F1EB 100%)';
-            } else {
-                document.getElementById('btn-light-eve').classList.add('active');
-                if (stage) stage.style.background = 'radial-gradient(circle at center, #FBF4E8 0%, #E6DAC8 100%)';
-            }
-        }
-
-        // Total Price Calculator
         function updateTotalConfigPrice() {
             const fillSelect = document.getElementById('select-cushion-fill');
-            currentFillExtra = fillSelect ? parseInt(fillSelect.value, 10) : 0;
+            const fillExtra = fillSelect ? parseInt(fillSelect.value, 10) || 0 : 0;
+            const fabricExtra = currentFabric ? currentFabric.extraCost || 0 : 0;
+            const base = currentSilhouette ? currentSilhouette.basePrice || 8400 : 8400;
 
-            const total = currentSilhouette.basePrice + currentFabric.extraCost + currentFillExtra;
-            const priceEl = document.getElementById('config-grand-total');
-            if (priceEl) {
-                priceEl.textContent = `$${total.toLocaleString('en-US')}.00`;
+            const total = base + fabricExtra + fillExtra;
+            const totalEl = document.getElementById('config-grand-total');
+            if (totalEl) {
+                totalEl.textContent = '$' + total.toLocaleString('en-US') + '.00';
             }
         }
 
-        // Swatch Modal Handlers
         function openSwatchOrderModal() {
             const modal = document.getElementById('modal-swatch');
-            const summary = document.getElementById('modal-selected-swatches');
-            if (summary) {
-                summary.innerHTML = `• <strong>${currentSilhouette.name}</strong><br>• Selected: ${currentFabric.name} (${currentFabric.macroDesc})`;
+            if (modal) {
+                modal.classList.add('open');
+                const selectedText = document.getElementById('modal-selected-swatches');
+                if (selectedText && currentFabric) {
+                    selectedText.textContent = '• ' + currentFabric.name + ' (' + currentFabric.macroDesc + ')';
+                }
             }
-            if (modal) modal.classList.add('open');
         }
 
         function closeSwatchOrderModal() {
@@ -2293,7 +2256,7 @@
             const alertEl = document.getElementById('swatch-success-alert');
             if (alertEl) {
                 alertEl.style.display = 'block';
-                setTimeout(() => {
+                setTimeout(function() {
                     closeSwatchOrderModal();
                     alertEl.style.display = 'none';
                 }, 2500);
@@ -2301,24 +2264,26 @@
         }
 
         function saveConfigurationToBrief() {
-            alert(`✓ Saved to Consultation Brief!\n\nPiece: ${currentSilhouette.name}\nFabric: ${currentFabric.name}\nFinish: ${currentLegFinish.toUpperCase()}\nInvestment: ${document.getElementById('config-grand-total').textContent}\n\nThis selection has been added to your design consultation notes.`);
-            const consultNotes = document.getElementById('consult-notes');
-            if (consultNotes) {
-                consultNotes.value = `Client Visualizer Configuration:\n- Silhouette: ${currentSilhouette.name}\n- Fabric: ${currentFabric.name}\n- Estimated Valuation: ${document.getElementById('config-grand-total').textContent}\n- Leg Finish: ${currentLegFinish}`;
+            alert('✓ Configuration Saved! ' + currentSilhouette.name + ' in ' + currentFabric.name + ' has been appended to your Midland studio design brief.');
+        }
+
+        function openConsultationModal() {
+            const consultSec = document.getElementById('book-consultation');
+            if (consultSec) {
+                consultSec.scrollIntoView({ behavior: 'smooth' });
             }
-            const consultSection = document.getElementById('book-consultation');
-            if (consultSection) consultSection.scrollIntoView({ behavior: 'smooth' });
         }
 
         function handleConsultationSubmit(e) {
             e.preventDefault();
-            const msg = document.getElementById('consult-success-msg');
-            if (msg) {
-                msg.style.display = 'block';
-                document.getElementById('consultation-form').reset();
+            const successEl = document.getElementById('consult-success-msg');
+            if (successEl) {
+                successEl.style.display = 'block';
+                successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         }
-    function toggleMobileMenu(open) {
+
+        function toggleMobileMenu(open) {
             const drawer = document.getElementById('mobile-nav-drawer');
             if (!drawer) return;
             if (open) {
@@ -2329,6 +2294,11 @@
                 document.body.style.overflow = '';
             }
         }
+
+        // Initialize on Load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTotalConfigPrice();
+        });
     </script>
 </body>
 </html>

@@ -5608,9 +5608,16 @@
                     <h1>Live Inbound AI Voice Receptionist</h1>
                     <p>Dial directly from the iPhone keypad below or trigger any bespoke business scenario.</p>
                 </div>
-                <button onclick="requestExplicitMic()" style="background: #E8F5E9; border: 1.5px solid #C8E6C9; color: #166534; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 10px 16px; border-radius: 6px; cursor: pointer; white-space: nowrap;">
-                    Enable Microphone
-                </button>
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <select id="ai-voice-engine-select" onchange="changeVoiceEngine(this.value)" style="background: #F8FAFC; border: 1px solid #E2E8F0; color: #475569; font-size: 11px; font-weight: 600; padding: 10px 14px; border-radius: 6px; outline: none; cursor: pointer;">
+                        <option value="standard">Standard TTS (System Voice)</option>
+                        <option value="elevenlabs">ElevenLabs Premium (Ultra-Realistic)</option>
+                        <option value="openai">OpenAI TTS (Low-Latency Human)</option>
+                    </select>
+                    <button onclick="requestExplicitMic()" style="background: #E8F5E9; border: 1.5px solid #C8E6C9; color: #166534; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 10px 16px; border-radius: 6px; cursor: pointer; white-space: nowrap;">
+                        Enable Microphone
+                    </button>
+                </div>
             </div>
 
             <!-- ── TOP HERO STAGE: MOBILE IPHONE UI & LIVE EXTRACTION CARD ── -->
@@ -10564,13 +10571,20 @@ function launchJourneyForClient(clientId, event) {
                 utterance.pitch = 1.06;
                 
                 const voices = window.speechSynthesis.getVoices();
-                const femaleVoice = voices.find(v => (
-                    v.name.includes('Samantha') || 
-                    v.name.includes('Karen') || 
-                    v.name.includes('Victoria') || 
-                    v.name.includes('Zira') ||
-                    (v.lang && v.lang.startsWith('en') && (v.name.includes('Female') || v.name.includes('Natural') || v.name.includes('Google')))
-                ));
+                let femaleVoice;
+                if (window.currentAiVoiceEngine === 'elevenlabs' || window.currentAiVoiceEngine === 'openai') {
+                    // Try to find Premium/Enhanced voices first for the demo simulation
+                    femaleVoice = voices.find(v => v.name.includes('Premium') || v.name.includes('Enhanced') || v.name.includes('Google UK English Female') || v.name.includes('Siri'));
+                }
+                if (!femaleVoice) {
+                    femaleVoice = voices.find(v => (
+                        v.name.includes('Samantha') || 
+                        v.name.includes('Karen') || 
+                        v.name.includes('Victoria') || 
+                        v.name.includes('Zira') ||
+                        (v.lang && v.lang.startsWith('en') && (v.name.includes('Female') || v.name.includes('Natural') || v.name.includes('Google')))
+                    ));
+                }
                 if (femaleVoice) utterance.voice = femaleVoice;
 
                 utterance.onend = () => {

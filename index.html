@@ -100,8 +100,9 @@
         .header-nav-left, .header-nav-right {
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 22px;
             flex: 1;
+            white-space: nowrap;
         }
 
         .header-nav-right {
@@ -109,14 +110,15 @@
         }
 
         .nav-link {
-            font-size: 12.5px;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 700;
             color: var(--text-main);
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             position: relative;
             padding: 4px 0;
+            white-space: nowrap;
             transition: color 0.2s;
         }
 
@@ -142,10 +144,19 @@
         .brand-logo-wrap {
             text-align: center;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-decoration: none;
-            color: var(--text-main);
+            padding: 0 16px;
+        }
+        .brand-logo-img {
+            height: 52px;
+            max-width: 190px;
+            object-fit: contain;
+            transition: transform 0.25s ease;
+        }
+        .brand-logo-wrap:hover .brand-logo-img {
+            transform: scale(1.03);
         }
 
         .brand-logo-text {
@@ -1153,14 +1164,13 @@
             </nav>
 
             <a href="#" class="brand-logo-wrap">
-                <span class="brand-logo-text">ARMORIE</span>
-                <span class="brand-logo-sub">Interiors & Textiles · Texas</span>
+                <img src="images/armorie_logo_dark.png" alt="Armorie Interiors & Textiles" class="brand-logo-img">
             </a>
 
             <nav class="header-nav-right">
                 <a href="#craftsmanship" class="nav-link">Craftsmanship</a>
                 <a href="#showroom" class="nav-link">Showroom</a>
-                <a href="tel:4325550188" class="nav-link" style="color: var(--gold-dark); font-weight: 700;">📞 (432) 555-0188</a>
+                <a href="tel:4325550188" class="nav-link" style="color: var(--gold-dark); font-weight: 800; white-space: nowrap;">📞 (432) 555-0188</a>
                 <a href="#book-consultation" class="btn-header-cta">Book Consultation</a>
             </nav>
         </div>

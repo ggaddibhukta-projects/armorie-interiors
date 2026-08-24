@@ -1069,6 +1069,69 @@
             font-size: 11.5px;
             color: #64748B;
         }
+/* ── REAL PHOTOREALISTIC SOFA STUDIO STAGE ── */
+        .stage-render-frame {
+            position: relative;
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px 0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: #EAE4DC;
+            box-shadow: 0 8px 30px rgba(31, 27, 24, 0.08);
+        }
+
+        .real-sofa-photo-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .real-sofa-img {
+            width: 100%;
+            height: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+        }
+
+        .real-sofa-img.loading {
+            opacity: 0.3;
+            transform: scale(0.98);
+        }
+
+        .photo-studio-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(25, 33, 45, 0.85);
+            backdrop-filter: blur(8px);
+            color: #FFFFFF;
+            font-size: 10.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .photo-studio-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
     </style>
 </head>
 <body>
@@ -1159,87 +1222,18 @@
                     </div>
 
                     <!-- Dynamic SVG/Visual Sofa Render -->
+                    <!-- Real High-Definition Studio Photograph Frame -->
                     <div class="stage-render-frame" id="sofa-stage-viewport">
-                        <div class="sofa-dynamic-svg-container" id="sofa-svg-wrapper">
-                            
-                            <!-- Dynamic SVG Model with Texture & Lighting Shaders -->
-                            <svg viewBox="0 0 800 480" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <!-- Dynamic Fabric Color & Gradient -->
-                                    <linearGradient id="sofaBodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" id="grad-top" stop-color="#E8DFD1"/>
-                                        <stop offset="60%" id="grad-mid" stop-color="#DCD2C3"/>
-                                        <stop offset="100%" id="grad-bot" stop-color="#C2B7A5"/>
-                                    </linearGradient>
-
-                                    <linearGradient id="cushionHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
-                                        <stop offset="100%" stop-color="#000000" stop-opacity="0.15"/>
-                                    </linearGradient>
-
-                                    <!-- Ambient Floor Shadow -->
-                                    <radialGradient id="floorShadow" cx="50%" cy="50%" r="50%">
-                                        <stop offset="0%" stop-color="#1A1816" stop-opacity="0.45"/>
-                                        <stop offset="70%" stop-color="#1A1816" stop-opacity="0.15"/>
-                                        <stop offset="100%" stop-color="#1A1816" stop-opacity="0"/>
-                                    </radialGradient>
-
-                                    <!-- Wood Leg Finishes -->
-                                    <linearGradient id="legFinishGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop offset="0%" id="leg-stop1" stop-color="#D7B98E"/>
-                                        <stop offset="100%" id="leg-stop2" stop-color="#9C784A"/>
-                                    </linearGradient>
-                                </defs>
-
-                                <!-- Drop Shadow -->
-                                <ellipse cx="400" cy="425" rx="340" ry="24" fill="url(#floorShadow)"/>
-
-                                <!-- Hardwood Legs -->
-                                <g id="sofa-legs">
-                                    <polygon points="120,380 135,425 150,425 145,380" fill="url(#legFinishGrad)"/>
-                                    <polygon points="260,380 268,425 280,425 278,380" fill="url(#legFinishGrad)"/>
-                                    <polygon points="520,380 522,425 534,425 540,380" fill="url(#legFinishGrad)"/>
-                                    <polygon points="655,380 650,425 665,425 680,380" fill="url(#legFinishGrad)"/>
-                                </g>
-
-                                <!-- Sofa Main Body Shell -->
-                                <path id="sofa-backrest" d="M 100,230 C 100,160 140,140 200,140 L 600,140 C 660,140 700,160 700,230 L 700,360 C 700,380 680,390 660,390 L 140,390 C 120,390 100,380 100,360 Z" fill="url(#sofaBodyGrad)" stroke="#1A1816" stroke-opacity="0.12" stroke-width="2"/>
-                                <path d="M 100,230 C 100,160 140,140 200,140 L 600,140 C 660,140 700,160 700,230 L 700,360 C 700,380 680,390 660,390 L 140,390 C 120,390 100,380 100,360 Z" fill="url(#cushionHighlight)"/>
-
-                                <!-- Left Armrest -->
-                                <path id="sofa-left-arm" d="M 90,240 C 90,190 110,180 150,180 C 170,180 175,200 175,250 L 175,370 C 175,385 160,390 145,390 L 110,390 C 95,390 90,380 90,370 Z" fill="url(#sofaBodyGrad)" stroke="#1A1816" stroke-opacity="0.15" stroke-width="1.5"/>
-
-                                <!-- Right Armrest -->
-                                <path id="sofa-right-arm" d="M 710,240 C 710,190 690,180 650,180 C 630,180 625,200 625,250 L 625,370 C 625,385 640,390 655,390 L 690,390 C 705,390 710,380 710,370 Z" fill="url(#sofaBodyGrad)" stroke="#1A1816" stroke-opacity="0.15" stroke-width="1.5"/>
-
-                                <!-- Back Pillows (Down Filled) -->
-                                <g id="sofa-back-pillows">
-                                    <rect x="180" y="160" width="210" height="130" rx="20" fill="url(#sofaBodyGrad)" stroke="#1A1816" stroke-opacity="0.15" stroke-width="1.5"/>
-                                    <rect x="180" y="160" width="210" height="130" rx="20" fill="url(#cushionHighlight)"/>
-                                    
-                                    <rect x="410" y="160" width="210" height="130" rx="20" fill="url(#sofaBodyGrad)" stroke="#1A1816" stroke-opacity="0.15" stroke-width="1.5"/>
-                                    <rect x="410" y="160" width="210" height="130" rx="20" fill="url(#cushionHighlight)"/>
-                                </g>
-
-                                <!-- Deep Lounge Seat Cushions (2-Bench Down Wrap) -->
-                                <g id="sofa-seat-cushions">
-                                    <rect x="165" y="280" width="230" height="95" rx="14" fill="url(#sofaBodyGrad)" stroke="#1A1816" stroke-opacity="0.18" stroke-width="2"/>
-                                    <rect x="165" y="280" width="230" height="95" rx="14" fill="url(#cushionHighlight)"/>
-
-                                    <rect x="405" y="280" width="230" height="95" rx="14" fill="url(#sofaBodyGrad)" stroke="#1A1816" stroke-opacity="0.18" stroke-width="2"/>
-                                    <rect x="405" y="280" width="230" height="95" rx="14" fill="url(#cushionHighlight)"/>
-                                </g>
-
-                                <!-- Tailored Piping / Seam Lines -->
-                                <path d="M 165,330 L 395,330 M 405,330 L 635,330" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1.5"/>
-                            </svg>
+                        <div class="real-sofa-photo-container">
+                            <img id="real-sofa-photo" src="images/camille_oatmeal_linen.jpg" alt="The Camille 96\" Custom Sofa" class="real-sofa-img">
+                            <div class="photo-studio-tag" id="photo-tag-badge">Texas Workshop Studio Shot · Authentic Upholstery</div>
                         </div>
 
                         <!-- Macro Fabric Weave Zoom Lens -->
                         <div class="macro-zoom-lens">
                             <div class="macro-swatch-circle" id="macro-swatch-view" style="background-color: #DCD2C3;"></div>
                             <div>
-                                <div style="font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted);">Macro Weave Texture</div>
+                                <div style="font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted);">Real Material Specification</div>
                                 <div style="font-size: 11.5px; font-weight: 700; color: var(--text-main);" id="macro-swatch-name">100% Belgian Flax</div>
                             </div>
                         </div>
@@ -1306,84 +1300,85 @@
                             <button class="fab-cat-btn" onclick="filterFabricCat('leather')">Heritage Leather</button>
                         </div>
 
-                        <!-- Swatches Grid -->
+                        <!-- Swatches Grid with Real Photo Triggers -->
                         <div class="swatch-grid" id="swatches-container">
                             
                             <!-- Belgian Linen -->
-                            <div class="swatch-item active" data-cat="linen" onclick="applyFabricSwatch('#E8DFD1', '#DCD2C3', '#C2B7A5', 'Belgian Linen · Oatmeal Flax', 'Oatmeal Heavyweight Belgian Linen (540 GSM)', '100% Belgian Flax', 0)">
+                            <div class="swatch-item active" data-cat="linen" onclick="applyFabricSwatch('#E8DFD1', '#DCD2C3', '#C2B7A5', 'Belgian Linen · Oatmeal Flax', 'Oatmeal Heavyweight Belgian Linen (540 GSM)', '100% Belgian Flax', 0, 'linen-oatmeal')">
                                 <div class="swatch-bubble" style="background: #DCD2C3;"></div>
                                 <span class="swatch-label">Oatmeal Flax</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#FAF8F5', '#EFE9E0', '#D5CBC0', 'Belgian Linen · Chalk White', 'Chalk White Pure Organic Belgian Flax', '100% Belgian Flax', 0)">
+                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#FAF8F5', '#EFE9E0', '#D5CBC0', 'Belgian Linen · Chalk White', 'Chalk White Pure Organic Belgian Flax', '100% Belgian Flax', 0, 'linen-chalk')">
                                 <div class="swatch-bubble" style="background: #EFE9E0;"></div>
                                 <span class="swatch-label">Chalk White</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#9AA5B2', '#8692A0', '#6C7886', 'Belgian Linen · Slate Fog', 'Slate Fog Mineral-Dyed Belgian Flax', '100% Belgian Flax', 200)">
+                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#9AA5B2', '#8692A0', '#6C7886', 'Belgian Linen · Slate Fog', 'Slate Fog Mineral-Dyed Belgian Flax', '100% Belgian Flax', 200, 'linen-slate')">
                                 <div class="swatch-bubble" style="background: #8692A0;"></div>
                                 <span class="swatch-label">Slate Fog</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#D2C4B0', '#C3B39E', '#A79782', 'Belgian Linen · Dune Sand', 'Dune Sand Belgian Performance Flax', '100% Belgian Flax', 0)">
+                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#D2C4B0', '#C3B39E', '#A79782', 'Belgian Linen · Dune Sand', 'Dune Sand Belgian Performance Flax', '100% Belgian Flax', 0, 'linen-dune')">
                                 <div class="swatch-bubble" style="background: #C3B39E;"></div>
                                 <span class="swatch-label">Dune Sand</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#7A806E', '#686F5D', '#515848', 'Belgian Linen · Olive Timber', 'Olive Timber Yarn-Dyed Belgian Flax', '100% Belgian Flax', 200)">
+                            <div class="swatch-item" data-cat="linen" onclick="applyFabricSwatch('#7A806E', '#686F5D', '#515848', 'Belgian Linen · Olive Timber', 'Olive Timber Yarn-Dyed Belgian Flax', '100% Belgian Flax', 200, 'linen-olive')">
                                 <div class="swatch-bubble" style="background: #686F5D;"></div>
                                 <span class="swatch-label">Olive Timber</span>
                             </div>
 
                             <!-- Italian Velvet -->
-                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#B66B38', '#9E5828', '#7E421A', 'Italian Velvet · Cognac Saddle', 'Cognac Saddle Como Performance Velvet', 'Italian Velvet Sheen', 600)">
+                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#B66B38', '#9E5828', '#7E421A', 'Italian Velvet · Cognac Saddle', 'Cognac Saddle Como Performance Velvet', 'Italian Velvet Sheen', 600, 'velvet-cognac')">
                                 <div class="swatch-bubble" style="background: #9E5828;"></div>
                                 <span class="swatch-label">Cognac Saddle</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#2B4A3D', '#1E3A2F', '#132820', 'Italian Velvet · Forest Pine', 'Forest Pine Heavy Cotton Velvet', 'Italian Velvet Sheen', 600)">
+                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#2B4A3D', '#1E3A2F', '#132820', 'Italian Velvet · Forest Pine', 'Forest Pine Heavy Cotton Velvet', 'Italian Velvet Sheen', 600, 'velvet-forest')">
                                 <div class="swatch-bubble" style="background: #1E3A2F;"></div>
                                 <span class="swatch-label">Forest Pine</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#24354A', '#1B2838', '#111A24', 'Italian Velvet · Midnight Navy', 'Midnight Navy Lustrous Velvet', 'Italian Velvet Sheen', 600)">
+                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#24354A', '#1B2838', '#111A24', 'Italian Velvet · Midnight Navy', 'Midnight Navy Lustrous Velvet', 'Italian Velvet Sheen', 600, 'velvet-navy')">
                                 <div class="swatch-bubble" style="background: #1B2838;"></div>
                                 <span class="swatch-label">Midnight Navy</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#E4D3AB', '#D9C59A', '#BCA87D', 'Italian Velvet · Champagne Pearl', 'Champagne Pearl Soft Sheen Velvet', 'Italian Velvet Sheen', 600)">
+                            <div class="swatch-item" data-cat="velvet" onclick="applyFabricSwatch('#E4D3AB', '#D9C59A', '#BCA87D', 'Italian Velvet · Champagne Pearl', 'Champagne Pearl Soft Sheen Velvet', 'Italian Velvet Sheen', 600, 'velvet-champagne')">
                                 <div class="swatch-bubble" style="background: #D9C59A;"></div>
                                 <span class="swatch-label">Champagne</span>
                             </div>
 
                             <!-- Textured Bouclé -->
-                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#F8F6F2', '#EFECE6', '#D6D2CA', 'Cloud Bouclé · Ivory Cloud', 'Ivory Cloud Textured Alpaca Bouclé', 'Textured Bouclé Nub', 400)">
+                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#F8F6F2', '#EFECE6', '#D6D2CA', 'Cloud Bouclé · Ivory Cloud', 'Ivory Cloud Textured Alpaca Bouclé', 'Textured Bouclé Nub', 400, 'boucle-ivory')">
                                 <div class="swatch-bubble" style="background: #EFECE6;"></div>
                                 <span class="swatch-label">Ivory Cloud</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#C9BEB2', '#B5A89B', '#998C7F', 'Cloud Bouclé · Desert Taupe', 'Desert Taupe Curly Wool Bouclé', 'Textured Bouclé Nub', 400)">
+                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#C9BEB2', '#B5A89B', '#998C7F', 'Cloud Bouclé · Desert Taupe', 'Desert Taupe Curly Wool Bouclé', 'Textured Bouclé Nub', 400, 'boucle-taupe')">
                                 <div class="swatch-bubble" style="background: #B5A89B;"></div>
                                 <span class="swatch-label">Desert Taupe</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#48494E', '#38393D', '#28292C', 'Cloud Bouclé · Charcoal Night', 'Charcoal Night Heavy Bouclé', 'Textured Bouclé Nub', 400)">
+                            <div class="swatch-item" data-cat="boucle" onclick="applyFabricSwatch('#48494E', '#38393D', '#28292C', 'Cloud Bouclé · Charcoal Night', 'Charcoal Night Heavy Bouclé', 'Textured Bouclé Nub', 400, 'boucle-charcoal')">
                                 <div class="swatch-bubble" style="background: #38393D;"></div>
                                 <span class="swatch-label">Charcoal</span>
                             </div>
 
                             <!-- Heritage Leather -->
-                            <div class="swatch-item" data-cat="leather" onclick="applyFabricSwatch('#A45D34', '#8C4A27', '#6D3618', 'Heritage Leather · Bourbon Tan', 'Bourbon Tan Full-Grain Aniline Leather', 'Full-Grain Leather', 1400)">
+                            <div class="swatch-item" data-cat="leather" onclick="applyFabricSwatch('#A45D34', '#8C4A27', '#6D3618', 'Heritage Leather · Bourbon Tan', 'Bourbon Tan Full-Grain Aniline Leather', 'Full-Grain Leather', 1400, 'leather-bourbon')">
                                 <div class="swatch-bubble" style="background: #8C4A27;"></div>
                                 <span class="swatch-label">Bourbon Tan</span>
                             </div>
 
-                            <div class="swatch-item" data-cat="leather" onclick="applyFabricSwatch('#4E342E', '#3E2723', '#2B1A17', 'Heritage Leather · Aged Espresso', 'Aged Espresso Hand-Burnished Leather', 'Full-Grain Leather', 1400)">
+                            <div class="swatch-item" data-cat="leather" onclick="applyFabricSwatch('#4E342E', '#3E2723', '#2B1A17', 'Heritage Leather · Aged Espresso', 'Aged Espresso Hand-Burnished Leather', 'Full-Grain Leather', 1400, 'leather-espresso')">
                                 <div class="swatch-bubble" style="background: #3E2723;"></div>
                                 <span class="swatch-label">Aged Espresso</span>
                             </div>
 
                         </div>
+
                     </div>
 
                     <!-- 3. Cushion Fill & Wood Leg Selection -->
@@ -1762,18 +1757,44 @@
         let currentLegFinish = 'oak';
         let currentLighting = 'day';
 
-        // Apply Fabric Swatch Function
-        function applyFabricSwatch(topColor, midColor, botColor, name, subText, macroDesc, extraCost) {
+        // Real Photo Asset Dictionary
+        const REAL_SOFA_PHOTOS = {
+            'linen-oatmeal': 'images/camille_oatmeal_linen.jpg',
+            'linen-chalk': 'images/camille_oatmeal_linen.jpg',
+            'linen-slate': 'images/camille_oatmeal_linen.jpg',
+            'linen-dune': 'images/camille_oatmeal_linen.jpg',
+            'linen-olive': 'images/camille_forest_pine.jpg',
+            'velvet-cognac': 'images/camille_cognac_velvet.jpg',
+            'velvet-forest': 'images/camille_forest_pine.jpg',
+            'velvet-navy': 'images/camille_midnight_navy.jpg',
+            'velvet-champagne': 'images/camille_cognac_velvet.jpg',
+            'boucle-ivory': 'images/camille_ivory_boucle.jpg',
+            'boucle-taupe': 'images/camille_ivory_boucle.jpg',
+            'boucle-charcoal': 'images/camille_midnight_navy.jpg',
+            'leather-bourbon': 'images/camille_bourbon_leather.jpg',
+            'leather-espresso': 'images/camille_bourbon_leather.jpg',
+            'laurent-default': 'images/laurent_linen_sectional.jpg'
+        };
+
+        let currentActiveFabricKey = 'linen-oatmeal';
+
+        function applyFabricSwatch(topColor, midColor, botColor, name, subText, macroDesc, extraCost, photoKey) {
+            currentActiveFabricKey = photoKey || 'linen-oatmeal';
             currentFabric = { topColor, midColor, botColor, name, subText, macroDesc, extraCost };
 
-            // Update SVG Linear Gradient
-            const gradTop = document.getElementById('grad-top');
-            const gradMid = document.getElementById('grad-mid');
-            const gradBot = document.getElementById('grad-bot');
-
-            if (gradTop) gradTop.setAttribute('stop-color', topColor);
-            if (gradMid) gradMid.setAttribute('stop-color', midColor);
-            if (gradBot) gradBot.setAttribute('stop-color', botColor);
+            // Update Real Photo with smooth transition
+            const photoEl = document.getElementById('real-sofa-photo');
+            if (photoEl) {
+                photoEl.classList.add('loading');
+                setTimeout(() => {
+                    if (currentSilhouette.id === 'laurent') {
+                        photoEl.src = REAL_SOFA_PHOTOS['laurent-default'];
+                    } else {
+                        photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || REAL_SOFA_PHOTOS['linen-oatmeal'];
+                    }
+                    photoEl.classList.remove('loading');
+                }, 180);
+            }
 
             // Update Labels
             const lblFabric = document.getElementById('label-active-fabric');
@@ -1794,7 +1815,6 @@
             updateTotalConfigPrice();
         }
 
-        // Silhouette Selection
         function selectSilhouette(id, name, basePrice, dims) {
             currentSilhouette = { id, name, basePrice, dims };
 
@@ -1803,23 +1823,17 @@
             const lblSil = document.getElementById('label-active-sil');
             if (lblSil) lblSil.textContent = name;
 
-            // Adjust SVG geometry subtly based on silhouette
-            const backrest = document.getElementById('sofa-backrest');
-            const leftArm = document.getElementById('sofa-left-arm');
-            const rightArm = document.getElementById('sofa-right-arm');
-
-            if (id === 'beaumont') {
-                // Tuxedo straight arms
-                if (leftArm) leftArm.setAttribute('d', 'M 90,160 C 90,150 110,140 150,140 L 175,140 L 175,370 L 90,370 Z');
-                if (rightArm) rightArm.setAttribute('d', 'M 710,160 C 710,150 690,140 650,140 L 625,140 L 625,370 L 710,370 Z');
-            } else if (id === 'marseille') {
-                // Curved Swivel Chair
-                if (leftArm) leftArm.setAttribute('d', 'M 180,240 C 180,180 200,160 240,160 L 260,160 L 260,370 L 180,370 Z');
-                if (rightArm) rightArm.setAttribute('d', 'M 620,240 C 620,180 600,160 560,160 L 540,160 L 540,370 L 620,370 Z');
-            } else {
-                // Standard Camille / Laurent curve
-                if (leftArm) leftArm.setAttribute('d', 'M 90,240 C 90,190 110,180 150,180 C 170,180 175,200 175,250 L 175,370 C 175,385 160,390 145,390 L 110,390 C 95,390 90,380 90,370 Z');
-                if (rightArm) rightArm.setAttribute('d', 'M 710,240 C 710,190 690,180 650,180 C 630,180 625,200 625,250 L 625,370 C 625,385 640,390 655,390 L 690,390 C 705,390 710,380 710,370 Z');
+            const photoEl = document.getElementById('real-sofa-photo');
+            if (photoEl) {
+                photoEl.classList.add('loading');
+                setTimeout(() => {
+                    if (id === 'laurent') {
+                        photoEl.src = REAL_SOFA_PHOTOS['laurent-default'];
+                    } else {
+                        photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || REAL_SOFA_PHOTOS['linen-oatmeal'];
+                    }
+                    photoEl.classList.remove('loading');
+                }, 180);
             }
 
             // Highlight Tab Button
@@ -1830,7 +1844,6 @@
 
             updateTotalConfigPrice();
 
-            // Smooth scroll to studio if clicked from product card
             const studioEl = document.getElementById('customizer-studio');
             if (studioEl && window.scrollY > 1200) {
                 studioEl.scrollIntoView({ behavior: 'smooth' });

@@ -2071,7 +2071,15 @@
         let currentLegFinish = 'oak';
         let currentLighting = 'day';
 
-        // Real Photo Asset Dictionary for ALL 14 Swatches
+        // Real Photo Asset Dictionary for ALL 5 Silhouettes & Fabrics
+        const SILHOUETTE_DEFAULT_PHOTOS = {
+            'camille': 'images/camille_oatmeal_linen.jpg',
+            'laurent': 'images/laurent_linen_sectional.jpg',
+            'beaumont': 'images/beaumont_tuxedo_sofa.jpg',
+            'marseille': 'images/marseille_swivel_chair.jpg',
+            'austin': 'images/austin_oak_bench.jpg'
+        };
+
         const REAL_SOFA_PHOTOS = {
             'linen-oatmeal': 'images/camille_oatmeal_linen.jpg',
             'linen-chalk': 'images/camille_chalk_white.jpg',
@@ -2086,8 +2094,7 @@
             'boucle-taupe': 'images/camille_ivory_boucle.jpg',
             'boucle-charcoal': 'images/camille_charcoal_boucle.jpg',
             'leather-bourbon': 'images/camille_bourbon_leather.jpg',
-            'leather-espresso': 'images/camille_aged_espresso.jpg',
-            'laurent-default': 'images/laurent_linen_sectional.jpg'
+            'leather-espresso': 'images/camille_aged_espresso.jpg'
         };
 
         let currentActiveFabricKey = 'linen-oatmeal';
@@ -2096,23 +2103,31 @@
             currentActiveFabricKey = photoKey || 'linen-oatmeal';
             currentFabric = { topColor, midColor, botColor, name, subText, macroDesc, extraCost };
 
-            // Update Real Photo with smooth transition
             const photoEl = document.getElementById('real-sofa-photo');
             if (photoEl) {
                 photoEl.style.opacity = '0.35';
                 photoEl.style.transform = 'scale(0.985)';
                 setTimeout(() => {
-                    if (currentSilhouette.id === 'laurent') {
-                        photoEl.src = REAL_SOFA_PHOTOS['laurent-default'];
-                    } else {
+                    if (currentSilhouette.id === 'camille') {
                         photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || REAL_SOFA_PHOTOS['linen-oatmeal'];
+                    } else if (currentSilhouette.id === 'marseille' && currentActiveFabricKey === 'velvet-cognac') {
+                        photoEl.src = 'images/marseille_swivel_chair.jpg';
+                    } else if (currentSilhouette.id === 'marseille' && currentActiveFabricKey.includes('boucle')) {
+                        photoEl.src = 'images/marseille_swivel_chair.jpg';
+                    } else if (currentSilhouette.id === 'laurent') {
+                        photoEl.src = 'images/laurent_linen_sectional.jpg';
+                    } else if (currentSilhouette.id === 'beaumont') {
+                        photoEl.src = 'images/beaumont_tuxedo_sofa.jpg';
+                    } else if (currentSilhouette.id === 'austin') {
+                        photoEl.src = 'images/austin_oak_bench.jpg';
+                    } else {
+                        photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || SILHOUETTE_DEFAULT_PHOTOS[currentSilhouette.id];
                     }
                     photoEl.style.opacity = '1';
                     photoEl.style.transform = 'scale(1)';
                 }, 150);
             }
 
-            // Update Labels
             const lblFabric = document.getElementById('label-active-fabric');
             if (lblFabric) lblFabric.textContent = name;
             const subTitle = document.getElementById('stage-fabric-subtitle');
@@ -2122,13 +2137,48 @@
             const macroName = document.getElementById('macro-swatch-name');
             if (macroName) macroName.textContent = macroDesc;
 
-            // Highlight active swatch bubble
             document.querySelectorAll('.swatch-item').forEach(el => el.classList.remove('active'));
             if (event && event.currentTarget) {
                 event.currentTarget.classList.add('active');
             }
 
             updateTotalConfigPrice();
+        }
+
+        function selectSilhouette(id, name, basePrice, dims) {
+            currentSilhouette = { id, name, basePrice, dims };
+
+            const titleEl = document.getElementById('stage-model-title');
+            if (titleEl) titleEl.textContent = name;
+            const lblSil = document.getElementById('label-active-sil');
+            if (lblSil) lblSil.textContent = name;
+
+            const photoEl = document.getElementById('real-sofa-photo');
+            if (photoEl) {
+                photoEl.style.opacity = '0.35';
+                photoEl.style.transform = 'scale(0.985)';
+                setTimeout(() => {
+                    if (id === 'camille') {
+                        photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || 'images/camille_oatmeal_linen.jpg';
+                    } else {
+                        photoEl.src = SILHOUETTE_DEFAULT_PHOTOS[id] || 'images/camille_oatmeal_linen.jpg';
+                    }
+                    photoEl.style.opacity = '1';
+                    photoEl.style.transform = 'scale(1)';
+                }, 150);
+            }
+
+            document.querySelectorAll('.sil-tab-btn').forEach(btn => btn.classList.remove('active'));
+            if (event && event.currentTarget && event.currentTarget.classList.contains('sil-tab-btn')) {
+                event.currentTarget.classList.add('active');
+            }
+
+            updateTotalConfigPrice();
+
+            const studioEl = document.getElementById('customizer-studio');
+            if (studioEl && window.scrollY > 1200) {
+                studioEl.scrollIntoView({ behavior: 'smooth' });
+            }
         }
 
         // Category Filter with Automatic First-Item Activation

@@ -1425,6 +1425,573 @@
                 grid-template-columns: 1fr;
             }
         }
+
+/* ══════════════════════════════════════════════════════════════════════
+   CHLOE AI LUXURY CONCIERGE – COMPLETE STYLING
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── Launcher Pill ── */
+#chloe-launcher-pill {
+    position: fixed !important;
+    bottom: 28px !important;
+    right: 28px !important;
+    z-index: 999999 !important;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #1a1208 0%, #2d1f0a 60%, #3a2a10 100%);
+    border: 1px solid rgba(212,175,90,0.35);
+    border-radius: 56px;
+    padding: 10px 18px 10px 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 2px 8px rgba(212,175,90,0.2);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    min-width: 200px;
+    user-select: none;
+}
+#chloe-launcher-pill:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 44px rgba(0,0,0,0.4), 0 4px 16px rgba(212,175,90,0.3);
+}
+.launcher-avatar-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+.launcher-avatar-ring {
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(212,175,90,0.5);
+    animation: pulseRing 2.4s ease-out infinite;
+}
+@keyframes pulseRing {
+    0%   { opacity: 0.6; transform: scale(1); }
+    70%  { opacity: 0; transform: scale(1.45); }
+    100% { opacity: 0; }
+}
+.launcher-avatar-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c9a84c 0%, #e8c96d 50%, #a87d2a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1208;
+    letter-spacing: 0;
+    position: relative;
+    z-index: 1;
+}
+.launcher-live-dot {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #22c55e;
+    border: 2px solid #1a1208;
+    z-index: 2;
+}
+.launcher-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.launcher-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #e8d5a0;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+}
+.launcher-tagline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(212,175,90,0.6);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.launcher-chevron {
+    width: 16px;
+    height: 16px;
+    color: rgba(212,175,90,0.5);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+#chloe-launcher-pill.open .launcher-chevron {
+    transform: rotate(180deg);
+}
+
+/* ── Greeting Tooltip ── */
+.launcher-greeting-bubble {
+    position: fixed !important;
+    bottom: 106px !important;
+    right: 28px !important;
+    z-index: 999998 !important;
+    background: #fff;
+    border: 1px solid rgba(212,175,90,0.25);
+    border-radius: 16px 16px 4px 16px;
+    padding: 10px 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12.5px;
+    color: #3a2a10;
+    max-width: 240px;
+    line-height: 1.5;
+    animation: fadeSlideUp 0.4s ease forwards;
+    pointer-events: none;
+}
+.launcher-greeting-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    right: 22px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-right: 1px solid rgba(212,175,90,0.25);
+    border-bottom: 1px solid rgba(212,175,90,0.25);
+    transform: rotate(45deg);
+}
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Chat Modal ── */
+#chloeChatModal {
+    display: none;
+    position: fixed !important;
+    bottom: 96px !important;
+    right: 28px !important;
+    z-index: 999998 !important;
+    width: 380px;
+    max-height: 580px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FDFCFA;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.28), 0 4px 16px rgba(212,175,90,0.12);
+    border: 1px solid rgba(212,175,90,0.2);
+    flex-direction: column;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    animation: modalSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+#chloeChatModal.is-open {
+    display: flex !important;
+}
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(16px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Chat Header ── */
+.chloe-header {
+    background: linear-gradient(135deg, #1a1208 0%, #2d1f0a 100%);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(212,175,90,0.15);
+}
+.chloe-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.chloe-header-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c9a84c 0%, #e8c96d 50%, #a87d2a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1208;
+    position: relative;
+    flex-shrink: 0;
+}
+.chloe-header-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #22c55e;
+    border: 1.5px solid #1a1208;
+}
+.chloe-header-info {}
+.chloe-header-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #e8d5a0;
+    line-height: 1.2;
+}
+.chloe-header-status {
+    font-size: 10px;
+    color: rgba(212,175,90,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 1px;
+}
+.chloe-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+.chloe-header-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.chloe-hdr-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: rgba(212,175,90,0.7);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+    padding: 0;
+}
+.chloe-hdr-btn:hover {
+    background: rgba(212,175,90,0.15);
+    color: #e8d5a0;
+}
+.chloe-hdr-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ── Messages ── */
+.chloe-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #FDFCFA;
+    scroll-behavior: smooth;
+    min-height: 0;
+    max-height: 320px;
+}
+.chloe-messages::-webkit-scrollbar { width: 4px; }
+.chloe-messages::-webkit-scrollbar-track { background: transparent; }
+.chloe-messages::-webkit-scrollbar-thumb { background: rgba(212,175,90,0.3); border-radius: 4px; }
+
+.chat-msg {
+    display: flex;
+    gap: 8px;
+    max-width: 100%;
+}
+.chat-msg.user {
+    flex-direction: row-reverse;
+}
+.chat-msg-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chat-msg.bot .chat-msg-avatar {
+    background: linear-gradient(135deg, #c9a84c, #e8c96d);
+    color: #1a1208;
+}
+.chat-msg.user .chat-msg-avatar {
+    background: #e8e0d4;
+    color: #5a4a3a;
+}
+.chat-msg-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    max-width: calc(100% - 80px);
+}
+.chat-bubble {
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #2d2520;
+}
+.chat-msg.bot .chat-bubble {
+    background: #fff;
+    border: 1px solid rgba(212,175,90,0.15);
+    border-top-left-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.chat-msg.user .chat-bubble {
+    background: linear-gradient(135deg, #2d1f0a, #3a2a10);
+    color: #e8d5a0;
+    border-top-right-radius: 4px;
+}
+.chat-msg-time {
+    font-size: 10px;
+    color: #b0a898;
+    letter-spacing: 0.04em;
+    padding: 0 4px;
+}
+.chat-msg.user .chat-msg-time {
+    text-align: right;
+}
+
+/* ── Chat Cards (rich responses) ── */
+.chat-card {
+    background: #fff;
+    border: 1px solid rgba(212,175,90,0.18);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-top: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+.chat-card-tag-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+.chat-card-tag-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c9a84c;
+}
+.chat-card-tag-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: #c9a84c;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.chat-card-tag {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #c9a84c;
+}
+.chat-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1208;
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+.chat-card-sub {
+    font-size: 12.5px;
+    color: #7a6a5a;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+.chat-card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #c9a84c;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    padding-bottom: 1px;
+    transition: border-color 0.2s, color 0.2s;
+}
+.chat-card-action:hover {
+    color: #a87d2a;
+    border-color: #a87d2a;
+}
+
+/* ── Typing Indicator ── */
+.typing-dots {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 12px 14px;
+}
+.typing-dots span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #c9a84c;
+    animation: typingBounce 1.3s ease-in-out infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.15s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+    30% { transform: translateY(-5px); opacity: 1; }
+}
+
+/* ── Quick Chips ── */
+.chloe-chips {
+    padding: 10px 14px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 7px;
+    overflow-x: auto;
+    flex-shrink: 0;
+    background: #FDFCFA;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+.chloe-chips::-webkit-scrollbar { display: none; }
+.chloe-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(201,168,76,0.35);
+    background: rgba(255,248,230,0.6);
+    color: #7a5a1a;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+.chloe-chip:hover {
+    background: rgba(201,168,76,0.15);
+    border-color: rgba(201,168,76,0.6);
+    color: #5a3e0a;
+    transform: translateY(-1px);
+}
+.chloe-chip svg {
+    width: 13px;
+    height: 13px;
+    stroke: #c9a84c;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+/* ── Input Bar ── */
+.chloe-input-bar {
+    padding: 12px 14px 14px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: #FDFCFA;
+    border-top: 1px solid rgba(212,175,90,0.12);
+    flex-shrink: 0;
+}
+.chloe-input-bar input {
+    flex: 1;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(212,175,90,0.25);
+    background: #fff;
+    padding: 0 14px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    color: #2d2520;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.chloe-input-bar input:focus {
+    border-color: rgba(201,168,76,0.6);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.08);
+}
+.chloe-input-bar input::placeholder {
+    color: #c0b5a8;
+}
+.chloe-send-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #c9a84c, #e8c96d);
+    color: #1a1208;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(201,168,76,0.4);
+}
+.chloe-send-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(201,168,76,0.5);
+}
+.chloe-send-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: #1a1208;
+    stroke: none;
+}
+
+/* ── Footer brand in modal ── */
+.chloe-modal-footer {
+    padding: 7px 14px 10px;
+    text-align: center;
+    font-size: 9.5px;
+    color: #c0b5a8;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(212,175,90,0.08);
+    flex-shrink: 0;
+}
+
+
+        .photo-tint-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: var(--radius-md);
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            opacity: 0.7;
+            transition: background-color 0.4s ease;
+            z-index: 1;
+        }
 </style>
 </head>
 <body>
@@ -1539,7 +2106,7 @@
                     <!-- Real High-Definition Studio Photograph Frame -->
                     <div class="stage-render-frame" id="sofa-stage-viewport">
                         <div class="real-sofa-photo-container">
-                            <img id="real-sofa-photo" src="images/camille_oatmeal_linen.jpg" alt="The Camille 96\" Custom Sofa" class="real-sofa-img">
+                            <img id="real-sofa-photo" src="images/camille_oatmeal_linen.jpg" alt="The Camille 96\" Custom Sofa" class="real-sofa-img" onerror="this.onerror=null; if(currentSilhouette && SILHOUETTE_DEFAULT_PHOTOS[currentSilhouette.id]) { this.src = SILHOUETTE_DEFAULT_PHOTOS[currentSilhouette.id]; }">
                             <div class="photo-studio-tag" id="photo-tag-badge">Texas Workshop Studio Shot · Authentic Upholstery</div>
                         </div>
 
@@ -1995,7 +2562,104 @@
     </div>
 
 <!-- ── FOOTER (McGEE & CO. STYLE) ── -->
-    <footer class="site-footer" id="showroom">
+        <!-- ══ CHLOE AI LUXURY DESIGN CONCIERGE ══ -->
+<div id="chloe-launcher-pill" onclick="toggleChloeModal()">
+    <div class="launcher-avatar-wrap">
+        <div class="launcher-avatar-ring"></div>
+        <div class="launcher-avatar-circle">A</div>
+        <div class="launcher-live-dot"></div>
+    </div>
+    <div class="launcher-text">
+        <span class="launcher-name">Chloe · Armorie</span>
+        <span class="launcher-tagline">AI Design Concierge</span>
+    </div>
+    <svg class="launcher-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"/>
+    </svg>
+</div>
+
+<div id="chloe-greeting-bubble" class="launcher-greeting-bubble">
+    ✦ Welcome to Armorie — ask about custom sofas, free swatches, or schedule a private studio visit.
+</div>
+
+<div id="chloeChatModal">
+    <!-- Header -->
+    <div class="chloe-header">
+        <div class="chloe-header-left">
+            <div class="chloe-header-avatar">
+                A
+                <div class="chloe-header-badge"></div>
+            </div>
+            <div class="chloe-header-info">
+                <div class="chloe-header-name">Chloe · Armorie Concierge</div>
+                <div class="chloe-header-status">
+                    <div class="chloe-status-dot"></div>
+                    AI Design Specialist · Midland Studio
+                </div>
+            </div>
+        </div>
+        <div class="chloe-header-right">
+            <button class="chloe-hdr-btn" onclick="resetChloeChat()" title="Clear conversation">
+                <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+            </button>
+            <button class="chloe-hdr-btn" onclick="toggleChloeModal()" title="Close">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Messages -->
+    <div class="chloe-messages" id="chloe-messages">
+        <div class="chat-msg bot">
+            <div class="chat-msg-avatar">A</div>
+            <div class="chat-msg-body">
+                <div class="chat-bubble">
+                    Welcome to <strong>Armorie Interiors &amp; Textiles</strong>. I am Chloe, your AI Design Concierge.<br><br>
+                    May I assist with bespoke sofa lead times, complimentary fabric swatches, in-home laser measurements, or a private showroom appointment at our Midland studio?
+                </div>
+                <div class="chat-msg-time">Armorie Concierge · Just now</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Chips -->
+    <div class="chloe-chips" id="chloe-chips">
+        <button class="chloe-chip" onclick="sendChloePrompt('What is the lead time and construction process for a custom sofa?')">
+            <svg viewBox="0 0 24 24"><path d="M2 17h20v2H2zm2-5h16v3H4zm2-5h12v3H6z"/><rect x="1" y="17" width="22" height="2" rx="1"/></svg>
+            Custom Sofas
+        </button>
+        <button class="chloe-chip" onclick="sendChloePrompt('Can I order free fabric swatches delivered to my home?')">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            Free Swatches
+        </button>
+        <button class="chloe-chip" onclick="sendChloePrompt('How does the complimentary in-home laser measurement service work?')">
+            <svg viewBox="0 0 24 24"><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/><circle cx="12" cy="12" r="4"/></svg>
+            Laser Measure
+        </button>
+        <button class="chloe-chip" onclick="sendChloePrompt('Where is the Midland studio located and what are your hours?')">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Studio Hours
+        </button>
+        <button class="chloe-chip" onclick="sendChloePrompt('I would like to book a private design consultation at the showroom')">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book Appointment
+        </button>
+    </div>
+
+    <!-- Input -->
+    <div class="chloe-input-bar">
+        <input type="text" id="chloe-input" placeholder="Ask about sofas, fabrics, or your space…" onkeydown="if(event.key==='Enter') sendChloeChat()">
+        <button class="chloe-send-btn" onclick="sendChloeChat()" aria-label="Send">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="chloe-modal-footer">Armorie Interiors &amp; Textiles · 2612 W Front St, Midland TX</div>
+</div>
+
+
+<footer class="site-footer" id="showroom">
         <div class="footer-inner">
             <div class="footer-brand">
                 <h3>ARMORIE INTERIORS</h3>
@@ -2079,6 +2743,23 @@
             'austin': 'images/austin_oak_bench.jpg'
         };
 
+        const FABRIC_IMAGE_SUFFIX = {
+            'linen-oatmeal': 'oatmeal_linen.jpg',
+            'linen-chalk': 'chalk_white.jpg',
+            'linen-slate': 'slate_fog.jpg',
+            'linen-dune': 'oatmeal_linen.jpg',
+            'linen-olive': 'forest_pine.jpg',
+            'velvet-cognac': 'cognac_velvet.jpg',
+            'velvet-forest': 'forest_pine.jpg',
+            'velvet-navy': 'midnight_navy.jpg',
+            'velvet-champagne': 'champagne_velvet.jpg',
+            'boucle-ivory': 'ivory_boucle.jpg',
+            'boucle-taupe': 'ivory_boucle.jpg',
+            'boucle-charcoal': 'charcoal_boucle.jpg',
+            'leather-bourbon': 'bourbon_leather.jpg',
+            'leather-espresso': 'aged_espresso.jpg'
+        };
+
         const REAL_SOFA_PHOTOS = {
             'linen-oatmeal': 'images/camille_oatmeal_linen.jpg',
             'linen-chalk': 'images/camille_chalk_white.jpg',
@@ -2111,7 +2792,10 @@
                 photoEl.style.opacity = '0.3';
                 photoEl.style.transform = 'scale(0.985)';
                 setTimeout(function() {
-                    if (id === 'camille') {
+                    if (id === 'marseille') {
+                        const suffix = FABRIC_IMAGE_SUFFIX[currentActiveFabricKey] || 'oatmeal_linen.jpg';
+                        photoEl.src = 'images/marseille_' + suffix;
+                    } else if (id === 'camille') {
                         photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || 'images/camille_oatmeal_linen.jpg';
                     } else {
                         photoEl.src = SILHOUETTE_DEFAULT_PHOTOS[id] || 'images/camille_oatmeal_linen.jpg';
@@ -2141,18 +2825,11 @@
                 photoEl.style.opacity = '0.3';
                 photoEl.style.transform = 'scale(0.985)';
                 setTimeout(function() {
-                    if (currentSilhouette.id === 'camille') {
-                        photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || REAL_SOFA_PHOTOS['linen-oatmeal'];
-                    } else if (currentSilhouette.id === 'marseille') {
-                        photoEl.src = 'images/marseille_swivel_chair.jpg';
-                    } else if (currentSilhouette.id === 'laurent') {
-                        photoEl.src = 'images/laurent_linen_sectional.jpg';
-                    } else if (currentSilhouette.id === 'beaumont') {
-                        photoEl.src = 'images/beaumont_tuxedo_sofa.jpg';
-                    } else if (currentSilhouette.id === 'austin') {
-                        photoEl.src = 'images/austin_oak_bench.jpg';
+                    if (currentSilhouette.id === 'marseille') {
+                        const suffix = FABRIC_IMAGE_SUFFIX[currentActiveFabricKey] || 'oatmeal_linen.jpg';
+                        photoEl.src = 'images/marseille_' + suffix;
                     } else {
-                        photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || SILHOUETTE_DEFAULT_PHOTOS[currentSilhouette.id];
+                        photoEl.src = REAL_SOFA_PHOTOS[currentActiveFabricKey] || 'images/camille_oatmeal_linen.jpg';
                     }
                     photoEl.style.opacity = '1';
                     photoEl.style.transform = 'scale(1)';
@@ -2294,275 +2971,231 @@
             }
         }
 
-        // ── 2. CHLOE AI LUXURY CONCIERGE CHATBOT ENGINE ──
-        let isChatOpen = false;
+        
+    
+        // ══ CHLOE AI CONCIERGE ENGINE ══
+        (function() {
+            let modalOpen = false;
 
-        function toggleChatModal() {
-            const modal = document.getElementById("chloeChatModal");
-            if (!modal) return;
-            isChatOpen = !isChatOpen;
-            if (isChatOpen) {
-                modal.classList.add("active");
-                setTimeout(function() {
-                    const inp = document.getElementById("chat-input-field");
-                    if (inp) inp.focus();
-                }, 200);
-            } else {
-                modal.classList.remove("active");
+            function toggleChloeModal() {
+                modalOpen = !modalOpen;
+                const modal = document.getElementById('chloeChatModal');
+                const pill  = document.getElementById('chloe-launcher-pill');
+                const bubble = document.getElementById('chloe-greeting-bubble');
+                if (modalOpen) {
+                    modal.classList.add('is-open');
+                    pill.classList.add('open');
+                    if (bubble) bubble.style.display = 'none';
+                } else {
+                    modal.classList.remove('is-open');
+                    pill.classList.remove('open');
+                }
             }
-        }
+            window.toggleChloeModal = toggleChloeModal;
 
-        function resetChatHistory() {
-            const container = document.getElementById("chat-messages-container");
-            if (!container) return;
-            container.innerHTML = `
-                <div class="chat-msg bot">
-                    <div class="chat-bubble">
-                        Welcome to <strong>Armorie Interiors & Textiles</strong>. I am Chloe, your AI Design Concierge.<br><br>
-                        How may I assist you today? I can provide custom sofa specifications, arrange complimentary in-home laser measurement in Midland, dispatch fabric swatches, or schedule a consultation with our design team.
-                    </div>
-                    <div class="chat-msg-time">Armorie · Just now</div>
-                </div>
-            `;
-        }
+            // Hide greeting bubble after 7s
+            setTimeout(() => {
+                const b = document.getElementById('chloe-greeting-bubble');
+                if (b) { b.style.opacity = '0'; b.style.transition = 'opacity 0.5s'; setTimeout(() => b.style.display = 'none', 500); }
+            }, 7000);
 
-        function handleChatKeyDown(e) {
-            if (e.key === "Enter") {
-                handleSendChat();
-            }
-        }
-
-        function handleSendChat() {
-            const input = document.getElementById("chat-input-field");
-            if (!input) return;
-            const text = input.value.trim();
-            if (!text) return;
-            
-            appendUserMessage(text);
-            input.value = "";
-
-            showTypingIndicator();
-            
-            setTimeout(function() {
-                removeTypingIndicator();
-                const responseObj = generateChloeResponse(text);
-                appendBotMessage(responseObj.text, responseObj.cards);
-            }, 600);
-        }
-
-        function sendQuickPrompt(promptText) {
-            const modal = document.getElementById("chloeChatModal");
-            if (!modal.classList.contains("active")) {
-                toggleChatModal();
-            }
-            appendUserMessage(promptText);
-            showTypingIndicator();
-            setTimeout(function() {
-                removeTypingIndicator();
-                const responseObj = generateChloeResponse(promptText);
-                appendBotMessage(responseObj.text, responseObj.cards);
-            }, 500);
-        }
-
-        function generateChloeResponse(userQuery) {
-            const q = userQuery.toLowerCase();
-
-            // 1. SOFA SPECIFICATIONS & LEAD TIMES
-            if (q.includes('sofa') || q.includes('couch') || q.includes('furniture') || q.includes('custom') || q.includes('lead time') || q.includes('camille') || q.includes('laurent') || q.includes('beaumont') || q.includes('marseille') || q.includes('austin')) {
-                return {
-                    text: "Every Armorie sofa and seating silhouette is bench-made to order by Texas master artisans. We utilize sustainably harvested American kiln-dried hardwood frames, 8-way hand-tied steel coil springs, and 90/10 Hungarian goose down cushion wraps. Standard lead time is 4 to 6 weeks from textile receipt.",
-                    cards: [
-                        {
-                            tag: "Customizer Studio",
-                            title: "Interactive Sofa & Fabric Visualizer",
-                            desc: "Explore 5 bespoke silhouettes and 15+ mill-direct Belgian linens, Italian velvets, and heritage leathers.",
-                            btnText: "Open Customizer Studio",
-                            action: "window.location.hash = 'customizer-studio'; toggleChatModal();"
-                        },
-                        {
-                            tag: "Midland Studio",
-                            title: "Showroom Sit-Test & Curation",
-                            desc: "Test seat depths and cushion densities in person at 2612 West Front St, Suite A.",
-                            btnText: "Book Sit-Test",
-                            action: "sendQuickPrompt('Schedule a showroom sit-test consultation in Midland')"
-                        }
-                    ]
-                };
+            function scrollToBottom() {
+                const el = document.getElementById('chloe-messages');
+                if (el) el.scrollTop = el.scrollHeight;
             }
 
-            // 2. FABRIC SWATCHES
-            if (q.includes('swatch') || q.includes('sample') || q.includes('fabric') || q.includes('linen') || q.includes('velvet') || q.includes('boucle') || q.includes('leather')) {
-                return {
-                    text: "We provide complimentary Swatch Boxes containing up to 4 generous 6×6-inch textile samples in our signature keepsake box, delivered free via 2-day courier across Midland and the Permian Basin.",
-                    cards: [
-                        {
-                            tag: "Complimentary Service",
-                            title: "Order Keepsake Swatch Box",
-                            desc: "Select 4 luxury swatches from our Belgian Linen, Como Velvet, and Alpaca Bouclé libraries.",
-                            btnText: "Order Swatch Box",
-                            action: "openSwatchOrderModal(); toggleChatModal();"
-                        }
-                    ]
-                };
+            function formatTime() {
+                const d = new Date();
+                return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
             }
 
-            // 3. LASER MEASUREMENT
-            if (q.includes('measure') || q.includes('laser') || q.includes('in-home') || q.includes('scan') || q.includes('dimension')) {
-                return {
-                    text: "Our Architectural Laser Measurement service is completely complimentary for residential projects in Midland and Odessa. Our lead designer visits your residence with Leica laser scanners to capture ceiling heights, doorway clearances, and room scale to ensure a flawless fit.",
-                    cards: [
-                        {
-                            tag: "White-Glove Service",
-                            title: "Book In-Home Laser Scan",
-                            desc: "Includes spatial CAD layout check and textile pairing in your home's natural light.",
-                            btnText: "Schedule Laser Measure",
-                            action: "openConsultationModal(); toggleChatModal();"
-                        }
-                    ]
-                };
+            function appendMsg(html, role) {
+                const container = document.getElementById('chloe-messages');
+                const wrapper = document.createElement('div');
+                wrapper.className = 'chat-msg ' + role;
+                const avatarLetter = role === 'bot' ? 'A' : 'G';
+                wrapper.innerHTML = `
+                    <div class="chat-msg-avatar">${avatarLetter}</div>
+                    <div class="chat-msg-body">
+                        <div class="chat-bubble">${html}</div>
+                        <div class="chat-msg-time">${role === 'bot' ? 'Armorie Concierge' : 'You'} · ${formatTime()}</div>
+                    </div>`;
+                container.appendChild(wrapper);
+                scrollToBottom();
             }
 
-            // 4. SHOWROOM & HOURS
-            if (q.includes('location') || q.includes('address') || q.includes('where') || q.includes('hours') || q.includes('showroom') || q.includes('phone')) {
-                return {
-                    text: "Our Midland Flagship Showroom & Atelier is located at 2612 West Front Street, Suite A, Midland, TX 79701.<br><br><strong>Hours:</strong><br>• Tuesday – Friday: 10:00 AM – 5:30 PM<br>• Saturday: 10:00 AM – 4:00 PM<br>• Sunday & Monday: Private Design Consultations<br>• Direct Line: (432) 465-2121",
-                    cards: [
-                        {
-                            tag: "Midland Studio",
-                            title: "2612 West Front Street, Suite A",
-                            desc: "Midland, TX 79701 · Permian Basin Design District.",
-                            btnText: "Call Studio Concierge",
-                            action: "window.location.href = 'tel:4324652121';"
-                        }
-                    ]
-                };
-            }
-
-            // 5. CONSULTATION & BOOKING
-            if (q.includes('book') || q.includes('consultation') || q.includes('appointment') || q.includes('designer') || q.includes('sarah')) {
-                return {
-                    text: "We would be honored to partner on your interior vision. Our design consultations include comprehensive spatial planning, custom furniture tailoring, European drapery curation, and finish palettes.",
-                    cards: [
-                        {
-                            tag: "Private Appointment",
-                            title: "Schedule Design Consultation",
-                            desc: "Select between In-Home Laser Curation or Private Studio Appointment.",
-                            btnText: "Open Booking Form",
-                            action: "openConsultationModal(); toggleChatModal();"
-                        }
-                    ]
-                };
-            }
-
-            // DEFAULT
-            return {
-                text: "At Armorie Interiors & Textiles, we craft bespoke bench-made sofas, curate over 5,000 European textiles, and deliver turnkey residential interior architecture in Texas. How may we assist your residence today?",
-                cards: [
-                    {
-                        tag: "Bespoke Silhouettes",
-                        title: "Custom Sofa & Fabric Studio",
-                        desc: "Visualizer with real-time Belgian linen and velvet swatches.",
-                        btnText: "Explore Visualizer",
-                        action: "window.location.hash = 'customizer-studio'; toggleChatModal();"
-                    },
-                    {
-                        tag: "Studio Service",
-                        title: "In-Home Laser Measurement",
-                        desc: "Complimentary space measurement across Midland and Odessa.",
-                        btnText: "Request Service",
-                        action: "sendQuickPrompt('How does in-home laser measurement work?')"
-                    }
-                ]
-            };
-        }
-
-        function appendUserMessage(text) {
-            const container = document.getElementById("chat-messages-container");
-            if (!container) return;
-            const msgDiv = document.createElement("div");
-            msgDiv.className = "chat-msg user";
-            
-            const now = new Date();
-            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            
-            msgDiv.innerHTML = `
-                <div class="chat-bubble">${escapeHtml(text)}</div>
-                <div class="chat-msg-time">${timeStr}</div>
-            `;
-            container.appendChild(msgDiv);
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function appendBotMessage(text, cards) {
-            const container = document.getElementById("chat-messages-container");
-            if (!container) return;
-            const msgDiv = document.createElement("div");
-            msgDiv.className = "chat-msg bot";
-            
-            const now = new Date();
-            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            
-            let cardsHtml = "";
-            if (cards && cards.length > 0) {
-                cards.forEach(function(c) {
-                    const tagHtml = c.tag ? `<span class="chat-card-tag">${escapeHtml(c.tag)}</span>` : "";
-                    cardsHtml += `
-                        <div class="chat-card">
-                            ${tagHtml}
-                            <div class="chat-card-title">${escapeHtml(c.title)}</div>
-                            <div class="chat-card-sub">${escapeHtml(c.desc)}</div>
-                            <a href="javascript:void(0)" class="chat-card-action" onclick="${c.action}">${escapeHtml(c.btnText)} &rarr;</a>
+            function showTyping() {
+                const container = document.getElementById('chloe-messages');
+                const div = document.createElement('div');
+                div.className = 'chat-msg bot';
+                div.id = 'chloe-typing';
+                div.innerHTML = `
+                    <div class="chat-msg-avatar">A</div>
+                    <div class="chat-msg-body">
+                        <div class="chat-bubble" style="padding:10px 14px;">
+                            <div class="typing-dots"><span></span><span></span><span></span></div>
                         </div>
-                    `;
-                });
+                    </div>`;
+                container.appendChild(div);
+                scrollToBottom();
             }
 
-            msgDiv.innerHTML = `
-                <div class="chat-bubble">
-                    ${text}
-                    ${cardsHtml}
-                </div>
-                <div class="chat-msg-time">Armorie · ${timeStr}</div>
-            `;
-            container.appendChild(msgDiv);
-            container.scrollTop = container.scrollHeight;
-        }
+            function removeTyping() {
+                const el = document.getElementById('chloe-typing');
+                if (el) el.remove();
+            }
 
-        function showTypingIndicator() {
-            const container = document.getElementById("chat-messages-container");
-            if (!container) return;
-            const typingDiv = document.createElement("div");
-            typingDiv.id = "chat-typing-bubble";
-            typingDiv.className = "chat-msg bot";
-            typingDiv.innerHTML = `
-                <div class="typing-indicator">
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                </div>
-            `;
-            container.appendChild(typingDiv);
-            container.scrollTop = container.scrollHeight;
-        }
+            function getBotResponse(q) {
+                const query = q.toLowerCase();
 
-        function removeTypingIndicator() {
-            const el = document.getElementById("chat-typing-bubble");
-            if (el) el.remove();
-        }
+                if (query.match(/sofa|sectional|upholster|lead time|construction|bench|cushion|frame/)) {
+                    return {
+                        text: "Our bespoke sofas are bench-crafted in Texas with 8/4 kiln-dried hardwood frames and hand-tied eight-way springs. Lead times run <strong>12–16 weeks</strong> from signed specification.",
+                        cards: [{
+                            tag: "Custom Upholstery",
+                            tagIcon: '<path d="M2 17h20v2H2zm2-5h16v3H4zm2-5h12v3H6z"/>',
+                            title: "Bespoke Sofa Studio",
+                            desc: "Over 400 performance fabrics, Belgian linen, Crypton velvet — with full 3D visualizer.",
+                            action: "document.getElementById('customizer-studio') && document.getElementById('customizer-studio').scrollIntoView({behavior:'smooth'})",
+                            cta: "Open Visualizer →"
+                        }]
+                    };
+                }
 
-        function escapeHtml(str) {
-            return String(str)
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
+                if (query.match(/swatch|fabric|sample|linen|velvet|material|textile/)) {
+                    return {
+                        text: "We dispatch a curated <strong>Keepsake Swatch Box</strong> — 6 to 8 swatches of your chosen colourway — shipped complimentary via 2-Day Courier to your residence.",
+                        cards: [{
+                            tag: "Complimentary Swatches",
+                            tagIcon: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>',
+                            title: "Free Swatch Keepsake Box",
+                            desc: "Belgian linen, Crypton performance, brushed cotton weaves — delivered in 2 days.",
+                            action: "document.getElementById('swatches') && document.getElementById('swatches').scrollIntoView({behavior:'smooth'})",
+                            cta: "Order Swatches →"
+                        }]
+                    };
+                }
 
-        // Initialize on Load
-        document.addEventListener('DOMContentLoaded', function() {
-            updateTotalConfigPrice();
-        });
-    </script>
+                if (query.match(/laser|measure|measurement|scan|dimension|space|room|floor/)) {
+                    return {
+                        text: "Our certified designers visit your home with a <strong>Leica DISTO laser device</strong> to capture precise room dimensions — completely complimentary for Midland area clients.",
+                        cards: [{
+                            tag: "Complimentary Service",
+                            tagIcon: '<line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/><circle cx="12" cy="12" r="4"/>',
+                            title: "In-Home Laser Measurement",
+                            desc: "Architectural-grade Leica scanning. Complimentary within Midland-Odessa area.",
+                            action: "document.getElementById('services') && document.getElementById('services').scrollIntoView({behavior:'smooth'})",
+                            cta: "Learn More →"
+                        }]
+                    };
+                }
+
+                if (query.match(/studio|showroom|location|address|hour|open|visit|midland|front st/)) {
+                    return {
+                        text: "Our studio is located at <strong>2612 West Front Street, Suite A, Midland TX 79701</strong>.<br><br>Hours: Mon–Fri 9 AM–6 PM · Sat 10 AM–4 PM · Private evening appointments available.",
+                        cards: [{
+                            tag: "Studio Location",
+                            tagIcon: '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+                            title: "Armorie Midland Showroom",
+                            desc: "2612 W Front St, Suite A · Midland, TX 79701 · (432) 465-2121",
+                            action: "window.open('https://maps.google.com/?q=2612+West+Front+St+Midland+TX', '_blank')",
+                            cta: "Open in Google Maps →"
+                        }]
+                    };
+                }
+
+                if (query.match(/appoint|book|schedule|consult|visit|meeting|reserv/)) {
+                    return {
+                        text: "We would be honoured to reserve your private design consultation. Please reach us at <strong>(432) 465-2121</strong> or complete the appointment request on our contact section.",
+                        cards: [{
+                            tag: "Private Consultation",
+                            tagIcon: '<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+                            title: "Book a Studio Appointment",
+                            desc: "In-studio or virtual consultations available. Complimentary for all new clients.",
+                            action: "document.getElementById('contact') && document.getElementById('contact').scrollIntoView({behavior:'smooth'})",
+                            cta: "Contact Us →"
+                        }]
+                    };
+                }
+
+                if (query.match(/price|cost|how much|pricing|budget|invest/)) {
+                    return {
+                        text: "Our bespoke sofas are priced from <strong>$3,800</strong> for a standard 84&rdquo; two-cushion piece, through <strong>$14,000+</strong> for fully custom sectionals with premium performance fabrics. A detailed quote follows your consultation.",
+                        cards: []
+                    };
+                }
+
+                if (query.match(/pillow|gift|welcome|box|keepsake/)) {
+                    return {
+                        text: "Every Armorie client receives a complimentary <strong>Welcome Gift Box</strong> with your delivery — including a hand-finished linen accent pillow in your chosen fabric and a signature care card.",
+                        cards: []
+                    };
+                }
+
+                return {
+                    text: "Thank you for reaching out to Armorie Interiors &amp; Textiles. Our design team would be delighted to assist — you may also call our studio directly at <strong>(432) 465-2121</strong> or visit us at 2612 W Front St, Midland TX.",
+                    cards: []
+                };
+            }
+
+            function buildCardHTML(card) {
+                return `<div class="chat-card">
+                    <div class="chat-card-tag-row">
+                        <span class="chat-card-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${card.tagIcon}</svg></span>
+                        <span class="chat-card-tag">${card.tag}</span>
+                    </div>
+                    <div class="chat-card-title">${card.title}</div>
+                    <div class="chat-card-sub">${card.desc}</div>
+                    <a href="javascript:void(0)" class="chat-card-action" onclick="${card.action}">${card.cta}</a>
+                </div>`;
+            }
+
+            function processMessage(text) {
+                showTyping();
+                const delay = 800 + Math.random() * 600;
+                setTimeout(() => {
+                    removeTyping();
+                    const resp = getBotResponse(text);
+                    let html = resp.text;
+                    if (resp.cards && resp.cards.length > 0) {
+                        resp.cards.forEach(c => { html += buildCardHTML(c); });
+                    }
+                    appendMsg(html, 'bot');
+                }, delay);
+            }
+
+            function sendChloePrompt(text) {
+                if (!modalOpen) toggleChloeModal();
+                appendMsg(text, 'user');
+                processMessage(text);
+            }
+            window.sendChloePrompt = sendChloePrompt;
+
+            function sendChloeChat() {
+                const input = document.getElementById('chloe-input');
+                const text = (input.value || '').trim();
+                if (!text) return;
+                input.value = '';
+                appendMsg(text, 'user');
+                processMessage(text);
+            }
+            window.sendChloeChat = sendChloeChat;
+
+            function resetChloeChat() {
+                const c = document.getElementById('chloe-messages');
+                c.innerHTML = `<div class="chat-msg bot">
+                    <div class="chat-msg-avatar">A</div>
+                    <div class="chat-msg-body">
+                        <div class="chat-bubble">Welcome back to <strong>Armorie Interiors &amp; Textiles</strong>. I am Chloe — how may I assist your space today?</div>
+                        <div class="chat-msg-time">Armorie Concierge · Just now</div>
+                    </div></div>`;
+            }
+            window.resetChloeChat = resetChloeChat;
+
+            // Expose for chip buttons
+            window.sendQuickPrompt = sendChloePrompt;
+        })();
+
+        </script>
 </body>
 </html>
